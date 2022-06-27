@@ -74,22 +74,7 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                            <div class="dashboard_bar">
-                                Dashboard
-                            </div>
-                        </div>
-                        <ul class="navbar-nav header-right">
-                        
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        @yield('header')
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -113,7 +98,7 @@
 
 
         <!--**********************************
-            Footer start
+            Footer start‰
         ***********************************-->
         <div class="footer">
 

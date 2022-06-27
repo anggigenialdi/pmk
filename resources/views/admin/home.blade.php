@@ -1,5 +1,22 @@
 @extends('layouts/admin/admin')
 
+@section('header')
+    <div class="header">
+        <div class="header-content">
+            <nav class="navbar navbar-expand">
+                <div class="collapse navbar-collapse justify-content-between">
+                    <div class="header-left">
+                        <div class="dashboard_bar">
+                            Dashboard
+                        </div>
+                    </div>
+                    <ul class="navbar-nav header-right">
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+@endsection
 @section('main-content')
     <div class="content-body">
         <!-- row -->

@@ -1,9 +1,25 @@
 @extends('layouts/admin/admin')
 
+@section('header')
+    <div class="header">
+        <div class="header-content">
+            <nav class="navbar navbar-expand">
+                <div class="collapse navbar-collapse justify-content-between">
+                    <div class="header-left">
+                        <div class="dashboard_bar">
+                            Master
+                        </div>
+                    </div>
+                    <ul class="navbar-nav header-right">
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+@endsection
 @section('main-content')
     <div class="content-body">
         <div class="container-fluid">
-
             <div class="row page-titles">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active"><a href="javascript:void(0)">Master Data</a></li>
