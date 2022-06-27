@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin/home');
+    return view('public.home');
 });
 
 $router->group(['prefix' => 'peternak'], function () use ($router) {
