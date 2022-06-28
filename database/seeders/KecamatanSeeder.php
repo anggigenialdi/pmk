@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\MasterKecamatan;
 class KecamatanSeeder extends Seeder
 {
     /**
@@ -165,7 +165,8 @@ class KecamatanSeeder extends Seeder
             [
                 "nama" => "Cidadap",
                 "latitude" => "-6.87",
-                "longitude" => "107.60",
+                "longitude" => "107.60
+                ",
             ],
         ];
         MasterKecamatan::insert($kecamatan);

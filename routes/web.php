@@ -25,6 +25,8 @@ $router->group(['prefix' => 'peternak'], function () use ($router) {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/kecamatan', [App\Http\Controllers\MasterKecamatanController::class, 'index']);
+Route::get('/kelurahan/{id}', [App\Http\Controllers\MasterKelurahanController::class, 'index']);
 
 Auth::routes();
 
