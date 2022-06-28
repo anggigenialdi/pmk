@@ -27,16 +27,17 @@
                 </ol>
             </div>
             <!-- row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Form Tambah Data</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-validation">
-                                    <form class="needs-validation" novalidate="">
+            <form class="needs-validation" novalidate="">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Form Tambah Data</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-validation">
                                         <div class="row">
                                             <div class="col-xl-12">
                                                 <div class="mb-3 row">
@@ -131,36 +132,27 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                {{-- <div class="mb-3 row">
-                                                        <div class="col-lg-8 ms-auto">
-                                                            <button type="submit"
-                                                                class="btn btn-primary">Submit</button>
-                                                        </div>
-                                                    </div> --}}
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
+
                                 </div>
 
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Data Ternak</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-validation">
-                                    <form class="needs-validation" novalidate="">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Data Ternak</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-validation">
                                         <div class="row">
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="domba">Domba/Kambing
@@ -257,13 +249,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+
+
+                                        <div class="mb-3 row">
+                                            <div class="col-lg-8 pull-right">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection
