@@ -3,11 +3,7 @@
         <ul class="metismenu" id="menu">
             <li class="dropdown header-profile">
                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-<<<<<<< HEAD
-                    <img src="{{ asset('images/qr.png')}}" width="20" alt="">
-=======
                     <!-- <img src="images/qr.png" width="20" alt=""> -->
->>>>>>> 486b811581803aa7fac0ee671e7b18303117bde3
                     <div class="header-info ms-3">
                         <span class="font-w600 ">Hi,<b>{{ Auth::user()->name }}</b></span>
                         <small class="text-end font-w400">{{ Auth::user()->email}}</small>
