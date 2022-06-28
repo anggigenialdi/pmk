@@ -27,7 +27,7 @@
                 </ol>
             </div>
             <!-- row -->
-            <form method="POST" action="{{ route('peternak.create') }}" autocomplete="off" class="needs-validation">
+            <form method="POST" action="{{ route('peternak.post') }}" autocomplete="off" class="needs-validation">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col-12">
@@ -45,9 +45,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="number" class="form-control form-control-sm" id="nik"
-                                                            placeholder="Input NIK.." required="" name="nik"
-                                                            value="{{ old('nik') }}">
+                                                        <input type="number" class="form-control form-control-sm"
+                                                            id="nik" placeholder="Input NIK.." required=""
+                                                            name="nik" value="{{ old('nik') }}">
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -58,9 +58,9 @@
                                                         Peternak <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control form-control-sm" id="nama"
-                                                            placeholder="Input Nama.." required="" name="nama"
-                                                            value="{{ old('nama') }}">
+                                                        <input type="text" class="form-control form-control-sm"
+                                                            id="nama" placeholder="Input Nama.." required=""
+                                                            name="nama" value="{{ old('nama') }}">
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -72,9 +72,12 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control form-control-sm" id="kecamatan"
-                                                            placeholder="Input Kecamatan.." required="" name="kecamatan"
-                                                            value="{{ old('kecamatan') }}">
+                                                        <select class="form-control" id="kecamatan" name="kecamatan" required>
+                                                            <option value="">Pilih</option>
+                                                            @foreach ($kecamatan as $kec)
+                                                                <option value={{ $kec->id }}>{{ $kec->nama }}</option>
+                                                            @endforeach
+                                                        </select>
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -85,9 +88,8 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control form-control-sm" id="kelurahan"
-                                                            placeholder="Input Kelurahan.." required="" name="kelurahan"
-                                                            value="{{ old('kelurahan') }}">
+                                                        <select class="form-control" id="kelurahan" name="kelurahan" required>
+                                                        </select>
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -100,9 +102,9 @@
                                                         <label class="col-lg-3 col-form-label" for="rt">RT
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control form-control-sm" id="rt"
-                                                            placeholder="Input RT.." required="" name="rt"
-                                                            value="{{ old('rt') }}">
+                                                        <input type="text" class="form-control form-control-sm"
+                                                            id="rt" placeholder="Input RT.." required=""
+                                                            name="rt" value="{{ old('rt') }}">
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -112,9 +114,9 @@
                                                         <label class="col-lg-3 col-form-label" for="rw">RW
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control form-control-sm" id="rw"
-                                                            placeholder="Input RW.." required="" name="rw"
-                                                            value="{{ old('rw') }}">
+                                                        <input type="text" class="form-control form-control-sm"
+                                                            id="rw" placeholder="Input RW.." required=""
+                                                            name="rw" value="{{ old('rw') }}">
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -125,8 +127,8 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control form-control-sm" id="alamat" rows="5" placeholder="" required="" name="alamat"
-                                                            value="{{ old('alamat') }}"></textarea>
+                                                        <textarea class="form-control form-control-sm" id="alamat" rows="5" placeholder="" required=""
+                                                            name="alamat" value="{{ old('alamat') }}"></textarea>
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -158,36 +160,36 @@
                                                 <label class="col-lg-3 col-form-label" for="domba">Domba/Kambing
                                                 </label>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="domba_terduga">Terduga
+                                                    <label class="col-lg-3 col-form-label" for="terduga_kambing">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="domba_terduga"
-                                                        placeholder="" name="domba_terduga"
-                                                        value="{{ old('domba_terduga') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="terduga_kambing" placeholder="" name="terduga_kambing"
+                                                        value="{{ old('terduga_kambing') }}">
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="domba_tertular">Tertular
+                                                    <label class="col-lg-3 col-form-label" for="tertular_kambing">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="domba_tertular"
-                                                        placeholder="" name="domba_tertular"
-                                                        value="{{ old('domba_tertular') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="tertular_kambing" placeholder="" name="tertular_kambing"
+                                                        value="{{ old('tertular_kambing') }}">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="domba">Kerbau
                                                 </label>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="kerbau_terduga">Terduga
+                                                    <label class="col-lg-3 col-form-label" for="terduga_kerbau">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="kerbau_terduga"
-                                                        placeholder="" name="kerbau_terduga"
-                                                        value="{{ old('kerbau_terduga') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="terduga_kerbau" placeholder="" name="terduga_kerbau"
+                                                        value="{{ old('terduga_kerbau') }}">
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="kerbau_tertular">Tertular
+                                                    <label class="col-lg-3 col-form-label" for="tertular_kerbau">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="kerbau_tertular"
-                                                        placeholder="" name="kerbau_tertular"
-                                                        value="{{ old('kerbau_tertular') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="tertular_kerbau" placeholder="" name="tertular_kerbau"
+                                                        value="{{ old('tertular_kerbau') }}">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -195,19 +197,20 @@
                                                 </label>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
-                                                        for="sapi_perah_terduga">Terduga
+                                                        for="terduga_sapi_perah">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="sapi_perah_terduga"
-                                                        placeholder="" name="sapi_perah_terduga"
-                                                        value="{{ old('sapi_perah_terduga') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="terduga_sapi_perah" placeholder="" name="terduga_sapi_perah"
+                                                        value="{{ old('terduga_sapi_perah') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
-                                                        for="sapi_perah_tertular">Tertular
+                                                        for="tertular_sapi_perah">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="sapi_perah_tertular"
-                                                        placeholder="" name="sapi_perah_tertular"
-                                                        value="{{ old('sapi_perah_tertular') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="tertular_sapi_perah" placeholder=""
+                                                        name="tertular_sapi_perah"
+                                                        value="{{ old('tertular_sapi_perah') }}">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -215,19 +218,21 @@
                                                 </label>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
-                                                        for="sapi_potong_terduga">Terduga
+                                                        for="terduga_sapi_potong">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="sapi_potong_terduga"
-                                                        placeholder="" name="sapi_potong_terduga"
-                                                        value="{{ old('sapi_potong_terduga') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="terduga_sapi_potong" placeholder=""
+                                                        name="terduga_sapi_potong"
+                                                        value="{{ old('terduga_sapi_potong') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
-                                                        for="sapi_potong_tertular">Tertular
+                                                        for="tertular_sapi_potong">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="sapi_potong_tertular"
-                                                        placeholder="" name="sapi_potong_tertular"
-                                                        value="{{ old('sapi_potong_tertular') }}">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="tertular_sapi_potong" placeholder=""
+                                                        name="tertular_sapi_potong"
+                                                        value="{{ old('tertular_sapi_potong') }}">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -236,15 +241,15 @@
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="total_terduga">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="total_terduga"
-                                                        placeholder="" name="total_terduga"
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="total_terduga" placeholder="" name="total_terduga"
                                                         value="{{ old('total_terduga') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="total_tertular">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm" id="total_tertular"
-                                                        placeholder="" name="total_tertular"
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="total_tertular" placeholder="" name="total_tertular"
                                                         value="{{ old('total_tertular') }}">
                                                 </div>
                                             </div>
@@ -288,6 +293,27 @@
                     }, false)
                 })
         })()
-        
+
+        $(document).on('change', '#kecamatan', function() {
+            var id_kecamatan = $(this).val();
+            let datas = [];
+            $.ajax({
+                type: "GET",
+                url: '../kelurahan/' + id_kecamatan,
+
+                success: function(data) {
+                    // console.log(data);
+                    $("#kelurahan").html(
+                        '<option selected disabled="true" value="0">=== pilih kelurahan === </option>'
+                    );
+                    $.each(data, function(index, value) {
+                        $("#kelurahan").append("<option value=' " + value.id + " '> " + value
+                            .nama + "</option>");
+                    });
+                },
+                error: function() {}
+            });
+
+        });
     </script>
 @endsection
