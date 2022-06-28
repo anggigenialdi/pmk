@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/nouislider/nouislider.min.css')}}">
     <!-- Style css -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css')}}">
+
     
 
 </head>
@@ -145,6 +147,9 @@
     <script src="{{ asset('js/plugins-init/datatables.init.js')}}"></script>
 
     @yield('js')
+
+    <script src="{{ asset('vendor/select2/js/select2.full.min.js')}}"></script>
+    <script src="{{ asset('js/plugins-init/select2-init.js')}}"></script>
 
 </body>
 

@@ -72,9 +72,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="kecamatan"
-                                                            placeholder="Input Kecamatan.." required="" name="kecamatan"
-                                                            value="{{ old('kecamatan') }}">
+                                                        <select class="form-control" id="kecamatan">
+
+                                                        </select>
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -85,9 +85,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="kelurahan"
-                                                            placeholder="Input Kelurahan.." required="" name="kelurahan"
-                                                            value="{{ old('kelurahan') }}">
+                                                        <select class="form-control" id="kelurahan">
+
+                                                        </select>
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
                                                         </div>
@@ -288,5 +288,6 @@
                     }, false)
                 })
         })()
+        
     </script>
 @endsection
