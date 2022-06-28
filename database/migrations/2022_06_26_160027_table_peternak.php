@@ -16,13 +16,20 @@ class TablePeternak extends Migration
         Schema::create('peternak', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama')->nullable();
-            $table->string('alamat')->nullable();
-            $table->integer('rt')->nullable();
-            $table->integer('rw')->nullable();
+            $table->string('nik')->nullable();
             $table->string('kode_kecamatan')->nullable();
             $table->string('kode_kelurahan')->nullable();
-            $table->string('longitude')->nullable();
-            $table->string('latitude')->nullable();
+            $table->integer('rw')->nullable();
+            $table->integer('rt')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('terduga_kambing')->nullable();
+            $table->string('tertular_kambing')->nullable();
+            $table->string('terduga_kerbau')->nullable();
+            $table->string('tertular_kerbau')->nullable();
+            $table->string('terduga_sapi_perah')->nullable();
+            $table->string('tertular_sapi_perah')->nullable();
+            $table->string('terduga_sapi_potong')->nullable();
+            $table->string('tertular_sapi_potong')->nullable();
             $table->timestamps();
         });
     }
