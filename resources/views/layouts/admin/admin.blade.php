@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/nouislider/nouislider.min.css')}}">
     <!-- Style css -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <!-- Datatable -->
+    <link href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -103,7 +105,7 @@
         <div class="footer">
 
             <div class="copyright">
-                <p> Dinas Komunikasi dan Informatika (Diskominfo) - Pemerintah Kota Bandung </p>; 
+                <p>supported by Dinas Komunikasi dan Informatika (Diskominfo) - Pemerintah Kota Bandung </p>; 
             </div>
         </div>
         <!--**********************************
@@ -137,6 +139,13 @@
     <script src="{{ asset('js/dlabnav-init.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
     <!-- <script src="{{ asset('js/styleSwitcher.js') }}"></script> -->
+
+    
+    <!-- Datatable -->
+    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('js/plugins-init/datatables.init.js')}}"></script>
+
+    @yield('js')
 
 </body>
 

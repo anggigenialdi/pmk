@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');
+    $router->get('/datas', 'PeternakController@peternakCreate')->name('peternak.create');
 
 });
 Auth::routes();

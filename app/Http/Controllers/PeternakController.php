@@ -14,4 +14,8 @@ class PeternakController extends Controller
 
         return view('admin/peternak/index', compact(['datas']));
     }
+    public function peternakCreate()
+    {
+        return view('admin/peternak/create');
+    }
 }

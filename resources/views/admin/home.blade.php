@@ -11,6 +11,7 @@
                         </div>
                     </div>
                     <ul class="navbar-nav header-right">
+                        
                     </ul>
                 </div>
             </nav>
@@ -92,9 +93,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                
             </div>
         </div>
     </div>
