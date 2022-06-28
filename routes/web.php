@@ -21,6 +21,7 @@ Route::get('/', function () {
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');
     $router->get('/datas', 'PeternakController@peternakCreate')->name('peternak.create');
+    $router->post('/tambah', 'PeternakController@peternakPost')->name('peternak.create');
 
 });
 Auth::routes();
@@ -29,18 +30,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/kecamatan', [App\Http\Controllers\MasterKecamatanController::class, 'index']);
 Route::get('/kelurahan/{id}', [App\Http\Controllers\MasterKelurahanController::class, 'index']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

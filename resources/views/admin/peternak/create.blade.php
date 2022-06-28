@@ -27,8 +27,8 @@
                 </ol>
             </div>
             <!-- row -->
-            <form class="needs-validation" novalidate="">
-
+            <form method="POST" action="{{ route('peternak.create') }}" autocomplete="off" class="needs-validation">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col-12">
                         <div class="col-lg-12">
@@ -45,7 +45,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="number" class="form-control" id="nik"
+                                                        <input type="number" class="form-control form-control-sm" id="nik"
                                                             placeholder="Input NIK.." required="" name="nik"
                                                             value="{{ old('nik') }}">
                                                         <div class="invalid-feedback">
@@ -58,7 +58,7 @@
                                                         Peternak <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="nama"
+                                                        <input type="text" class="form-control form-control-sm" id="nama"
                                                             placeholder="Input Nama.." required="" name="nama"
                                                             value="{{ old('nama') }}">
                                                         <div class="invalid-feedback">
@@ -72,7 +72,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="kecamatan"
+                                                        <input type="text" class="form-control form-control-sm" id="kecamatan"
                                                             placeholder="Input Kecamatan.." required="" name="kecamatan"
                                                             value="{{ old('kecamatan') }}">
                                                         <div class="invalid-feedback">
@@ -85,7 +85,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="kelurahan"
+                                                        <input type="text" class="form-control form-control-sm" id="kelurahan"
                                                             placeholder="Input Kelurahan.." required="" name="kelurahan"
                                                             value="{{ old('kelurahan') }}">
                                                         <div class="invalid-feedback">
@@ -100,7 +100,7 @@
                                                         <label class="col-lg-3 col-form-label" for="rt">RT
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control" id="rt"
+                                                        <input type="text" class="form-control form-control-sm" id="rt"
                                                             placeholder="Input RT.." required="" name="rt"
                                                             value="{{ old('rt') }}">
                                                         <div class="invalid-feedback">
@@ -112,7 +112,7 @@
                                                         <label class="col-lg-3 col-form-label" for="rw">RW
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control" id="rw"
+                                                        <input type="text" class="form-control form-control-sm" id="rw"
                                                             placeholder="Input RW.." required="" name="rw"
                                                             value="{{ old('rw') }}">
                                                         <div class="invalid-feedback">
@@ -125,7 +125,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" id="alamat" rows="5" placeholder="" required="" name="alamat"
+                                                        <textarea class="form-control form-control-sm" id="alamat" rows="5" placeholder="" required="" name="alamat"
                                                             value="{{ old('alamat') }}"></textarea>
                                                         <div class="invalid-feedback">
                                                             Input tidak boleh kosong
@@ -158,16 +158,16 @@
                                                 <label class="col-lg-3 col-form-label" for="domba">Domba/Kambing
                                                 </label>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="domba_tertuga">Terduga
+                                                    <label class="col-lg-3 col-form-label" for="domba_terduga">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control" id="domba_tertuga"
-                                                        placeholder="" name="domba_tertuga"
-                                                        value="{{ old('domba_tertuga') }}">
+                                                    <input type="text" class="form-control form-control-sm" id="domba_terduga"
+                                                        placeholder="" name="domba_terduga"
+                                                        value="{{ old('domba_terduga') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="domba_tertular">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control" id="domba_tertular"
+                                                    <input type="text" class="form-control form-control-sm" id="domba_tertular"
                                                         placeholder="" name="domba_tertular"
                                                         value="{{ old('domba_tertular') }}">
                                                 </div>
@@ -176,16 +176,16 @@
                                                 <label class="col-lg-3 col-form-label" for="domba">Kerbau
                                                 </label>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="kerbau_tertuga">Terduga
+                                                    <label class="col-lg-3 col-form-label" for="kerbau_terduga">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control" id="kerbau_tertuga"
-                                                        placeholder="" name="kerbau_tertuga"
-                                                        value="{{ old('kerbau_tertuga') }}">
+                                                    <input type="text" class="form-control form-control-sm" id="kerbau_terduga"
+                                                        placeholder="" name="kerbau_terduga"
+                                                        value="{{ old('kerbau_terduga') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="kerbau_tertular">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control" id="kerbau_tertular"
+                                                    <input type="text" class="form-control form-control-sm" id="kerbau_tertular"
                                                         placeholder="" name="kerbau_tertular"
                                                         value="{{ old('kerbau_tertular') }}">
                                                 </div>
@@ -195,17 +195,17 @@
                                                 </label>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
-                                                        for="sapi_perah_tertuga">Terduga
+                                                        for="sapi_perah_terduga">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control" id="sapi_perah_tertuga"
-                                                        placeholder="" name="sapi_perah_tertuga"
-                                                        value="{{ old('sapi_perah_tertuga') }}">
+                                                    <input type="text" class="form-control form-control-sm" id="sapi_perah_terduga"
+                                                        placeholder="" name="sapi_perah_terduga"
+                                                        value="{{ old('sapi_perah_terduga') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
                                                         for="sapi_perah_tertular">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control" id="sapi_perah_tertular"
+                                                    <input type="text" class="form-control form-control-sm" id="sapi_perah_tertular"
                                                         placeholder="" name="sapi_perah_tertular"
                                                         value="{{ old('sapi_perah_tertular') }}">
                                                 </div>
@@ -215,17 +215,17 @@
                                                 </label>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
-                                                        for="sapi_potong_tertuga">Terduga
+                                                        for="sapi_potong_terduga">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control" id="sapi_potong_tertuga"
-                                                        placeholder="" name="sapi_potong_tertuga"
-                                                        value="{{ old('sapi_potong_tertuga') }}">
+                                                    <input type="text" class="form-control form-control-sm" id="sapi_potong_terduga"
+                                                        placeholder="" name="sapi_potong_terduga"
+                                                        value="{{ old('sapi_potong_terduga') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label"
                                                         for="sapi_potong_tertular">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control" id="sapi_potong_tertular"
+                                                    <input type="text" class="form-control form-control-sm" id="sapi_potong_tertular"
                                                         placeholder="" name="sapi_potong_tertular"
                                                         value="{{ old('sapi_potong_tertular') }}">
                                                 </div>
@@ -236,14 +236,14 @@
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="total_terduga">Terduga
                                                     </label>
-                                                    <input type="text" class="form-control" id="total_terduga"
+                                                    <input type="text" class="form-control form-control-sm" id="total_terduga"
                                                         placeholder="" name="total_terduga"
                                                         value="{{ old('total_terduga') }}">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="total_tertular">Tertular
                                                     </label>
-                                                    <input type="text" class="form-control" id="total_tertular"
+                                                    <input type="text" class="form-control form-control-sm" id="total_tertular"
                                                         placeholder="" name="total_tertular"
                                                         value="{{ old('total_tertular') }}">
                                                 </div>
