@@ -26,18 +26,17 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Tambah Data</a></li>
                 </ol>
             </div>
-            <!-- row -->
-            <form method="POST" action="{{ route('peternak.post') }}" autocomplete="off" class="needs-validation">
+            <form class="needs-validation" method="POST" action="{{ route('peternak.post')}}" autocomplete="off" novalidate="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Form Tambah Data</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-validation">
+                    <div class="col-lg-12"></div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tambah Data</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-validation">
                                         <div class="row">
                                             <div class="col-xl-12">
                                                 <div class="mb-3 row">
@@ -136,16 +135,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
+                                        
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
+                <!-- row -->
                 <div class="row">
                     <div class="col-12">
                         <div class="col-lg-12">
@@ -254,11 +250,9 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <div class="mb-3 row">
                                             <div class="col-lg-8 pull-right">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -270,50 +264,4 @@
             </form>
         </div>
     </div>
-@endsection
-@section('js')
-    <script src="vendor/global/global.min.js"></script>
-    <script>
-        (function() {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
-
-        $(document).on('change', '#kecamatan', function() {
-            var id_kecamatan = $(this).val();
-            let datas = [];
-            $.ajax({
-                type: "GET",
-                url: '../kelurahan/' + id_kecamatan,
-
-                success: function(data) {
-                    // console.log(data);
-                    $("#kelurahan").html(
-                        '<option selected disabled="true" value="0">=== pilih kelurahan === </option>'
-                    );
-                    $.each(data, function(index, value) {
-                        $("#kelurahan").append("<option value=' " + value.id + " '> " + value
-                            .nama + "</option>");
-                    });
-                },
-                error: function() {}
-            });
-
-        });
-    </script>
 @endsection

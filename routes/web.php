@@ -31,3 +31,9 @@ Route::get('/kecamatan', [App\Http\Controllers\MasterKecamatanController::class,
 Route::get('/kelurahan/{id}', [App\Http\Controllers\MasterKelurahanController::class, 'index']);
 
 Auth::routes();
+
+$router->group(['prefix' => 'master-pengguna'], function () use ($router) {
+    $router->get('/pengguna', 'MasterPenggunaController@masterPenggunaIndex')->name('master_pengguna.index');
+    $router->post('/tambah', 'MasterPenggunaController@masterPenggunaPost')->name('master_pengguna.post');
+
+});
