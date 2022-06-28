@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/nouislider/nouislider.min.css')}}">
     <!-- Style css -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
-    <!-- Datatable -->
-    <link href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    
 
 </head>
 
