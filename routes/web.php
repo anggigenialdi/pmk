@@ -23,8 +23,14 @@ $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/data-peternak', 'PeternakController@peternakIndex')->name('data-peternak.index');
     $router->get('/halaman', 'PeternakController@peternakCreate')->name('peternak.create');
     $router->post('/tambah', 'PeternakController@peternakPost')->name('peternak.post');
-
 });
+
+$router->group(['prefix' => 'data-pmk'], function () use ($router) {
+    $router->get('/', 'PmkController@pmkIndex')->name('data-pmk.index');
+    $router->get('/halaman/{id}', 'PmkController@pmkCreate')->name('pmk.create');
+    $router->post('/tambah{id}', 'PmkController@pmkPost')->name('pmk.post');
+});
+
 Auth::routes();
 $router->get('/data-ternak', 'PeternakController@index')->name('dataternak.index');
 $router->get('/data-ternak/{id}', 'PeternakController@getDataPerKecamatan')->name('dataternak.index');
@@ -35,7 +41,6 @@ Route::get('/kelurahan/{id}', [App\Http\Controllers\MasterKelurahanController::c
 Auth::routes();
 
 $router->group(['prefix' => 'master-pengguna'], function () use ($router) {
-    $router->get('/pengguna', 'MasterPenggunaController@masterPenggunaIndex')->name('master_pengguna.index');
-    $router->post('/tambah', 'MasterPenggunaController@masterPenggunaPost')->name('master_pengguna.post');
-
+    $router->get('/pengguna', 'MasterPenggunaController@masterPenggunaIndex')->name('master-pengguna.index');
+    $router->post('/tambah', 'MasterPenggunaController@masterPenggunaPost')->name('master-pengguna.post');
 });
