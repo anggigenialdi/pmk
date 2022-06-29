@@ -27,7 +27,7 @@
                 </ol>
             </div>
             <!-- row -->
-            <form method="POST" action="{{ route('peternak.create') }}" autocomplete="off" class="needs-validation">
+            <form method="POST" action="{{ route('peternak.add') }}" autocomplete="off" class="needs-validation">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col-12">
