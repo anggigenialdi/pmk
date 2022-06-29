@@ -26,7 +26,8 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Tambah Data</a></li>
                 </ol>
             </div>
-            <form class="needs-validation" method="POST" action="{{ route('peternak.post')}}" autocomplete="off" novalidate="">
+            <form class="needs-validation" method="POST" action="{{ route('peternak.post') }}" autocomplete="off"
+                novalidate="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col-lg-12"></div>
@@ -37,105 +38,105 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-validation">
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="nik">NIK
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="nik" placeholder="Input NIK.." required=""
-                                                            name="nik" value="{{ old('nik') }}">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-3 col-form-label" for="nik">NIK
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control form-control-sm"
+                                                        id="nik" placeholder="Input NIK.." required=""
+                                                        name="nik" value="{{ old('nik') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
                                                     </div>
                                                 </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="nama">Nama
-                                                        Peternak <span class="text-danger">*</span>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-3 col-form-label" for="nama">Nama
+                                                    Peternak <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="nama" placeholder="Input Nama.." required=""
+                                                        name="nama" value="{{ old('nama') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-3 col-form-label" for="kecamatan">Kecamatan
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="kecamatan" name="kecamatan" required>
+                                                        <option value="">Pilih</option>
+                                                        @foreach ($kecamatan as $kec)
+                                                            <option value={{ $kec->id }}>{{ $kec->nama }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-3 col-form-label" for="kelurahan">Kelurahan
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="kelurahan" name="kelurahan" required>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-lg-3">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label class="col-lg-3 col-form-label" for="rt">RT
+                                                        <span class="text-danger">*</span>
                                                     </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control form-control-sm"
-                                                            id="nama" placeholder="Input Nama.." required=""
-                                                            name="nama" value="{{ old('nama') }}">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="rt" placeholder="Input RT.." required=""
+                                                        name="rt" value="{{ old('rt') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
                                                     </div>
                                                 </div>
 
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="kecamatan">Kecamatan
+                                                <div class="col-lg-3">
+                                                    <label class="col-lg-3 col-form-label" for="rw">RW
                                                         <span class="text-danger">*</span>
                                                     </label>
-                                                    <div class="col-lg-6">
-                                                        <select class="form-control" id="kecamatan" name="kecamatan" required>
-                                                            <option value="">Pilih</option>
-                                                            @foreach ($kecamatan as $kec)
-                                                                <option value={{ $kec->id }}>{{ $kec->nama }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="rw" placeholder="Input RW.." required=""
+                                                        name="rw" value="{{ old('rw') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
                                                     </div>
                                                 </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="kelurahan">Kelurahan
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <select class="form-control" id="kelurahan" name="kelurahan" required>
-                                                        </select>
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <div class="col-lg-3">
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-lg-3 col-form-label" for="rt">RT
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="text" class="form-control form-control-sm"
-                                                            id="rt" placeholder="Input RT.." required=""
-                                                            name="rt" value="{{ old('rt') }}">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-3">
-                                                        <label class="col-lg-3 col-form-label" for="rw">RW
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="text" class="form-control form-control-sm"
-                                                            id="rw" placeholder="Input RW.." required=""
-                                                            name="rw" value="{{ old('rw') }}">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="alamat">Alamat
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <textarea class="form-control form-control-sm" id="alamat" rows="5" placeholder="" required=""
-                                                            name="alamat" value="{{ old('alamat') }}"></textarea>
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-3 col-form-label" for="alamat">Alamat
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <textarea class="form-control form-control-sm" id="alamat" rows="5" placeholder="" required=""
+                                                        name="alamat" value="{{ old('alamat') }}"></textarea>
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -264,4 +265,29 @@
             </form>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        $(document).on('change', '#kecamatan', function() {
+            var id_kecamatan = $(this).val();
+            // console.log(id_kecamatan);
+            let datas = [];
+            $.ajax({
+                type: "GET",
+                url: '../kelurahan/' + id_kecamatan,
+
+                success: function(data) {
+                    // console.log(data);
+                    $("#kelurahan").html(
+                        '<option selected disabled="true" value="0">=== choose === </option>'
+                    );
+                    $.each(data, function(index, value) {
+                        $("#kelurahan").append("<option value=' " + value.id + " '> " + value.nama + "</option>");
+                    });
+                },
+                error: function() {}
+            });
+
+        });
+    </script>
 @endsection
