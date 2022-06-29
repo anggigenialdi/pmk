@@ -44,19 +44,18 @@
                 </ol>
             </div>
             <div class="row">
+
                 <div class="col-12">
+                    
                     <div class="card">
-                        <div class="row mt-4">
-                            <div class="col-2 mx-4">
-                                <a href="{{ route('peternak.create') }}" class="btn btn-primary">
-                                    <span class="align-middle"><i class="ti-plus"></i></span> Data
-                                </a>
-                            </div>
+                        <div class="card-header">
+                            <a href="{{ route('peternak.create') }}" class="btn btn-primary">
+                                <span class="align-middle"><i class="ti-plus"></i></span> Data
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example5" table class="stripe hover cell-border table-responsive-sm"
-                                    style="min-width: 845px">
+                                <table id="example" class="display hover" style="min-width: 845px">
                                     <thead>
                                         <tr>
                                             <th rowspan="3">Id</th>
@@ -72,8 +71,8 @@
                                             <th colspan="2" class="text-center">Sapi Potong</th>
                                         </tr>
                                         <tr>
-                                            <th id="terduga_domba">Terduga</th>
-                                            <th id="tertular_domba">Tertular</th>
+                                            <th id="terduga_kambing">Terduga</th>
+                                            <th id="tertular_kambing">Tertular</th>
                                             <th id="terduga_kerbau">Terduga</th>
                                             <th id="tertular_kerbau">Tertular</th>
                                             <th id="terduga_sapi_perah">Terduga</th>
@@ -86,34 +85,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Lorem</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Ipsum</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">4</td>
-                                        </tr>
+                                        @foreach ($datas as $data)
+                                            <tr>
+                                                <td>
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td>
+                                                    {{ $data->nama }}</td>
+                                                <td>
+                                                    {{ $data->terduga_kambing }}</td>
+                                                <td>
+                                                    {{ $data->tertular_kambing }}</td>
+                                                <td>
+                                                    {{ $data->terduga_kerbau }}</td>
+                                                <td>
+                                                    {{ $data->tertular_kerbau }}</td>
+                                                <td>
+                                                    {{ $data->terduga_sapi_perah }}</td>
+                                                <td>
+                                                    {{ $data->tertular_sapi_perah }}</td>
+                                                <td>
+                                                    {{ $data->terduga_sapi_potong }}</td>
+                                                <td>
+                                                    {{ $data->tertular_sapi_potong }}</td>
+                                                <td>
+                                                    {{ $data->total_terduga }}</td>
+                                                <td>
+                                                    {{ $data->total_tertular }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peternak;
 use App\Models\MasterKecamatan;
+use App\Models\Peternak;
 use App\Models\MasterKelurahan;
 use Illuminate\Http\Request;
 use \stdClass;
@@ -19,7 +19,9 @@ class PeternakController extends Controller
     }
     public function peternakCreate()
     {
-        return view('admin/peternak/create');
+        $kecamatan = MasterKecamatan::get();
+
+        return view('admin/peternak/create', compact('kecamatan'));
     }
     public function peternakPost(Request $request)
     {
@@ -31,14 +33,16 @@ class PeternakController extends Controller
         $ternak->rw = $request->input('rw');
         $ternak->rt = $request->input('rt');
         $ternak->alamat = $request->input('alamat');
-        $ternak->terduga_kambing = $request->input('domba_terduga');
-        $ternak->tertular_kambing = $request->input('domba_tertular');
-        $ternak->terduga_kerbau = $request->input('kerbau_terduga');
-        $ternak->tertular_kerbau = $request->input('kerbau_tertular');
-        $ternak->terduga_sapi_perah = $request->input('sapi_perah_terduga');
-        $ternak->tertular_sapi_perah = $request->input('sapi_perah_tertular');
-        $ternak->terduga_sapi_potong = $request->input('sapi_potong_terduga');
-        $ternak->tertular_sapi_potong = $request->input('sapi_potong_tertular');
+        $ternak->terduga_kambing = $request->input('terduga_kambing');
+        $ternak->tertular_kambing = $request->input('tertular_kambing');
+        $ternak->terduga_kerbau = $request->input('terduga_kerbau');
+        $ternak->tertular_kerbau = $request->input('tertular_kerbau');
+        $ternak->terduga_sapi_perah = $request->input('terduga_sapi_perah');
+        $ternak->tertular_sapi_perah = $request->input('tertular_sapi_perah');
+        $ternak->terduga_sapi_potong = $request->input('terduga_sapi_potong');
+        $ternak->tertular_sapi_potong = $request->input('tertular_sapi_potong');
+        $ternak->total_terduga = $request->input('total_terduga');
+        $ternak->total_tertular = $request->input('total_tertular');
         $ternak->save();
         return back();
     }

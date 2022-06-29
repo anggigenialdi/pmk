@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');
-    $router->get('/datas', 'PeternakController@peternakCreate')->name('peternak.create');
-    $router->post('/tambah', 'PeternakController@peternakPost')->name('peternak.add');
+    $router->get('/halaman', 'PeternakController@peternakCreate')->name('peternak.create');
+    $router->post('/tambah', 'PeternakController@peternakPost')->name('peternak.post');
 
 });
 Auth::routes();
@@ -31,3 +31,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/kecamatan', [App\Http\Controllers\MasterKecamatanController::class, 'index']);
 Route::get('/kelurahan/{id}', [App\Http\Controllers\MasterKelurahanController::class, 'index']);
 
+Auth::routes();
+
+$router->group(['prefix' => 'master-pengguna'], function () use ($router) {
+    $router->get('/pengguna', 'MasterPenggunaController@masterPenggunaIndex')->name('master_pengguna.index');
+    $router->post('/tambah', 'MasterPenggunaController@masterPenggunaPost')->name('master_pengguna.post');
+
+});
