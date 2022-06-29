@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');
+    $router->get('/data-peternak', 'PeternakController@peternakIndex')->name('data-peternak.index');
     $router->get('/halaman', 'PeternakController@peternakCreate')->name('peternak.create');
     $router->post('/tambah', 'PeternakController@peternakPost')->name('peternak.post');
 

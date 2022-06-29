@@ -232,24 +232,6 @@
                                                         value="{{ old('tertular_sapi_potong') }}">
                                                 </div>
                                             </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-lg-3 col-form-label" for="domba">Total
-                                                </label>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="total_terduga">Terduga
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="total_terduga" placeholder="" name="total_terduga"
-                                                        value="{{ old('total_terduga') }}">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="total_tertular">Tertular
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="total_tertular" placeholder="" name="total_tertular"
-                                                        value="{{ old('total_tertular') }}">
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <div class="col-lg-8 pull-right">

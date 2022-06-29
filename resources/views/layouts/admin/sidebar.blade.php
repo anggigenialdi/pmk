@@ -47,6 +47,7 @@
                     <span class="nav-text">Master Data</span>
                 </a>
                 <ul aria-expanded="false">
+                    <li><a href="{{ route('data-peternak.index') }}">Peternak</a></li>
                     <li><a href="{{ route('peternak.index') }}">Peternak</a></li>
                     {{-- <li><a href="#">Jenis Ternak</a></li>
                     <li><a href="#">Populasi Ternak</a></li> --}}

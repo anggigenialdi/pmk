@@ -22,14 +22,10 @@ class TablePeternak extends Migration
             $table->integer('rw')->nullable();
             $table->integer('rt')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('terduga_kambing')->nullable();
-            $table->string('tertular_kambing')->nullable();
-            $table->string('terduga_kerbau')->nullable();
-            $table->string('tertular_kerbau')->nullable();
-            $table->string('terduga_sapi_perah')->nullable();
-            $table->string('tertular_sapi_perah')->nullable();
-            $table->string('terduga_sapi_potong')->nullable();
-            $table->string('tertular_sapi_potong')->nullable();
+            $table->string('jumlah_kambing')->nullable();
+            $table->string('jumlah_kerbau')->nullable();
+            $table->string('jumlah_sapi_perah')->nullable();
+            $table->string('jumlah_sapi_potong')->nullable();
             $table->timestamps();
         });
     }

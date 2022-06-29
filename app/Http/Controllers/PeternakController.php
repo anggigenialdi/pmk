@@ -41,8 +41,6 @@ class PeternakController extends Controller
         $ternak->tertular_sapi_perah = $request->input('tertular_sapi_perah');
         $ternak->terduga_sapi_potong = $request->input('terduga_sapi_potong');
         $ternak->tertular_sapi_potong = $request->input('tertular_sapi_potong');
-        $ternak->total_terduga = $request->input('total_terduga');
-        $ternak->total_tertular = $request->input('total_tertular');
         $ternak->save();
         return back();
     }
