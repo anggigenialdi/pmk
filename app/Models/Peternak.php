@@ -27,4 +27,8 @@ class Peternak extends Model
     {
         return $this->belongsTo('App\Models\Masterkelurahan', 'kode_kelurahan', 'id');
     }
+    public function pmk()
+    {
+        return $this->belongsTo('App\Models\Pmk', 'id', 'id_peternak');
+    }
 }

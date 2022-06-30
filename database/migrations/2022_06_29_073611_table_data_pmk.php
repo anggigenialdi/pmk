@@ -29,6 +29,12 @@ class TableDataPmk extends Migration
             $table->timestamp('tanggal_pengujian_lab')->nullable();
             $table->string('hasil_pengujian_lab')->nullable();
             $table->string('keterangan')->nullable();
+            $table->string('mati')->nullable();
+            $table->string('potong_bersyarat')->nullable();
+            $table->string('sembuh')->nullable();
+            $table->boolean('status_kasus')->nullable();
+            $table->timestamp('tanggal_perkembangan_kasus')->nullable();
+
 
             $table->timestamps();
         });

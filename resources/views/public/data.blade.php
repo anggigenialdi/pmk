@@ -71,7 +71,7 @@
                                     <th colspan="8" class="text-center">Jenis Hewan</th>
                                     <th colspan="2" rowspan="2" class="text-center">Total</th>
                                     <th rowspan="3">Grand Total</th>
-                                    <th colspan="3" rowspan="2">Hasil Pengujian Labolatorium</th>
+                                    {{-- <th colspan="3" rowspan="2">Hasil Pengujian Labolatorium</th> --}}
 
                                 </tr>
                                 <tr>
@@ -92,9 +92,9 @@
                                     <th id="tertular_sapi_potong">Tertular</th>
                                     <th id="total_terduga">Terduga</th>
                                     <th id="total_tertular">Tertular</th>
-                                    <th id="mati">Mati</th>
+                                    {{-- <th id="mati">Mati</th>
                                     <th id="potong_beryarat">Potong Bersyarat</th>
-                                    <th id="sembuh">Sembuh</th>
+                                    <th id="sembuh">Sembuh</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -113,16 +113,24 @@
         function getKec() {
             $.ajax({
                 type: "GET",
-                url: '../kecamatan',
+                url: '../data-ternak',
                 dataType: 'json',
                 async: false,
                 success: function(data) {
+                  console.log("res", data );
                     data.forEach(el => {
                         data += `<tr>
                                   <td>${el.id}</td>
-                                  <td>${el.nama}</td>`;
-                                  
-                                `</tr>`;
+                                  <td>${el.nama_kecamatan}</td>
+                                  <td>${el.data_ternak[0].terduga_kambing}</td>
+                                  <td>${el.data_ternak[0].tertular_kambing}</td>
+                                  <td>${el.data_ternak[0].terduga_kerbau}</td>
+                                  <td>${el.data_ternak[0].tertular_kerbau}</td>
+                                  <td>${el.data_ternak[0].terduga_sapi_perah}</td>
+                                  <td>${el.data_ternak[0].tertular_sapi_perah}</td>
+                                  <td>${el.data_ternak[0].terduga_sapi_potong}</td>
+                                  <td>${el.data_ternak[0].tertular_sapi_potong}</td>
+                                  </tr>`
                     });
                     $('#tablePmk').append(
                         `${data}`

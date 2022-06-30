@@ -8,6 +8,7 @@ use App\Models\MasterKelurahan;
 use App\Models\Pmk;
 use Illuminate\Http\Request;
 use \stdClass;
+use File;
 
 class PmkController extends Controller
 {
@@ -86,7 +87,7 @@ class PmkController extends Controller
 
         $data->save();
         // return back();
-        return redirect('/data-pmk')->with('success', ' Data Berhasil Ditambahkan');
+        return redirect('/data-pmk/hasil-lab')->with('success', ' Data Berhasil Ditambahkan');
 
     }
 
@@ -96,5 +97,28 @@ class PmkController extends Controller
 
         return view('admin/data-pmk/hasil-lab/index', compact(['datas']));
     }
+    public function getJson(){
+        $json = json_decode(File::get('./geojson.json')); // not working
+        return $json;
+    }
 
+    public function perkembanganIndex()
+    {
+        $datas = Pmk::orderBy('id', 'desc')->get();
+
+        return view('admin/data-pmk/perkembangan-kasus/index', compact(['datas']));
+    }
+
+    public function perkembanganPost(Request $request, $id)
+    {
+        $data = Pmk::where('id', $id)->first();
+        $data->mati = $request->input('mati');
+        $data->potong_bersyarat = $request->input('potong_bersyarat');
+        $data->sembuh = $request->input('sembuh');
+
+        $data->save();
+        // return back();
+        return redirect('/data-pmk/perkembangan-kasus')->with('success', ' Data Berhasil Ditambahkan');
+
+    }
 }

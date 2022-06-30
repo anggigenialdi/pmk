@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/geojson', [App\Http\Controllers\HomeController::class, 'getJson'])->name('geojson');
+Route::get('/geojson', [App\Http\Controllers\PmkController::class, 'getJson'])->name('geojson');
 
 Route::get('/', function () {
     return view('public.home');
@@ -38,7 +38,9 @@ $router->group(['prefix' => 'data-pmk'], function () use ($router) {
     $router->post('/update/{id}', 'PmkController@pmkUpdate')->name('pmk.update');
     $router->post('/hasil-lab/{id}', 'PmkController@pmkPostLab')->name('pmk-lab.post');
     $router->get('/hasil-lab', 'PmkController@hasilLabIndex')->name('hasil-lab.index');
-
+    // perkembangan kasus
+    $router->get('/perkembangan-kasus', 'PmkController@perkembanganIndex')->name('data-perkembangan.index');
+    $router->post('/perkembangan-kasus/{id}', 'PmkController@perkembanganPost')->name('data-perkembangan.post');
 
 });
 
