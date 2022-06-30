@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/geojson', [App\Http\Controllers\HomeController::class, 'getJson'])->name('geojson');
 
 Route::get('/', function () {
     return view('public.home');
@@ -46,7 +47,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/kecamatan', [App\Http\Controllers\MasterKecamatanController::class, 'index']);
 Route::get('/kelurahan/{id}', [App\Http\Controllers\MasterKelurahanController::class, 'index']);
 
-Auth::routes();
 
 $router->group(['prefix' => 'master-pengguna'], function () use ($router) {
     $router->get('/pengguna', 'MasterPenggunaController@masterPenggunaIndex')->name('master-pengguna.index');

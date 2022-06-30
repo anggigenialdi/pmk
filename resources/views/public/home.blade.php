@@ -1,7 +1,84 @@
 @extends('layouts.app')
-
+<style>
+  *{
+    font-family: 'Oswald', sans-serif;
+    color:#1e272e !important
+    }
+    #map {
+        height: 800px;
+        position:relative !important;
+    }
+    .header{
+      background-color:#28A745 !important;
+      margin:40px 0px;
+      padding:40px 10px;
+      border-radius:10px;
+    }
+    .bg-success{
+      background-color:#52CBC1 !important;
+    }
+    .leaflet-tooltip.my-labels {
+    background-color: transparent;
+    border: transparent;
+    box-shadow: none;
+    color:white !important;
+    position:absolute;
+    font-size:18px;
+    }
+    .my-fill{
+      opacity: 1 !important;
+    }
+    #table-kecamatan{
+      position:absolute !important;
+      right:0;
+      top:0;
+      z-index: 9999;
+      background-color:white;
+    }
+    #keterangan-jumlah{
+      position:absolute !important;
+      left:0;
+      bottom:0;
+      right:0;
+      z-index: 9999;
+      background-color:white;
+      height:40px;
+      display:flex;
+      justify-content:'between';
+      align-items:center;
+      
+    }
+    #keterangan-jumlah>.max,#keterangan-jumlah>.middle,#keterangan-jumlah>.low{
+      display:flex;
+      justify-content:'between';
+      align-items:center;
+      margin:0px 10px;
+    }
+    #keterangan-jumlah>.max>div:nth-child(1){
+      height:20px;
+      width:20px;
+      border-radius:50%;
+      background-color:red;
+      z-index: 99999;
+    }
+    #keterangan-jumlah>.middle>div:nth-child(1){
+      height:20px;
+      width:20px;
+      border-radius:50%;
+      background-color:orange;
+      z-index: 99999;
+    }
+    #keterangan-jumlah>.low>div:nth-child(1){
+      height:20px;
+      width:20px;
+      border-radius:50%;
+      background-color:green;
+      z-index: 99999;
+    }
+</style>
 @section('content')
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success ">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,15 +96,83 @@
   </div>
 </nav>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-    <div id="table-kecamatan"></div>
+  <div class="row no-gutters">
+    <div  class="col-md-8 offset-md-2">
+      <div class="header">
+        <h4 class="text-light">Data Kasus PMK</h4>
+        <h5 class="text-light">Kota Bandung</h5>
+      </div>
+      <h5>Jumlah Kasus</h5>
+      <div class="row">
+        <!--  -->
+          <div class="col-md-3">
+            <div class="card bg-danger">
+              <div class="card-body">
+                <p class="card-text">Tertular / Terduga</p>
+                <h5 class="card-title">450</h5>
+              </div>
+            </div>
+          </div>
+        <!--  -->
+        <!--  -->
+          <div class="col-md-3">
+            <div class="card" >
+              <div class="card-body bg-success">
+                <p class="card-text">Sembuh</p>
+                <h5 class="card-title">120</h5>
+              </div>
+            </div>
+          </div>
+        <!--  -->
+        <!--  -->
+          <div class="col-md-3">
+            <div class="card" >
+              <div class="card-body bg-warning">
+                <p class="card-text">Mati</p>
+                <h5 class="card-title">100</h5>
+              </div>
+            </div>
+          </div>
+        <!--  -->
+        <!--  -->
+          <div class="col-md-3">
+            <div class="card" >
+              <div class="card-body bg-primary">
+                <p class="card-text">Potong Bersyarat</p>
+                <h5 class="card-title">50</h5>
+              </div>
+            </div>
+          </div>
+        <!--  -->
+      </div>
+      <p class="text-right">Update Terakhir : 20 Juni 2022</p>
+      
     </div>
-    <div class="col-md-6">
-      <h5>Sebaran Kasus PMK di Kota Bandung</h5>
-      <div id="map"></div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-md-2">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-8">
+      <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
+      <div id="map">
+        <div id="table-kecamatan"></div>
+        <div id="keterangan-jumlah">
+          <div class="max">
+            <div></div>
+            <div>>1.000 Kasus</div>
+          </div>
+          <div class="middle">
+            <div></div>
+            <div>>500 Kasus</div>
+          </div>
+          <div class="low">
+            <div></div>
+            <div>>100 Kasus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
     </div>
   </div>
 </div>
@@ -36,7 +181,10 @@
 @section('script')
 <script>
         $(document).ready(function() {
-            var map = L.map('map').setView([-6.914744, 107.639810], 12);
+             setMap()
+        })
+        function setMap() {
+          var map = L.map('map').setView([-6.904744, 107.639810], 13);
             var tiles = L.tileLayer(
                 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                     maxZoom: 18,
@@ -46,19 +194,38 @@
                     tileSize: 512,
                     zoomOffset: -1
              }).addTo(map);
-             $.getJSON('data-ternak', function(data) {
-                $.each(data, function(i) {
-                    L.marker([data[i].latitude, data[i].longitude]).addTo(map).on('click', (e) => {
-                      setData(data[i].id)
-                        L.marker([data[i].latitude, data[i].longitude]).addTo(map)
-                            .bindPopup(                 
-                              '<div>'+data[i].nama_kecamatan+'</div><div id="form-add"> Total Kasus : '+data[i].total_kasus+'</div>'
-                              ).openPopup();
-                              
-                    });
-                });
+             $.get('../geojson', function(data) {
+              let features = data.features
+              features.forEach((e,index) => {
+                L.geoJSON(e).setStyle({fillColor :setColor(e.properties.id_kecamatan)}).addTo(map).on('mouseover',()=>{
+                  setData(e.properties.id_kecamatan)
+                }).bindTooltip(   
+                  '<div>'+e.properties.nama_kecamatan+'</div>'
+                  , {permanent: true, direction: "center", className: "my-labels"}).openTooltip();
+              });
+               
             });
-        })
+          // $.getJSON('data-ternak', function(data) {
+          //       $.each(data, function(i) {
+          //           L.marker([data[i].latitude, data[i].longitude]).addTo(map).on('click', (e) => {
+          //             setData(data[i].id)
+          //               L.marker([data[i].latitude, data[i].longitude]).addTo(map)
+          //                   .bindPopup(                 
+          //                     '<div>'+data[i].nama_kecamatan+'</div><div id="form-add"> Total Kasus : '+data[i].total_kasus+'</div>'
+          //                     ).openPopup();
+                              
+          //           });
+          //       });
+          //   });
+        }
+        function setColor(id) {
+          if(id==1){
+            return 'blue'
+          }
+          else{
+            return 'red'
+          }
+        }
         function setData(id) {
           $.ajax({
                 type: "GET",
@@ -67,10 +234,10 @@
                 async: false,
                 success: function (res) { 
                   let data = `
-                  <h5>Data PMK Kecamatan ${res.nama_kecamatan.nama}</h5>
-                  <table class="table table-striped">
+                  <p style="font-size:14px" class="text-center">Data PMK Kecamatan ${res.nama_kecamatan.nama}</p>
+                  <table class="table table-striped" style="height:10px;font-size:14px">
                               <thead>
-                                <tr>
+                                <tr style="">
                                   <th scope="col">#</th>
                                   <th scope="col">Kelurahan</th>
                                   <th scope="col">Total Kasus</th>
