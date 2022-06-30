@@ -14,9 +14,6 @@
         border-right: 1px solid #111;
     }
 
-    table.dataTable thead th {
-        border-top: 1px solid #111;
-    }
 </style>
 @section('header')
     <div class="header">
@@ -55,7 +52,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example" class="display hover" style="min-width: 845px">
+                                <table id="example" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
                                             <th rowspan="3">Id</th>

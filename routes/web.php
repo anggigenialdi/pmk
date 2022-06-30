@@ -37,6 +37,8 @@ $router->group(['prefix' => 'data-pmk'], function () use ($router) {
     $router->get('/edit/{id}', 'PmkController@pmkEdit')->name('pmk.edit');
     $router->post('/update/{id}', 'PmkController@pmkUpdate')->name('pmk.update');
     $router->post('/hasil-lab/{id}', 'PmkController@pmkPostLab')->name('pmk-lab.post');
+    $router->get('/hasil-lab', 'PmkController@hasilLabIndex')->name('hasil-lab.index');
+
 
 });
 
@@ -52,3 +54,5 @@ $router->group(['prefix' => 'master-pengguna'], function () use ($router) {
     $router->get('/pengguna', 'MasterPenggunaController@masterPenggunaIndex')->name('master-pengguna.index');
     $router->post('/tambah', 'MasterPenggunaController@masterPenggunaPost')->name('master-pengguna.post');
 });
+
+$router->get('/data', 'PeternakController@dataIndex')->name('data.index');

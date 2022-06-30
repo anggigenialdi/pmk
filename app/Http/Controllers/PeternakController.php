@@ -135,4 +135,11 @@ class PeternakController extends Controller
         return back()->with('success', ' Data Berhasil Diupdate');
 
     }
+
+    public function dataIndex(){
+        
+        return view('public/data');
+
+    }
+
 }

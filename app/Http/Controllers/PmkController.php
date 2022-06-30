@@ -79,16 +79,22 @@ class PmkController extends Controller
 
     public function pmkPostLab(Request $request, $id)
     {
-        $data = Peternak::where('id', $id)->first();
+        $data = Pmk::where('id', $id)->first();
         $data->tanggal_pengujian_lab = $request->input('tanggal_pengujian_lab');
         $data->hasil_pengujian_lab = $request->input('hasil_pengujian_lab');
         $data->keterangan = $request->input('keterangan');
 
-        dd($data);
         $data->save();
         // return back();
         return redirect('/data-pmk')->with('success', ' Data Berhasil Ditambahkan');
 
+    }
+
+    public function hasilLabIndex()
+    {
+        $datas = Pmk::orderBy('id', 'desc')->get();
+
+        return view('admin/data-pmk/hasil-lab/index', compact(['datas']));
     }
 
 }
