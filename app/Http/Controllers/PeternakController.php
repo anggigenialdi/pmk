@@ -33,14 +33,10 @@ class PeternakController extends Controller
         $ternak->rw = $request->input('rw');
         $ternak->rt = $request->input('rt');
         $ternak->alamat = $request->input('alamat');
-        $ternak->terduga_kambing = $request->input('terduga_kambing');
-        $ternak->tertular_kambing = $request->input('tertular_kambing');
-        $ternak->terduga_kerbau = $request->input('terduga_kerbau');
-        $ternak->tertular_kerbau = $request->input('tertular_kerbau');
-        $ternak->terduga_sapi_perah = $request->input('terduga_sapi_perah');
-        $ternak->tertular_sapi_perah = $request->input('tertular_sapi_perah');
-        $ternak->terduga_sapi_potong = $request->input('terduga_sapi_potong');
-        $ternak->tertular_sapi_potong = $request->input('tertular_sapi_potong');
+        $ternak->jumlah_kambing = $request->input('jumlah_kambing');
+        $ternak->jumlah_kerbau = $request->input('jumlah_kerbau');
+        $ternak->jumlah_sapi_potong = $request->input('jumlah_sapi_potong');
+        $ternak->jumlah_sapi_perah = $request->input('jumlah_sapi_perah');
         $ternak->save();
         return back();
     }

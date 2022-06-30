@@ -34,7 +34,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Tambah Data</h4>
+                                <h4 class="card-title">Tambah Data Peternak</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-validation">
@@ -99,24 +99,23 @@
                                                 <div class="col-lg-3">
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="rt">RT
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="rt" placeholder="Input RT.." required=""
-                                                        name="rt" value="{{ old('rt') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="rw">RW
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <input type="text" class="form-control form-control-sm"
                                                         id="rw" placeholder="Input RW.." required=""
                                                         name="rw" value="{{ old('rw') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label class="col-lg-3 col-form-label" for="rt">RT
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        id="rt" placeholder="Input RT.." required=""
+                                                        name="rt" value="{{ old('rt') }}">
                                                     <div class="invalid-feedback">
                                                         Input tidak boleh kosong
                                                     </div>
@@ -148,88 +147,57 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Data Ternak</h4>
+                                    <h4 class="card-title">Populasi Ternak</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-validation">
                                         <div class="row">
                                             <div class="mb-3 row">
-                                                <label class="col-lg-3 col-form-label" for="domba">Domba/Kambing
+                                                <label class="col-lg-3 col-form-label" for="jumlah_kambing">Domba/Kambing <span class="text-danger">*</span>
                                                 </label>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="terduga_kambing">Terduga
-                                                    </label>
+                                                <div class="col-lg-6">
                                                     <input type="text" class="form-control form-control-sm"
-                                                        id="terduga_kambing" placeholder="" name="terduga_kambing"
-                                                        value="{{ old('terduga_kambing') }}">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="tertular_kambing">Tertular
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="tertular_kambing" placeholder="" name="tertular_kambing"
-                                                        value="{{ old('tertular_kambing') }}">
+                                                        id="jumlah_kambing" placeholder="Input Jumlah Domba/Kambing.." required=""
+                                                        name="jumlah_kambing" value="{{ old('jumlah_kambing') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-lg-3 col-form-label" for="domba">Kerbau
+                                                <label class="col-lg-3 col-form-label" for="jumlah_kerbau">Kerbau <span class="text-danger">*</span>
                                                 </label>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="terduga_kerbau">Terduga
-                                                    </label>
+                                                <div class="col-lg-6">
                                                     <input type="text" class="form-control form-control-sm"
-                                                        id="terduga_kerbau" placeholder="" name="terduga_kerbau"
-                                                        value="{{ old('terduga_kerbau') }}">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label" for="tertular_kerbau">Tertular
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="tertular_kerbau" placeholder="" name="tertular_kerbau"
-                                                        value="{{ old('tertular_kerbau') }}">
+                                                        id="jumlah_kerbau" placeholder="Input Jumlah Kerbau.." required=""
+                                                        name="jumlah_kerbau" value="{{ old('jumlah_kerbau') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-lg-3 col-form-label" for="domba">Sapi Perah
+                                                <label class="col-lg-3 col-form-label" for="jumlah_sapi_perah">Sapi Perah <span class="text-danger">*</span>
                                                 </label>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label"
-                                                        for="terduga_sapi_perah">Terduga
-                                                    </label>
+                                                <div class="col-lg-6">
                                                     <input type="text" class="form-control form-control-sm"
-                                                        id="terduga_sapi_perah" placeholder="" name="terduga_sapi_perah"
-                                                        value="{{ old('terduga_sapi_perah') }}">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label"
-                                                        for="tertular_sapi_perah">Tertular
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="tertular_sapi_perah" placeholder=""
-                                                        name="tertular_sapi_perah"
-                                                        value="{{ old('tertular_sapi_perah') }}">
+                                                        id="jumlah_sapi_perah" placeholder="Input Jumlah Sapi Perah.." required=""
+                                                        name="jumlah_sapi_perah" value="{{ old('jumlah_sapi_perah') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-lg-3 col-form-label" for="domba">Sapi Potong
+                                                <label class="col-lg-3 col-form-label" for="jumlah_sapi_potong">Sapi Potong <span class="text-danger">*</span>
                                                 </label>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label"
-                                                        for="terduga_sapi_potong">Terduga
-                                                    </label>
+                                                <div class="col-lg-6">
                                                     <input type="text" class="form-control form-control-sm"
-                                                        id="terduga_sapi_potong" placeholder=""
-                                                        name="terduga_sapi_potong"
-                                                        value="{{ old('terduga_sapi_potong') }}">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <label class="col-lg-3 col-form-label"
-                                                        for="tertular_sapi_potong">Tertular
-                                                    </label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="tertular_sapi_potong" placeholder=""
-                                                        name="tertular_sapi_potong"
-                                                        value="{{ old('tertular_sapi_potong') }}">
+                                                        id="jumlah_sapi_potong" placeholder="Input Jumlah Sapi Potong.." required=""
+                                                        name="jumlah_sapi_potong" value="{{ old('jumlah_sapi_potong') }}">
+                                                    <div class="invalid-feedback">
+                                                        Input tidak boleh kosong
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -261,7 +229,7 @@
                 success: function(data) {
                     // console.log(data);
                     $("#kelurahan").html(
-                        '<option selected disabled="true" value="0">=== choose === </option>'
+                        '<option selected disabled="true" value="">=== Pilih Kelurahan === </option>'
                     );
                     $.each(data, function(index, value) {
                         $("#kelurahan").append("<option value=' " + value.id + " '> " + value.nama + "</option>");

@@ -15,12 +15,16 @@ class Peternak extends Model
         'nama',
         'rt',
         'rw',
-        'longitude',
-        'latitude',
+        'kode_kecamatan',
+        'kode_kelurahan',
     ];
 
-    public function populasiTernak()
+    public function masterKecamatan()
     {
-        return $this->belongsTo('App\Models\PopulasiTernak', 'id_peternak', 'id');
+        return $this->belongsTo('App\Models\Masterkecamatan', 'kode_kecamatan', 'id');
+    }
+    public function masterKelurahan()
+    {
+        return $this->belongsTo('App\Models\Masterkelurahan', 'kode_kelurahan', 'id');
     }
 }

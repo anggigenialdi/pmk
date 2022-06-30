@@ -6,8 +6,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
-            <form class="needs-validation" method="POST" action="{{ route('master_pengguna.post') }}" autocomplete="off"
-                novalidate="">
+            <form class="needs-validation" method="POST" action="{{ route('master-pengguna.post') }}"
+                autocomplete="off" novalidate="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="modal-body">
                     <div class="col-xl-12">
@@ -16,10 +16,10 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control" id="nama"
-                                    placeholder="Masukan Nama.." required="" name="name">
+                                <input type="text" class="form-control" id="nama" placeholder="Masukan Nama.."
+                                    required="" name="name">
                                 <div class="invalid-feedback">
-                                  Input Nama tidak boleh kosong
+                                    Input Nama tidak boleh kosong
                                 </div>
                             </div>
                         </div>
@@ -28,10 +28,10 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-9">
-                                <input type="email" class="form-control" id="email"
-                                    placeholder="Masukan Email.." required="" name="email">
+                                <input type="email" class="form-control" id="email" placeholder="Masukan Email.."
+                                    required="" name="email">
                                 <div class="invalid-feedback">
-                                  Input Email tidak boleh kosong
+                                    Input Email tidak boleh kosong
                                 </div>
                             </div>
                         </div>
@@ -40,14 +40,14 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-9">
-                              <select class="form-control" id="role" name="role" required>
-                                <option value="">Pilih</option>
-                                <option value="superadmin">Superadmin</option>
-                                <option value="admin">Admin</option>
-                                <option value="operator">Operator</option>
-                            </select>
+                                <select class="form-control" id="role" name="role" required>
+                                    <option value="">Pilih</option>
+                                    <option value="superadmin">Superadmin</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="operator">Operator</option>
+                                </select>
                                 <div class="invalid-feedback">
-                                  Input Email tidak boleh kosong
+                                    Input Email tidak boleh kosong
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 <input type="password" class="form-control" id="password"
                                     placeholder="Masukan Password.." required="" name="password">
                                 <div class="invalid-feedback">
-                                  Input Password tidak boleh kosong
+                                    Input Password tidak boleh kosong
                                 </div>
                             </div>
                         </div>
