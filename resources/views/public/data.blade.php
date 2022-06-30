@@ -117,20 +117,26 @@
                 dataType: 'json',
                 async: false,
                 success: function(data) {
-                  console.log("res", data );
+                    console.log("res", data);
                     data.forEach(el => {
+                        let sum_terduga = ( el.data_ternak[0].terduga_kambing +  el.data_ternak[0].terduga_kerbau +  el.data_ternak[0].terduga_sapi_perah +  el.data_ternak[0].terduga_sapi_potong );
+                        let sum_tertular = ( el.data_ternak[0].tertular_kambing +  el.data_ternak[0].tertular_kerbau +  el.data_ternak[0].tertular_sapi_perah +  el.data_ternak[0].tertular_sapi_potong );
+                        let gt = ( sum_terduga + sum_tertular );
                         data += `<tr>
-                                  <td>${el.id}</td>
-                                  <td>${el.nama_kecamatan}</td>
-                                  <td>${el.data_ternak[0].terduga_kambing}</td>
-                                  <td>${el.data_ternak[0].tertular_kambing}</td>
-                                  <td>${el.data_ternak[0].terduga_kerbau}</td>
-                                  <td>${el.data_ternak[0].tertular_kerbau}</td>
-                                  <td>${el.data_ternak[0].terduga_sapi_perah}</td>
-                                  <td>${el.data_ternak[0].tertular_sapi_perah}</td>
-                                  <td>${el.data_ternak[0].terduga_sapi_potong}</td>
-                                  <td>${el.data_ternak[0].tertular_sapi_potong}</td>
-                                  </tr>`
+                                <td>${el.id}</td>
+                                <td>${el.nama_kecamatan}</td>
+                                <td>${el.data_ternak[0].terduga_kambing}</td>
+                                <td>${el.data_ternak[0].tertular_kambing}</td>
+                                <td>${el.data_ternak[0].terduga_kerbau}</td>
+                                <td>${el.data_ternak[0].tertular_kerbau}</td>
+                                <td>${el.data_ternak[0].terduga_sapi_perah}</td>
+                                <td>${el.data_ternak[0].tertular_sapi_perah}</td>
+                                <td>${el.data_ternak[0].terduga_sapi_potong}</td>
+                                <td>${el.data_ternak[0].tertular_sapi_potong}</td>
+                                <td>${sum_terduga}</td>
+                                <td>${sum_tertular}</td>
+                                <td>${gt}</td>
+                                </tr>`
                     });
                     $('#tablePmk').append(
                         `${data}`

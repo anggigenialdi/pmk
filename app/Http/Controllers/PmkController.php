@@ -8,7 +8,9 @@ use App\Models\MasterKelurahan;
 use App\Models\Pmk;
 use Illuminate\Http\Request;
 use \stdClass;
-use File;
+// use File;
+
+use Illuminate\Support\Facades\File;
 
 class PmkController extends Controller
 {
