@@ -88,6 +88,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($datas as $data)
+                                            @if ($data->status_kasus !== null)
                                             <tr>
                                                 <td>
                                                     {{ $loop->iteration }}
@@ -151,6 +152,8 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endif
+                                            
                                         @endforeach
                                     </tbody>
                                 </table>

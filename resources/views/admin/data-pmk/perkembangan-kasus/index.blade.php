@@ -74,25 +74,27 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($datas as $data)
-                                            <tr>
-                                                <td>
-                                                    {{ $loop->iteration }}
-                                                </td>
-                                                <td>
-                                                    {{ $data->dataPeternak->nama }}</td>
-                                                <td>
-                                                    {{ $data->tanggal_pemeriksaan }}</td>
-                                                <td>
-                                                    {{ $data->tanggal_pengujian_lab }}</td>
-                                                <td>
-                                                    {{ $data->hasil_pengujian_lab }}</td>
-                                                <td>
-                                                    {{ $data->mati }}</td>
-                                                <td>
-                                                    {{ $data->potong_bersyarat }}</td>
-                                                <td>
-                                                    {{ $data->sembuh }}</td>
-                                            </tr>
+                                            @if ($data->status_kasus !== null && $data->status_kasus != 1 )
+                                                <tr>
+                                                    <td>
+                                                        {{ $loop->iteration }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $data->dataPeternak->nama }}</td>
+                                                    <td>
+                                                        {{ $data->tanggal_pemeriksaan }}</td>
+                                                    <td>
+                                                        {{ $data->tanggal_pengujian_lab }}</td>
+                                                    <td>
+                                                        {{ $data->hasil_pengujian_lab }}</td>
+                                                    <td>
+                                                        {{ $data->mati }}</td>
+                                                    <td>
+                                                        {{ $data->potong_bersyarat }}</td>
+                                                    <td>
+                                                        {{ $data->sembuh }}</td>
+                                                </tr>
+                                            @endif
                                         @endforeach
                                     </tbody>
                                 </table>
