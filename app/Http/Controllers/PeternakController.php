@@ -50,15 +50,15 @@ class PeternakController extends Controller
         $data = [];
         $data_kec =[];
         foreach ($kec as $k) {
-            $data['terduga_kambing'] = Peternak::where('kode_kecamatan',$k->id)->sum('terduga_kambing');
-            $data['tertular_kambing'] = Peternak::where('kode_kecamatan',$k->id)->sum('tertular_kambing');
-            $data['terduga_kerbau'] = Peternak::where('kode_kecamatan',$k->id)->sum('terduga_kerbau');
-            $data['tertular_kerbau'] = Peternak::where('kode_kecamatan',$k->id)->sum('tertular_kerbau');
-            $data['terduga_sapi_perah'] = Peternak::where('kode_kecamatan',$k->id)->sum('terduga_sapi_perah');
-            $data['tertular_sapi_perah'] = Peternak::where('kode_kecamatan',$k->id)->sum('tertular_sapi_perah');
-            $data['terduga_sapi_potong'] = Peternak::where('kode_kecamatan',$k->id)->sum('terduga_sapi_potong');
-            $data['tertular_sapi_potong'] = Peternak::where('kode_kecamatan',$k->id)->sum('tertular_sapi_potong');
-            $data['total_kasus'] = $data['tertular_kambing'] + $data['tertular_kerbau'] + $data['tertular_sapi_perah'] + $data['tertular_sapi_potong'];
+            $data['terduga_kambing'] = 0;
+            $data['tertular_kambing'] = 0;
+            $data['terduga_kerbau'] = 0;
+            $data['tertular_kerbau'] = 0;
+            $data['terduga_sapi_perah'] = 0;
+            $data['tertular_sapi_perah'] = 0;
+            $data['terduga_sapi_potong'] = 0;
+            $data['tertular_sapi_potong'] = 0;
+            $data['total_kasus'] = 0;
             $data['id'] = $k->id;
             $data['nama_kecamatan'] = $k->nama;
             $data['latitude'] = $k->latitude;
@@ -82,14 +82,14 @@ class PeternakController extends Controller
     }
     private function getDataTernak($idKec,$idKel){
         $data =  [];
-        $data['terduga_kambing'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('terduga_kambing');
-        $data['tertular_kambing'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('tertular_kambing');
-        $data['terduga_kerbau'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('terduga_kerbau');
-        $data['tertular_kerbau'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('tertular_kerbau');
-        $data['terduga_sapi_perah'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('terduga_sapi_perah');
-        $data['tertular_sapi_perah'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('tertular_sapi_perah');
-        $data['terduga_sapi_potong'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('terduga_sapi_potong');
-        $data['tertular_sapi_potong'] = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->sum('tertular_sapi_potong');
+        $data['terduga_kambing'] = 0;
+        $data['tertular_kambing'] = 0;
+        $data['terduga_kerbau'] = 0;
+        $data['tertular_kerbau'] = 0;
+        $data['terduga_sapi_perah'] = 0;
+        $data['tertular_sapi_perah'] = 0;
+        $data['terduga_sapi_potong'] = 0;
+        $data['tertular_sapi_potong'] = 0;
         $data['total_kasus'] = $data['tertular_kambing'] + $data['tertular_kerbau'] + $data['tertular_sapi_perah'] + $data['tertular_sapi_potong'];
         
         // $data = [];

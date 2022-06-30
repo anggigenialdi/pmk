@@ -95,7 +95,7 @@ class KelurahanSeeder extends Seeder
                 ],
                 [
                     "id_kecamatan"=> "2",
-                    "nama"=> "2",
+                    "nama"=> "Babakan Ciparay",
                     "latitude"=> "-6.9437",
                     "longitude"=> "107.5776",
                     "altitude"=> "689"
