@@ -8,6 +8,7 @@ use App\Models\MasterKelurahan;
 use App\Models\Pmk;
 use Illuminate\Http\Request;
 use \stdClass;
+use File;
 
 class PmkController extends Controller
 {
@@ -45,5 +46,9 @@ class PmkController extends Controller
         // return back();
         return redirect('/data-pmk');
 
+    }
+    public function getJson(){
+        $json = json_decode(File::get('./geojson.json')); // not working
+        return $json;
     }
 }

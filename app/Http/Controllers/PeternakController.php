@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MasterKecamatan;
 use App\Models\Peternak;
+use App\Models\Pmk;
 use App\Models\MasterKelurahan;
 use Illuminate\Http\Request;
 use \stdClass;
@@ -43,18 +44,11 @@ class PeternakController extends Controller
 
     public function index(){
         $kec = MasterKecamatan::get();
+        
         $data = [];
         $data_kec =[];
         foreach ($kec as $k) {
-            $data['terduga_kambing'] = 0;
-            $data['tertular_kambing'] = 0;
-            $data['terduga_kerbau'] = 0;
-            $data['tertular_kerbau'] = 0;
-            $data['terduga_sapi_perah'] = 0;
-            $data['tertular_sapi_perah'] = 0;
-            $data['terduga_sapi_potong'] = 0;
-            $data['tertular_sapi_potong'] = 0;
-            $data['total_kasus'] = 0;
+            $data['data_ternak'] = $this->getDataTernakKecamatan($k->id);
             $data['id'] = $k->id;
             $data['nama_kecamatan'] = $k->nama;
             $data['latitude'] = $k->latitude;
@@ -76,30 +70,85 @@ class PeternakController extends Controller
         }
         return $data_kel;
     }
-    private function getDataTernak($idKec,$idKel){
-        $data =  [];
-        $data['terduga_kambing'] = 0;
-        $data['tertular_kambing'] = 0;
-        $data['terduga_kerbau'] = 0;
-        $data['tertular_kerbau'] = 0;
-        $data['terduga_sapi_perah'] = 0;
-        $data['tertular_sapi_perah'] = 0;
-        $data['terduga_sapi_potong'] = 0;
-        $data['tertular_sapi_potong'] = 0;
-        $data['total_kasus'] = $data['tertular_kambing'] + $data['tertular_kerbau'] + $data['tertular_sapi_perah'] + $data['tertular_sapi_potong'];
+    private function getDataTernakKecamatan($idKec){
+        $peternak = Peternak::where('kode_kecamatan',$idKec)->first();
+        $pmk = Pmk::where('id_peternak',isset($peternak->id))->get();
         
-        // $data = [];
-        // $data_kel =[];
-        // foreach ($kel as $k) {
-        //     $data['tertular_kambing'] = $k->tertular_kambing;
-        //     array_push($data_kel,$data);
-        // }
-        return $data;
+        $data =  [];
+        $data_pmk =[];
+        $terduga_kambing = 0;
+        $tertular_kambing = 0;
+        $terduga_kerbau = 0;
+        $tertular_kerbau = 0;
+        $terduga_sapi_perah = 0;
+        $tertular_sapi_perah = 0;
+        $terduga_sapi_potong = 0;
+        $tertular_sapi_potong = 0;
+
+        foreach ($pmk as $p) {
+            $terduga_kambing = $terduga_kambing + $p->terduga_kambing;
+            $tertular_kambing = $tertular_kambing + $p->tertular_kambing;
+            $terduga_kerbau = $terduga_kerbau + $p->terduga_kerbau;
+            $tertular_kerbau = $tertular_kerbau + $p->tertular_kerbau;
+            $terduga_sapi_perah = $terduga_sapi_perah + $p->terduga_sapi_perah;
+            $tertular_sapi_perah = $tertular_sapi_perah + $p->tertular_sapi_perah;
+            $terduga_sapi_potong = $terduga_sapi_potong + $p->terduga_sapi_potong;
+            $tertular_sapi_potong = $tertular_sapi_potong + $p->tertular_sapi_potong;
+        }
+        $data['terduga_kambing'] = $terduga_kambing;
+        $data['tertular_kambing'] = $tertular_kambing;
+        $data['terduga_kerbau'] = $terduga_kerbau;
+        $data['tertular_kerbau'] = $tertular_kerbau;
+        $data['terduga_sapi_perah'] = $terduga_sapi_perah;
+        $data['tertular_sapi_perah'] = $tertular_sapi_perah;
+        $data['terduga_sapi_potong'] = $terduga_sapi_potong;
+        $data['tertular_sapi_potong'] = $tertular_sapi_potong;
+        $data['total_kasus'] = $tertular_sapi_potong;
+        array_push($data_pmk,$data);
+       return $data_pmk;
+    }
+    private function getDataTernak($idKec,$idKel){
+        $peternak = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->first();
+        $pmk = Pmk::where('id_peternak',isset($peternak->id))->get();
+        
+        $data =  [];
+        $data_pmk =[];
+        $terduga_kambing = 0;
+        $tertular_kambing = 0;
+        $terduga_kerbau = 0;
+        $tertular_kerbau = 0;
+        $terduga_sapi_perah = 0;
+        $tertular_sapi_perah = 0;
+        $terduga_sapi_potong = 0;
+        $tertular_sapi_potong = 0;
+
+        foreach ($pmk as $p) {
+            $terduga_kambing = $terduga_kambing + $p->terduga_kambing;
+            $tertular_kambing = $tertular_kambing + $p->tertular_kambing;
+            $terduga_kerbau = $terduga_kerbau + $p->terduga_kerbau;
+            $tertular_kerbau = $tertular_kerbau + $p->tertular_kerbau;
+            $terduga_sapi_perah = $terduga_sapi_perah + $p->terduga_sapi_perah;
+            $tertular_sapi_perah = $tertular_sapi_perah + $p->tertular_sapi_perah;
+            $terduga_sapi_potong = $terduga_sapi_potong + $p->terduga_sapi_potong;
+            $tertular_sapi_potong = $tertular_sapi_potong + $p->tertular_sapi_potong;
+        }
+        $data['terduga_kambing'] = $terduga_kambing;
+        $data['tertular_kambing'] = $tertular_kambing;
+        $data['terduga_kerbau'] = $terduga_kerbau;
+        $data['tertular_kerbau'] = $tertular_kerbau;
+        $data['terduga_sapi_perah'] = $terduga_sapi_perah;
+        $data['tertular_sapi_perah'] = $tertular_sapi_perah;
+        $data['terduga_sapi_potong'] = $terduga_sapi_potong;
+        $data['tertular_sapi_potong'] = $tertular_sapi_potong;
+        $data['total_kasus'] = $tertular_sapi_potong;
+        array_push($data_pmk,$data);
+       return $data_pmk;
     }
     public function getDataPerKecamatan($id){
         $data = [];
         $data['nama_kecamatan'] = MasterKecamatan::where('id',$id)->first();
-        $data['data_ternak'] = $this->getKelurahan($id);
+        $data['data_pmk'] = $this->getDataTernakKecamatan($id);
+        $data['data_pmk_perkelurahan'] = $this->getKelurahan($id);
         return $data;
     }
 }

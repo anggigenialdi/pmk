@@ -18,20 +18,20 @@
       background-color:#52CBC1 !important;
     }
     .leaflet-tooltip.my-labels {
-    background-color: transparent;
+    /* background-color: transparent;
     border: transparent;
     box-shadow: none;
-    color:white !important;
     position:absolute;
-    font-size:18px;
+    font-size:18px; */
+    color:red !important;
     }
     .my-fill{
       opacity: 1 !important;
     }
     #table-kecamatan{
       position:absolute !important;
-      right:0;
-      top:0;
+      right:5;
+      top:5;
       z-index: 9999;
       background-color:white;
     }
@@ -182,7 +182,25 @@
 <script>
         $(document).ready(function() {
              setMap()
+             setJumlah()
         })
+        function setJumlah(id) {
+          $.ajax({
+                type: "GET",
+                url: `../data-ternak`,
+                dataType: 'json',
+                async: false,
+                success: function (res) { 
+                  // res.forEach(element => {
+                  //   console.log(element.data_ternak[0].total_kasus)
+                  // });
+                  //     return String(res.data_pmk[0].total_kasus)
+                      $(`#data-${id}`).html(`Total Kasus : ${res.data_pmk[0].total_kasus}`);
+                }
+          })
+          
+        }
+        
         function setMap() {
           var map = L.map('map').setView([-6.904744, 107.639810], 13);
             var tiles = L.tileLayer(
@@ -197,34 +215,36 @@
              $.get('../geojson', function(data) {
               let features = data.features
               features.forEach((e,index) => {
-                L.geoJSON(e).setStyle({fillColor :setColor(e.properties.id_kecamatan)}).addTo(map).on('mouseover',()=>{
+                L.geoJSON(e).setStyle({fillColor:'blue'}).addTo(map).on('mouseover',()=>{
                   setData(e.properties.id_kecamatan)
                 }).bindTooltip(   
-                  '<div>'+e.properties.nama_kecamatan+'</div>'
+                  '<div>'+e.properties.nama_kecamatan+'</div><div id="data-'+e.properties.id_kecamatan+'"></div>'
                   , {permanent: true, direction: "center", className: "my-labels"}).openTooltip();
+                  setJumlah(e.properties.id_kecamatan)
+
               });
                
             });
-          // $.getJSON('data-ternak', function(data) {
-          //       $.each(data, function(i) {
-          //           L.marker([data[i].latitude, data[i].longitude]).addTo(map).on('click', (e) => {
-          //             setData(data[i].id)
-          //               L.marker([data[i].latitude, data[i].longitude]).addTo(map)
-          //                   .bindPopup(                 
-          //                     '<div>'+data[i].nama_kecamatan+'</div><div id="form-add"> Total Kasus : '+data[i].total_kasus+'</div>'
-          //                     ).openPopup();
-                              
-          //           });
-          //       });
-          //   });
         }
+    
         function setColor(id) {
-          if(id==1){
-            return 'blue'
-          }
-          else{
-            return 'red'
-          }
+          $.ajax({
+                type: "GET",
+                url: `../data-ternak/${id}`,
+                dataType: 'json',
+                async: false,
+                success: function (res) { 
+                  if(res.data_pmk[0].total_kasus == '15' ){
+                    console.log(res.data_pmk[0].total_kasus)
+                      return '#ffff'
+                    }
+                    else{
+                      console.log(res.data_pmk[0].total_kasus)
+                      return '#0000'
+                    }
+                }
+          })
+          
         }
         function setData(id) {
           $.ajax({
@@ -244,12 +264,12 @@
                                 </tr>
                               </thead>
                               <tbody>`;
-                              res.data_ternak.forEach((res,index) => {
+                              res.data_pmk_perkelurahan.forEach((res,index) => {
                                   data += `
                                       <tr>
                                         <th scope="row">${index+1}</th>
                                         <td>${res.nama_kelurahan}</td>
-                                        <td>${res.ternak.total_kasus}</td>
+                                        <td>${res.ternak[0].total_kasus}</td>
                                       </tr>
                                     `;
                             })
