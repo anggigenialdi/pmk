@@ -40,8 +40,8 @@
         <div class="container-fluid">
             <div class="row page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Master Data</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Peternak</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Master Data</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Peternak</a></li>
                 </ol>
             </div>
             <div class="row">
@@ -104,8 +104,9 @@
 															<svg width="24px" height="24px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 														</div>
 														<div class="dropdown-menu dropdown-menu-end">
-															<a class="dropdown-item" href="{{ route('pmk.create', $data->id) }}">Tambah Data Pmk</a>
-															<a class="dropdown-item" href="#">Edit Data</a>
+															<a class="dropdown-item" href="{{ route('pmk.create', $data->id) }}">Tambah Data Pemeriksaan</a>
+															<a class="dropdown-item" href="{{ route('peternak.detail', $data->id) }}">Detail Data Peternak</a>
+															<a class="dropdown-item" href="{{ route('peternak.edit', $data->id) }}">Edit Data Peternak</a>
 														</div>
 													</div>
                                                 </td>

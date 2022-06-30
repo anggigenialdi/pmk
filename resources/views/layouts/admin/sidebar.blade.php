@@ -48,7 +48,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('data-peternak.index') }}">Peternak</a></li>
-                    <li><a href="{{ route('data-pmk.index') }}">Data Pmk</a></li>
+                    <li><a href="{{ route('data-pmk.index') }}">Data Pemeriksaan Pmk</a></li>
                     {{-- <li><a href="#">Jenis Ternak</a></li>
                     <li><a href="#">Populasi Ternak</a></li> --}}
                 </ul>

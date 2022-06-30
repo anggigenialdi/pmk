@@ -21,9 +21,9 @@
         <div class="container-fluid">
             <div class="row page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Master Data</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Peternak</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Tambah Data</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Master Data</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('peternak.index') }}">Peternak</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tambah Data</a></li>
                 </ol>
             </div>
             <form class="needs-validation" method="POST" action="{{ route('peternak.post') }}" autocomplete="off"

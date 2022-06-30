@@ -1,41 +1,46 @@
-<div class="modal fade none-border" id="add-category">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"><strong>Peternak</strong></h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label class="control-label form-label">Nama Peternak</label>
-                            <input class="form-control form-white" placeholder="Nama Peternak" type="text"
-                                name="nama" value="{{ old('nama') }}">
+@foreach ($datas as $data)
+    <div class="modal fade none-border" id="addModal{{ $data->id }}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Hasil Labolatorium</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" method="POST" action="{{ route('pmk-lab.post', $data->id) }}"
+                        autocomplete="off" novalidate="">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="control-label form-label">Nama Peternak</label>
+                                <input class="form-control form-white" placeholder="Nama Peternak" type="text"
+                                    name="nama" value="{{ old('nama', $data->dataPeternak->nama) }}" readonly
+                                    disabled>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label form-label">Tanggal Pengujian</label>
+                                <input type="datetime-local" class="form-control form-control-sm" id="date"
+                                    placeholder="Input Tanggal.." required="" name="tanggal_pemeriksaan"
+                                    value="{{ old('tanggal_pengujian_lab') }}">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label form-label">Hasil</label>
+                                <input class="form-control form-white" placeholder="Hasil" type="number"
+                                    name="hasil_pengujian_lab" value="{{ old('hasil_pengujian_lab') }}">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label form-label">Keterangan</label>
+                                <textarea class="form-control" id="keterangan" rows="5" name="keterangan" placeholder="keterangan"
+                                    value="{{ old('keterangan') }}" required autofocus></textarea>
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <label class="control-label form-label">Alamat</label>
-                            <textarea class="form-control" id="alamat" rows="5" name="alamat"
-                                placeholder="Alamat" value="{{ old('alamat') }}" required autofocus></textarea>
-                        </div>
-                        <div class="col-md-6">
-                            {{-- <label class="control-label form-label">RT</label> --}}
-                            <input class="form-control form-white" placeholder="RT" type="number"
-                                name="rt" value="{{ old('rt') }}">
-                        </div>
-                        <div class="col-md-6">
-                            {{-- <label class="control-label form-label">RW</label> --}}
-                            <input class="form-control form-white" placeholder="RW" type="number"
-                                name="rw" value="{{ old('rw') }}">
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger waves-effect waves-light save-category"
-                    data-bs-toggle="modal">Save</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light save-category"
+                        data-bs-toggle="modal">Simpan</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endforeach

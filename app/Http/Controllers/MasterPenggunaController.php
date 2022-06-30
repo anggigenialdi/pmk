@@ -22,6 +22,6 @@ class MasterPenggunaController extends Controller
         $data->role = $request->input('role');
         $data->password = $request->input('password');
         $data->save();
-        return back();
+        return back()->with('success', ' Data Berhasil Ditambahkan');
     }
 }

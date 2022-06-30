@@ -23,12 +23,20 @@ $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/data-peternak', 'PeternakController@peternakIndex')->name('data-peternak.index');
     $router->get('/halaman', 'PeternakController@peternakCreate')->name('peternak.create');
     $router->post('/tambah', 'PeternakController@peternakPost')->name('peternak.post');
+    $router->get('/detail/{id}', 'PeternakController@peternakDetail')->name('peternak.detail');
+    $router->get('/edit/{id}', 'PeternakController@peternakEdit')->name('peternak.edit');
+    $router->post('/update/{id}', 'PeternakController@peternakUpdate')->name('peternak.update');
 });
 
 $router->group(['prefix' => 'data-pmk'], function () use ($router) {
     $router->get('/', 'PmkController@pmkIndex')->name('data-pmk.index');
     $router->get('/halaman/{id}', 'PmkController@pmkCreate')->name('pmk.create');
-    $router->post('/tambah{id}', 'PmkController@pmkPost')->name('pmk.post');
+    $router->post('/tambah/{id}', 'PmkController@pmkPost')->name('pmk.post');
+    $router->get('/detail/{id}', 'PmkController@pmkDetail')->name('pmk.detail');
+    $router->get('/edit/{id}', 'PmkController@pmkEdit')->name('pmk.edit');
+    $router->post('/update/{id}', 'PmkController@pmkUpdate')->name('pmk.update');
+    $router->post('/hasil-lab/{id}', 'PmkController@pmkPostLab')->name('pmk-lab.post');
+
 });
 
 Auth::routes();

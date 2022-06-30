@@ -38,7 +38,7 @@ class PeternakController extends Controller
         $ternak->jumlah_sapi_potong = $request->input('jumlah_sapi_potong');
         $ternak->jumlah_sapi_perah = $request->input('jumlah_sapi_perah');
         $ternak->save();
-        return back();
+        return back()->with('success', ' Data Berhasil Ditambahkan');
     }
 
     public function index(){
@@ -101,5 +101,38 @@ class PeternakController extends Controller
         $data['nama_kecamatan'] = MasterKecamatan::where('id',$id)->first();
         $data['data_ternak'] = $this->getKelurahan($id);
         return $data;
+    }
+
+    public function peternakDetail($id)
+    {
+        $datas = Peternak::where('id', $id)->get();
+
+        return view('admin/peternak/detail', compact('datas'));
+    }
+    public function peternakEdit($id)
+    {
+        $kecamatan = MasterKecamatan::get();
+        $kelurahan = MasterKelurahan::get();
+        $datas = Peternak::where('id', $id)->get();
+
+        return view('admin/peternak/edit', compact(['kecamatan', 'datas', 'kelurahan'] ));
+    }
+    public function peternakUpdate(Request $request, $id){
+        
+        $datas = Peternak::where('id', $id)->first();
+        $datas->nik = $request->input('nik');
+        $datas->nama = $request->input('nama');
+        $datas->kode_kecamatan = $request->input('kecamatan');
+        $datas->kode_kelurahan = $request->input('kelurahan');
+        $datas->rw = $request->input('rw');
+        $datas->rt = $request->input('rt');
+        $datas->alamat = $request->input('alamat');
+        $datas->jumlah_kambing = $request->input('jumlah_kambing');
+        $datas->jumlah_kerbau = $request->input('jumlah_kerbau');
+        $datas->jumlah_sapi_potong = $request->input('jumlah_sapi_potong');
+        $datas->jumlah_sapi_perah = $request->input('jumlah_sapi_perah');
+        $datas->save();
+        return back()->with('success', ' Data Berhasil Diupdate');
+
     }
 }

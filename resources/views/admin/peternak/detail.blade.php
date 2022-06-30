@@ -6,7 +6,7 @@
                 <div class="collapse navbar-collapse justify-content-between">
                     <div class="header-left">
                         <div class="dashboard_bar">
-                            Tambah Data
+                            Detail Data Peternak
                         </div>
                     </div>
                     <ul class="navbar-nav header-right">
@@ -21,15 +21,12 @@
         <div class="container-fluid">
             <div class="row page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Master Data</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('data-pmk.index') }}">Data Pmk</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tambah Data</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Master Data</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Peternak</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Detail Data</a></li>
                 </ol>
             </div>
             @foreach ($datas as $data)
-                <form class="needs-validation" method="POST" action="{{ route('pmk.post', $data->id) }}"
-                    autocomplete="off" novalidate="">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     {{-- row --}}
                     <fieldset disabled="">
                         <div class="row">
@@ -177,145 +174,6 @@
                             </div>
                         </div>
                     </fieldset>
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Data Pemeriksaan</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-validation">
-                                            <div class="row">
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="tanggal_pemeriksaan">Tanggal Pemeriksaan
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="datetime-local" class="form-control form-control-sm"
-                                                            id="date" placeholder="Input Tanggal.." required=""
-                                                            name="tanggal_pemeriksaan" value="{{ old('tanggal_pemeriksaan') }}" >
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="domba">Domba/Kambing
-                                                    </label>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="terduga_kambing">Terduga
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="terduga_kambing" placeholder="" name="terduga_kambing"
-                                                            value="{{ old('terduga_kambing') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="tertular_kambing">Tertular
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="tertular_kambing" placeholder="" name="tertular_kambing"
-                                                            value="{{ old('tertular_kambing') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="domba">Kerbau
-                                                    </label>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="terduga_kerbau">Terduga
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="terduga_kerbau" placeholder="" name="terduga_kerbau"
-                                                            value="{{ old('terduga_kerbau') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="tertular_kerbau">Tertular
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="tertular_kerbau" placeholder="" name="tertular_kerbau"
-                                                            value="{{ old('tertular_kerbau') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="terduga_sapi_perah">Sapi
-                                                        Perah
-                                                    </label>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="terduga_sapi_perah">Terduga
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="terduga_sapi_perah" placeholder=""
-                                                            name="terduga_sapi_perah"
-                                                            value="{{ old('terduga_sapi_perah') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="tertular_sapi_perah">Tertular
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="tertular_sapi_perah" placeholder=""
-                                                            name="tertular_sapi_perah"
-                                                            value="{{ old('tertular_sapi_perah') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="terduga_sapi_potong">Sapi
-                                                        Potong
-                                                    </label>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="terduga_sapi_potong">Terduga
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="terduga_sapi_potong" placeholder=""
-                                                            name="terduga_sapi_potong"
-                                                            value="{{ old('terduga_sapi_potong') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="col-form-label" for="tertular_sapi_potong">Tertular
-                                                        </label>
-                                                        <input type="number" class="form-control form-control-sm"
-                                                            id="tertular_sapi_potong" placeholder=""
-                                                            name="tertular_sapi_potong"
-                                                            value="{{ old('tertular_sapi_potong') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <div class="col-lg-8 pull-right">
-                                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             @endforeach
         </div>
     </div>
