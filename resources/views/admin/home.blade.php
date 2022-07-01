@@ -34,7 +34,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-white invoice-num">250</h2>
+                                <h2 class="text-white invoice-num" id="total_peternak">0</h2>
                                 <span class="text-white fs-18">Total Peternak</span>
                             </div>
                         </div>
@@ -52,8 +52,8 @@
 
                             </div>
                             <div>
-                                <h2 class="text-white invoice-num">3</h2>
-                                <span class="text-white fs-18">Total Jenis Ternak</span>
+                                <h2 class="text-white invoice-num">0</h2>
+                                <span class="text-white fs-18">Total</span>
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-white invoice-num">1256</h2>
-                                <span class="text-white fs-18">Total A</span>
+                                <h2 class="text-white invoice-num">0</h2>
+                                <span class="text-white fs-18">Total</span>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@
 
                             </div>
                             <div>
-                                <h2 class="text-white invoice-num">652</h2>
-                                <span class="text-white fs-18">Total B</span>
+                                <h2 class="text-white invoice-num">0</h2>
+                                <span class="text-white fs-18">Total</span>
                             </div>
                         </div>
                     </div>
