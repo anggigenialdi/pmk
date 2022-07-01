@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse justify-content-between">
                     <div class="header-left">
                         <div class="dashboard_bar">
-                            Master
+                            Hasil Pengujian Labolatorium
                         </div>
                     </div>
                     <ul class="navbar-nav header-right">
@@ -41,7 +41,7 @@
             <div class="row page-titles">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Master Data</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Data Pmk</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Hasil Pengujian Labolatorium</a></li>
                 </ol>
             </div>
             <div class="row">
@@ -61,8 +61,11 @@
                                         <tr>
                                             <th rowspan="3">Id</th>
                                             <th rowspan="3">Nama Peternak</th>
-                                            <th rowspan="3">Tanggal</th>
+                                            <th rowspan="3">Tanggal Pemeriksaan</th>
                                             <th colspan="8" class="text-center">Jenis Hewan</th>
+                                            <th rowspan="3">Tanggal Pengujian Lab</th>
+                                            <th rowspan="3">Hasil Pengujian</th>
+                                            <th rowspan="3">Keterangan</th>
                                             <th rowspan="3">Action</th>
 
                                         </tr>
@@ -85,6 +88,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($datas as $data)
+                                            @if ($data->status_kasus !== null)
                                             <tr>
                                                 <td>
                                                     {{ $loop->iteration }}
@@ -110,6 +114,12 @@
                                                 <td class="text-center">
                                                     {{ $data->tertular_sapi_potong }}</td>
                                                 <td class="text-center">
+                                                    {{ $data->tanggal_pengujian_lab }}</td>
+                                                <td class="text-center">
+                                                    {{ $data->hasil_pengujian_lab }}</td>
+                                                <td class="text-center">
+                                                    {{ $data->keterangan }}</td>
+                                                <td class="text-center">
                                                     <div class="dropdown ms-auto text-end">
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24px" height="24px" viewbox="0 0 24 24"
@@ -128,18 +138,22 @@
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <button  type="button" class="dropdown-item" data-bs-toggle="modal"
-                                                                data-bs-target="#addModal{{ $data->id }}" title="Add">
-                                                                Hasil Labolatorium
+                                                            <button type="button" class="dropdown-item"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#addModal{{ $data->id }}"
+                                                                title="Add">
+                                                                Perkembangan Kasus
                                                             </button>
-                                                            <a class="dropdown-item"
+                                                            {{-- <a class="dropdown-item"
                                                                 href="{{ route('pmk.detail', $data->id) }}">Detail</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ route('pmk.edit', $data->id) }}">Edit</a>
+                                                                href="{{ route('pmk.edit', $data->id) }}">Edit</a> --}}
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endif
+                                            
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -150,5 +164,5 @@
             </div>
         </div>
     </div>
-    @include('admin/data-pmk/modal-add')
+    @include('admin/data-pmk/hasil-lab/modal-add')
 @endsection

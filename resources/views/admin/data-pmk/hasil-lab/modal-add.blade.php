@@ -3,9 +3,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"><strong>Hasil Labolatorium</strong></h4>
+                    <h4 class="modal-title"><strong>Perkembangan Kasus</strong></h4>
                 </div>
-                <form class="needs-validation" method="POST" action="{{ route('pmk-lab.post', $data->id) }}"
+                <form class="needs-validation" method="POST" action="{{ route('data-perkembangan.post', $data->id) }}"
                     autocomplete="off" novalidate="">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="modal-body">
@@ -16,21 +16,26 @@
                                     name="nama" value="{{ old('nama', $data->dataPeternak->nama) }}" readonly
                                     disabled>
                             </div>
-                            <div class="col-md-12">
-                                <label class="control-label form-label">Tanggal Pengujian</label>
+                            {{-- <div class="col-md-12">
+                                <label class="control-label form-label">Tanggal</label>
                                 <input type="datetime-local" class="form-control form-control-sm" id="date"
-                                    placeholder="Input Tanggal.." required="" name="tanggal_pengujian_lab"
-                                    value="{{ old('tanggal_pengujian_lab') }}">
+                                    placeholder="Input Tanggal.." required="" name="tanggal_perkembangan_kasus"
+                                    value="{{ old('tanggal_perkembangan_kasus') }}">
+                            </div> --}}
+                            <div class="col-md-12">
+                                <label class="control-label form-label">Mati</label>
+                                <input class="form-control form-white" placeholder="" type="number"
+                                    name="mati" value="{{ old('mati') }}" required="">
                             </div>
                             <div class="col-md-12">
-                                <label class="control-label form-label">Hasil</label>
-                                <input class="form-control form-white" placeholder="Hasil" type="number"
-                                    name="hasil_pengujian_lab" value="{{ old('hasil_pengujian_lab') }}" required="">
+                                <label class="control-label form-label">Potong Bersyarat</label>
+                                <input class="form-control form-white" placeholder="" type="number"
+                                    name="potong_bersyarat" value="{{ old('potong_bersyarat') }}" required="">
                             </div>
                             <div class="col-md-12">
-                                <label class="control-label form-label">Keterangan</label>
-                                <textarea class="form-control" id="keterangan" rows="5" name="keterangan" placeholder="keterangan"
-                                    value="{{ old('keterangan') }}" required autofocus></textarea>
+                                <label class="control-label form-label">Sembuh</label>
+                                <input class="form-control form-white" placeholder="" type="number"
+                                    name="sembuh" value="{{ old('sembuh') }}" required="">
                             </div>
                         </div>
                     </div>

@@ -21,9 +21,9 @@
         <div class="container-fluid">
             <div class="row page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Master Data</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Peternak</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Tambah Data</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Master Data</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('peternak.index') }}">Peternak</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tambah Data</a></li>
                 </ol>
             </div>
             <form class="needs-validation" method="POST" action="{{ route('peternak.post') }}" autocomplete="off"
@@ -156,7 +156,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_kambing">Domba/Kambing <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm"
                                                         id="jumlah_kambing" placeholder="Input Jumlah Domba/Kambing.." required=""
                                                         name="jumlah_kambing" value="{{ old('jumlah_kambing') }}">
                                                     <div class="invalid-feedback">
@@ -168,7 +168,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_kerbau">Kerbau <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm"
                                                         id="jumlah_kerbau" placeholder="Input Jumlah Kerbau.." required=""
                                                         name="jumlah_kerbau" value="{{ old('jumlah_kerbau') }}">
                                                     <div class="invalid-feedback">
@@ -180,7 +180,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_sapi_perah">Sapi Perah <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm"
                                                         id="jumlah_sapi_perah" placeholder="Input Jumlah Sapi Perah.." required=""
                                                         name="jumlah_sapi_perah" value="{{ old('jumlah_sapi_perah') }}">
                                                     <div class="invalid-feedback">
@@ -192,7 +192,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_sapi_potong">Sapi Potong <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm"
                                                         id="jumlah_sapi_potong" placeholder="Input Jumlah Sapi Potong.." required=""
                                                         name="jumlah_sapi_potong" value="{{ old('jumlah_sapi_potong') }}">
                                                     <div class="invalid-feedback">
