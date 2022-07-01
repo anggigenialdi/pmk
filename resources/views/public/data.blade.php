@@ -7,8 +7,8 @@
 
     .header {
         background-color: #28A745 !important;
-        margin: 40px 0px;
-        padding: 40px 10px;
+        margin:40px 0px;
+        padding:40px 10px;
         border-radius: 10px;
     }
 
@@ -17,6 +17,7 @@
         border-spacing: 0;
         width: 100%;
         border: 1px solid #ddd;
+        font-size: 12px;
     }
 
     th {
@@ -117,25 +118,25 @@
                 dataType: 'json',
                 async: false,
                 success: function(res) {
-                    console.log(res);
+                    // console.log(res);
                     res.forEach((el, index) => {
-                        // console.log("has",el);
+                        console.log("has",el);
                         
-                        let sum_terduga = ( el.data_ternak[0].terduga_kambing +  el.data_ternak[0].terduga_kerbau +  el.data_ternak[0].terduga_sapi_perah +  el.data_ternak[0].terduga_sapi_potong );
-                        let sum_tertular = ( el.data_ternak[0].tertular_kambing +  el.data_ternak[0].tertular_kerbau +  el.data_ternak[0].tertular_sapi_perah +  el.data_ternak[0].tertular_sapi_potong );
+                        let sum_terduga = ( el.data_ternak.terduga_kambing +  el.data_ternak.terduga_kerbau +  el.data_ternak.terduga_sapi_perah +  el.data_ternak.terduga_sapi_potong );
+                        let sum_tertular = ( el.data_ternak.tertular_kambing +  el.data_ternak.tertular_kerbau +  el.data_ternak.tertular_sapi_perah +  el.data_ternak.tertular_sapi_potong );
                         let gt = ( sum_terduga + sum_tertular );
 
                         res += `<tr>   
                                 <td>${index+1}</td>
                                 <td>${el.nama_kecamatan}</td>
-                                <td>${el.data_ternak[0].terduga_kambing}</td>
-                                <td>${el.data_ternak[0].tertular_kambing}</td>
-                                <td>${el.data_ternak[0].terduga_kerbau}</td>
-                                <td>${el.data_ternak[0].tertular_kerbau}</td>
-                                <td>${el.data_ternak[0].terduga_sapi_perah}</td>
-                                <td>${el.data_ternak[0].tertular_sapi_perah}</td>
-                                <td>${el.data_ternak[0].terduga_sapi_potong}</td>
-                                <td>${el.data_ternak[0].tertular_sapi_potong}</td>
+                                <td>${el.data_ternak.terduga_kambing}</td>
+                                <td>${el.data_ternak.tertular_kambing}</td>
+                                <td>${el.data_ternak.terduga_kerbau}</td>
+                                <td>${el.data_ternak.tertular_kerbau}</td>
+                                <td>${el.data_ternak.terduga_sapi_perah}</td>
+                                <td>${el.data_ternak.tertular_sapi_perah}</td>
+                                <td>${el.data_ternak.terduga_sapi_potong}</td>
+                                <td>${el.data_ternak.tertular_sapi_potong}</td>
                                 <td>${sum_terduga}</td>
                                 <td>${sum_tertular}</td>
                                 <td>${gt}</td>
