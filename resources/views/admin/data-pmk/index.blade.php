@@ -56,7 +56,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example" class="display hover" style="min-width: 845px">
+                                <table id="example" class="table table-striped" style="min-width: 845px">
                                     <thead>
                                         <tr>
                                             <th rowspan="3">Id</th>

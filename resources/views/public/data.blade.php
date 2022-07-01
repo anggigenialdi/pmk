@@ -140,9 +140,9 @@
                                 <td>${sum_terduga}</td>
                                 <td>${sum_tertular}</td>
                                 <td>${gt}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>${el.data_ternak.mati}</td>
+                                <td>${el.data_ternak.potong_bersyarat}</td>
+                                <td>${el.data_ternak.sembuh}</td>
                                 </tr>`
                     });
                     $('#tablePmk').append(
