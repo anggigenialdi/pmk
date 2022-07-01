@@ -220,7 +220,7 @@
                 }).bindTooltip(   
                   '<div>'+e.properties.nama_kecamatan+'</div><div id="data-'+e.properties.id_kecamatan+'"></div>'
                   , {permanent: true, direction: "center", className: "my-labels"}).openTooltip();
-                  setJumlah(e.properties.id_kecamatan)
+                  // setJumlah(e.properties.id_kecamatan)
 
               });
                
