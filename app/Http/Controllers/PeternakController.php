@@ -43,6 +43,7 @@ class PeternakController extends Controller
     }
 
     public function index(){
+        
         $kec = MasterKecamatan::get();
         
         $data = [];

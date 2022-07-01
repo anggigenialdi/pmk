@@ -116,14 +116,17 @@
                 url: '../data-ternak',
                 dataType: 'json',
                 async: false,
-                success: function(data) {
-                    console.log("res", data);
-                    data.forEach(el => {
+                success: function(res) {
+                    console.log(res);
+                    res.forEach((el, index) => {
+                        // console.log("has",el);
+                        
                         let sum_terduga = ( el.data_ternak[0].terduga_kambing +  el.data_ternak[0].terduga_kerbau +  el.data_ternak[0].terduga_sapi_perah +  el.data_ternak[0].terduga_sapi_potong );
                         let sum_tertular = ( el.data_ternak[0].tertular_kambing +  el.data_ternak[0].tertular_kerbau +  el.data_ternak[0].tertular_sapi_perah +  el.data_ternak[0].tertular_sapi_potong );
                         let gt = ( sum_terduga + sum_tertular );
-                        data += `<tr>
-                                <td>${el.id}</td>
+
+                        res += `<tr>   
+                                <td>${index+1}</td>
                                 <td>${el.nama_kecamatan}</td>
                                 <td>${el.data_ternak[0].terduga_kambing}</td>
                                 <td>${el.data_ternak[0].tertular_kambing}</td>
@@ -139,7 +142,7 @@
                                 </tr>`
                     });
                     $('#tablePmk').append(
-                        `${data}`
+                        `${res}`
                     );
                 }
             })
