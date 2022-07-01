@@ -71,7 +71,7 @@
                                     <th colspan="8" class="text-center">Jenis Hewan</th>
                                     <th colspan="2" rowspan="2" class="text-center">Total</th>
                                     <th rowspan="3">Grand Total</th>
-                                    {{-- <th colspan="3" rowspan="2">Hasil Pengujian Labolatorium</th> --}}
+                                    <th colspan="3" rowspan="2">Hasil Pengujian Labolatorium</th>
 
                                 </tr>
                                 <tr>
@@ -92,9 +92,9 @@
                                     <th id="tertular_sapi_potong">Tertular</th>
                                     <th id="total_terduga">Terduga</th>
                                     <th id="total_tertular">Tertular</th>
-                                    {{-- <th id="mati">Mati</th>
+                                    <th id="mati">Mati</th>
                                     <th id="potong_beryarat">Potong Bersyarat</th>
-                                    <th id="sembuh">Sembuh</th> --}}
+                                    <th id="sembuh">Sembuh</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -139,6 +139,9 @@
                                 <td>${sum_terduga}</td>
                                 <td>${sum_tertular}</td>
                                 <td>${gt}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 </tr>`
                     });
                     $('#tablePmk').append(

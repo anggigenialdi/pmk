@@ -61,26 +61,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="mb-3 row">
-                                                        <label class="col-lg-3 col-form-label" for="kecamatan">Kecamatan
-                                                        </label>
-                                                        <div class="col-lg-8">
-                                                            <input type="text" class="form-control form-control-sm"
-                                                                id="kecamatan" placeholder="Input Kecamatan.."
-                                                                required="" name="kecamatan"
-                                                                value="{{ $data->masterKecamatan->nama }}" readonly>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3 row">
-                                                        <label class="col-lg-3 col-form-label" for="kelurahan">Kelurahan
-                                                        </label>
-                                                        <div class="col-lg-8">
-                                                            <input type="text" class="form-control form-control-sm"
-                                                                id="kelurahan" placeholder="Input Kelurahan.."
-                                                                required="" name="kelurahan"
-                                                                value="{{ $data->masterKelurahan->nama }}" readonly>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="mb-3 row">
                                                         <div class="col-lg-3">
                                                         </div>
