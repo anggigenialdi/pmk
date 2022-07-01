@@ -156,7 +156,7 @@
       <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
       <div id="map">
         <div id="table-kecamatan"></div>
-        <div id="keterangan-jumlah">
+        <!-- <div id="keterangan-jumlah">
           <div class="max">
             <div></div>
             <div>>1.000 Kasus</div>
@@ -169,7 +169,7 @@
             <div></div>
             <div>>100 Kasus</div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-md-2">
@@ -220,8 +220,7 @@
                 }).bindTooltip(   
                   '<div>'+e.properties.nama_kecamatan+'</div><div id="data-'+e.properties.id_kecamatan+'"></div>'
                   , {permanent: true, direction: "center", className: "my-labels"}).openTooltip();
-                  setJumlah(e.properties.id_kecamatan)
-
+                  // setJumlah(e.properties.id_kecamatan)
               });
                
             });

@@ -65,14 +65,14 @@ class PeternakController extends Controller
         $data_kel =[];
         foreach ($kel as $k) {
             $data['nama_kelurahan'] = $k->nama;
-            $data['ternak'] = $this->getDataTernak($id,$k->id);
+            $data['ternak'] = $this->getDataTernakKelurahan($id,$k->id);
             array_push($data_kel,$data);
         }
         return $data_kel;
     }
     private function getDataTernakKecamatan($idKec){
         $peternak = Peternak::where('kode_kecamatan',$idKec)->first();
-        $pmk = Pmk::where('id_peternak',isset($peternak->id))->get();
+        $pmk = Pmk::where('id_peternak',$peternak ? $peternak->id : null)->get();
         
         $data =  [];
         $data_pmk =[];
@@ -103,14 +103,13 @@ class PeternakController extends Controller
         $data['tertular_sapi_perah'] = $tertular_sapi_perah;
         $data['terduga_sapi_potong'] = $terduga_sapi_potong;
         $data['tertular_sapi_potong'] = $tertular_sapi_potong;
-        $data['total_kasus'] = $tertular_sapi_potong;
+        $data['total_kasus'] = $tertular_sapi_potong + $tertular_sapi_perah + $tertular_kambing + $tertular_kerbau;
         array_push($data_pmk,$data);
-       return $data_pmk;
+       return $data;
     }
-    private function getDataTernak($idKec,$idKel){
+    private function getDataTernakKelurahan($idKec,$idKel){
         $peternak = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->first();
-        $pmk = Pmk::where('id_peternak',isset($peternak->id))->get();
-        
+        $pmk = Pmk::where('id_peternak',$peternak ? $peternak->id : null)->get();
         $data =  [];
         $data_pmk =[];
         $terduga_kambing = 0;
@@ -140,9 +139,10 @@ class PeternakController extends Controller
         $data['tertular_sapi_perah'] = $tertular_sapi_perah;
         $data['terduga_sapi_potong'] = $terduga_sapi_potong;
         $data['tertular_sapi_potong'] = $tertular_sapi_potong;
-        $data['total_kasus'] = $tertular_sapi_potong;
+        $data['total_kasus'] = $tertular_sapi_potong + $tertular_sapi_perah + $tertular_kambing + $tertular_kerbau;
         array_push($data_pmk,$data);
-       return $data_pmk;
+        return $data_pmk;
+        // dd($pmk);
     }
     public function getDataPerKecamatan($id){
         $data = [];
