@@ -37,29 +37,11 @@
     }
 </style>
 @section('content')
-    <nav class="navbar navbar-expand-lg navbar-light bg-success ">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-light" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <div class="container-fluid">
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2">
                 <div class="header">
-                    <h4 class="text-light">Sebaran PMK</h4>
+                    <h4 class="text-light">Tabel Sebaran PMK</h4>
                     <h5 class="text-light">Kota Bandung</h5>
                 </div>
                 <div class="row">
@@ -128,21 +110,21 @@
 
                         res += `<tr>   
                                 <td>${index+1}</td>
-                                <td>${el.nama_kecamatan}</td>
-                                <td>${el.data_ternak.terduga_kambing}</td>
-                                <td>${el.data_ternak.tertular_kambing}</td>
-                                <td>${el.data_ternak.terduga_kerbau}</td>
-                                <td>${el.data_ternak.tertular_kerbau}</td>
-                                <td>${el.data_ternak.terduga_sapi_perah}</td>
-                                <td>${el.data_ternak.tertular_sapi_perah}</td>
-                                <td>${el.data_ternak.terduga_sapi_potong}</td>
-                                <td>${el.data_ternak.tertular_sapi_potong}</td>
-                                <td>${sum_terduga}</td>
-                                <td>${sum_tertular}</td>
-                                <td>${gt}</td>
-                                <td>${el.data_ternak.mati}</td>
-                                <td>${el.data_ternak.potong_bersyarat}</td>
-                                <td>${el.data_ternak.sembuh}</td>
+                                <td class="text-center">${el.nama_kecamatan}</td>
+                                <td class="text-center">${el.data_ternak.terduga_kambing}</td>
+                                <td class="text-center">${el.data_ternak.tertular_kambing}</td>
+                                <td class="text-center">${el.data_ternak.terduga_kerbau}</td>
+                                <td class="text-center">${el.data_ternak.tertular_kerbau}</td>
+                                <td class="text-center">${el.data_ternak.terduga_sapi_perah}</td>
+                                <td class="text-center">${el.data_ternak.tertular_sapi_perah}</td>
+                                <td class="text-center">${el.data_ternak.terduga_sapi_potong}</td>
+                                <td class="text-center">${el.data_ternak.tertular_sapi_potong}</td>
+                                <td class="text-center">${sum_terduga}</td>
+                                <td class="text-center">${sum_tertular}</td>
+                                <td class="text-center">${gt}</td>
+                                <td class="text-center">${el.data_ternak.mati}</td>
+                                <td class="text-center">${el.data_ternak.potong_bersyarat}</td>
+                                <td class="text-center">${el.data_ternak.sembuh}</td>
                                 </tr>`
                     });
                     $('#tablePmk').append(

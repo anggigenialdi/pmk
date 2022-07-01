@@ -1,6 +1,6 @@
 @extends('layouts/admin/admin')
 <style>
-   table {
+    table {
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
@@ -22,6 +22,9 @@
 
     tr:nth-child(even) {
         background-color: #f2f2f2
+    }
+    table.dataTable thead th {
+        border-top: 1px solid #111;
     }
 </style>
 @section('header')
@@ -61,7 +64,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example" class="table table-striped" style="min-width: 845px">
+                                <table id="example" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th rowspan="3">Id</th>
@@ -141,7 +144,7 @@
                                 </table>
                             </div>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
