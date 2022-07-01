@@ -21,11 +21,11 @@ class Peternak extends Model
 
     public function masterKecamatan()
     {
-        return $this->belongsTo('App\Models\Masterkecamatan', 'kode_kecamatan', 'id');
+        return $this->belongsTo(MasterKecamatan::class, 'kode_kecamatan', 'id');
     }
     public function masterKelurahan()
     {
-        return $this->belongsTo('App\Models\Masterkelurahan', 'kode_kelurahan', 'id');
+        return $this->belongsTo(MasterKelurahan::class, 'kode_kelurahan', 'id');
     }
     public function pmk()
     {

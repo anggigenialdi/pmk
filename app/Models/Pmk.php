@@ -27,13 +27,4 @@ class Pmk extends Model
         return $this->belongsTo('App\Models\Peternak', 'id_peternak', 'id');
     }
 
-    public function masterKecamatan()
-    {
-        return $this->belongsTo('App\Models\Masterkecamatan', 'kode_kecamatan', 'id');
-    }
-    public function masterKelurahan()
-    {
-        return $this->belongsTo('App\Models\Masterkelurahan', 'kode_kelurahan', 'id');
-    }
-
 }
