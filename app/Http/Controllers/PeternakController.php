@@ -85,6 +85,9 @@ class PeternakController extends Controller
         $tertular_sapi_perah = 0;
         $terduga_sapi_potong = 0;
         $tertular_sapi_potong = 0;
+        $mati = 0;
+        $potong_bersyarat = 0;
+        $sembuh = 0;
 
         foreach ($pmk as $p) {
             $terduga_kambing = $terduga_kambing + $p->terduga_kambing;
@@ -95,6 +98,9 @@ class PeternakController extends Controller
             $tertular_sapi_perah = $tertular_sapi_perah + $p->tertular_sapi_perah;
             $terduga_sapi_potong = $terduga_sapi_potong + $p->terduga_sapi_potong;
             $tertular_sapi_potong = $tertular_sapi_potong + $p->tertular_sapi_potong;
+            $mati = $mati + $p->mati;
+            $potong_bersyarat = $potong_bersyarat + $p->potong_bersyarat;
+            $sembuh = $sembuh + $p->sembuh;
         }
         $data['terduga_kambing'] = $terduga_kambing;
         $data['tertular_kambing'] = $tertular_kambing;
@@ -105,12 +111,16 @@ class PeternakController extends Controller
         $data['terduga_sapi_potong'] = $terduga_sapi_potong;
         $data['tertular_sapi_potong'] = $tertular_sapi_potong;
         $data['total_kasus'] = $tertular_sapi_potong + $tertular_sapi_perah + $tertular_kambing + $tertular_kerbau;
+        $data['mati'] = $mati;
+        $data['potong_bersyarat'] = $potong_bersyarat;
+        $data['sembuh'] = $sembuh;
         array_push($data_pmk,$data);
        return $data;
     }
     private function getDataTernakKelurahan($idKec,$idKel){
         $peternak = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->first();
         $pmk = Pmk::where('id_peternak',$peternak ? $peternak->id : null)->get();
+        
         $data =  [];
         $data_pmk =[];
         $terduga_kambing = 0;
@@ -121,6 +131,9 @@ class PeternakController extends Controller
         $tertular_sapi_perah = 0;
         $terduga_sapi_potong = 0;
         $tertular_sapi_potong = 0;
+        $mati = 0;
+        $potong_bersyarat = 0;
+        $sembuh = 0;
 
         foreach ($pmk as $p) {
             $terduga_kambing = $terduga_kambing + $p->terduga_kambing;
@@ -131,6 +144,9 @@ class PeternakController extends Controller
             $tertular_sapi_perah = $tertular_sapi_perah + $p->tertular_sapi_perah;
             $terduga_sapi_potong = $terduga_sapi_potong + $p->terduga_sapi_potong;
             $tertular_sapi_potong = $tertular_sapi_potong + $p->tertular_sapi_potong;
+            $mati = $mati + $p->mati;
+            $potong_bersyarat = $potong_bersyarat + $p->potong_bersyarat;
+            $sembuh = $sembuh + $p->sembuh;
         }
         $data['terduga_kambing'] = $terduga_kambing;
         $data['tertular_kambing'] = $tertular_kambing;
@@ -141,6 +157,9 @@ class PeternakController extends Controller
         $data['terduga_sapi_potong'] = $terduga_sapi_potong;
         $data['tertular_sapi_potong'] = $tertular_sapi_potong;
         $data['total_kasus'] = $tertular_sapi_potong + $tertular_sapi_perah + $tertular_kambing + $tertular_kerbau;
+        $data['mati'] = $mati;
+        $data['potong_bersyarat'] = $potong_bersyarat;
+        $data['sembuh'] = $sembuh;
         array_push($data_pmk,$data);
         return $data_pmk;
         // dd($pmk);
