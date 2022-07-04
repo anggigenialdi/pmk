@@ -164,7 +164,7 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-8 offset-2  mb-4">
+            <div class="col-md-8 offset-md-2 mb-4">
                 <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
