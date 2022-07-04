@@ -125,7 +125,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_kambing">Domba/Kambing
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" min=0 class="form-control form-control-sm"
                                                         id="jumlah_kambing" placeholder="Input Jumlah Domba/Kambing.."
                                                         required="" name="jumlah_kambing"
                                                         value="{{ old('jumlah_kambing', $data->dataPeternak->jumlah_kambing) }}">
@@ -135,7 +135,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_kerbau">Kerbau
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" min=0 class="form-control form-control-sm"
                                                         id="jumlah_kerbau" placeholder="Input Jumlah Kerbau.."
                                                         required="" name="jumlah_kerbau"
                                                         value="{{ old('jumlah_kerbau', $data->dataPeternak->jumlah_kerbau) }}">
@@ -145,7 +145,7 @@
                                                 <label class="col-lg-3 col-form-label" for="jumlah_sapi_perah">Sapi Perah
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" min=0 class="form-control form-control-sm"
                                                         id="jumlah_sapi_perah" placeholder="Input Jumlah Sapi Perah.."
                                                         required="" name="jumlah_sapi_perah"
                                                         value="{{ old('jumlah_sapi_perah', $data->dataPeternak->jumlah_sapi_perah) }}">
@@ -156,7 +156,7 @@
                                                     Potong
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="number" min=0 class="form-control form-control-sm"
                                                         id="jumlah_sapi_potong" placeholder="Input Jumlah Sapi Potong.."
                                                         required="" name="jumlah_sapi_potong"
                                                         value="{{ old('jumlah_sapi_potong', $data->dataPeternak->jumlah_sapi_potong) }}">
