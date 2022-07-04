@@ -207,7 +207,7 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="terduga_kambing">Terduga
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number" min=0  max="{{ $data->jumlah_kambing}}" class="form-control form-control-sm"
                                                             id="terduga_kambing" placeholder="" name="terduga_kambing"
                                                             value="{{ old('terduga_kambing') }}" required="">
                                                         <div class="invalid-feedback">
@@ -217,7 +217,7 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="tertular_kambing">Tertular
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"  min=0  max="{{ $data->jumlah_kambing}}"  class="form-control form-control-sm"
                                                             id="tertular_kambing" placeholder="" name="tertular_kambing"
                                                             value="{{ old('tertular_kambing') }}" required="">
                                                         <div class="invalid-feedback">
@@ -231,7 +231,7 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="terduga_kerbau">Terduga
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"  min=0  max="{{ $data->jumlah_kerbau}}" class="form-control form-control-sm"
                                                             id="terduga_kerbau" placeholder="" name="terduga_kerbau"
                                                             value="{{ old('terduga_kerbau') }}" required="">
                                                         <div class="invalid-feedback">
@@ -241,7 +241,7 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="tertular_kerbau">Tertular
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"  min=0  max="{{ $data->jumlah_kerbau}}" class="form-control form-control-sm"
                                                             id="tertular_kerbau" placeholder="" name="tertular_kerbau"
                                                             value="{{ old('tertular_kerbau') }}" required="">
                                                         <div class="invalid-feedback">

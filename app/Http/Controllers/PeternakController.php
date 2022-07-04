@@ -32,7 +32,7 @@ class PeternakController extends Controller
     }
     public function peternakPost(Request $request)
     {
-
+        
         $ternak = new Peternak;
         $ternak->nik = $request->input('nik');
         $ternak->nama = $request->input('nama');
