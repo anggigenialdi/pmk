@@ -46,9 +46,9 @@
         position: absolute !important;
         left: 0;
         bottom: 0;
-        right: 0;
+        right: 80%;
         z-index: 9999;
-        background-color: white;
+        background-color: transparent;
         height: 40px;
         display: flex;
         justify-content: 'between';
@@ -77,7 +77,7 @@
         height: 20px;
         width: 20px;
         border-radius: 50%;
-        background-color: orange;
+        background-color: blue;
         z-index: 99999;
     }
 
@@ -166,6 +166,20 @@
                 <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
+                     <div id="keterangan-jumlah">
+                        <div class="max">
+                        <div></div>
+                        <div> Terdapat Kasus</div>
+                        </div>
+                        <div class="middle">
+                        <div></div>
+                        <div> Tidak Ada Kasus</div>
+                        </div>
+                        <!-- <div class="low">
+                        <div></div>
+                        <div>>100 Kasus</div>
+                        </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,13 +193,7 @@
             mybutton = document.getElementById("top");
             mybutton.style.display = "none";
 
-            function scrollFunction() {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    mybutton.style.display = "block";
-                } else {
-                    mybutton.style.display = "none";
-                }
-            }
+           
             window.scroll({
             top: 0, 
             left: 0, 
@@ -194,9 +202,16 @@
             setMap()
             setJumlah()
         })
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
         function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
 
         function setJumlah(id) {
