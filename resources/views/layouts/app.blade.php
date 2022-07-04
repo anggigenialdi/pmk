@@ -69,7 +69,7 @@
                 <div class="d-flex justify-content-start align-items-center">
                     <img src="https://dkpp-kota.bandung.go.id/frontend-template/assets/image-resources/logo2.png"
                         width="80px" height="40px" alt="">
-                        <p class="mt-4" id="footer">Dinas Ketahanan Pangan dan Pertanian Kota Bandung &copy; </p>
+                        <p class="mt-4" id="footer">DKPP  Kota Bandung &copy; </p>
                 </div>
             </div>
         <!-- </div> -->
