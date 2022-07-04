@@ -44,7 +44,6 @@
                     <h4 class="text-light">Tabel Sebaran PMK</h4>
                     <h5 class="text-light">Kota Bandung</h5>
                 </div>
-                <div class="row">
                     <div style="overflow-x:auto;">
                         <table class="table" id="tablePmk">
                             <thead>
@@ -84,9 +83,7 @@
 
                             </tbody>
                         </table>
-                    </div>
                 </div>
-
             </div>
         </div>
     </div>
