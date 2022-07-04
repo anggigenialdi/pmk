@@ -100,11 +100,13 @@
         padding:10px;
         z-index: 99999;
     }
-  
+    .bg-secondary2{
+        background-color : #f1f2f6;
+    }
 </style>
 
 @section('content')
-    <div class="container-fluid">
+<div class="container-fluid bg-secondary2">
     <button href="#top" id="top" onclick="topFunction()"><span class="lnr lnr-chevron-up text-light"></span></button>
 
         <div class="row no-gutters">
@@ -162,7 +164,7 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-8 offset-2">
+            <div class="col-md-8 offset-2  mb-4">
                 <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
@@ -184,7 +186,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('script')
     <script>

@@ -64,6 +64,15 @@
             </div>
         </nav>
         @yield('content')
+        <!-- <div class="row mt-4"> -->
+            <div class="col-md-8 offset-2 my-4">
+                <div class="d-flex justify-content-start align-items-center">
+                    <img src="https://dkpp-kota.bandung.go.id/frontend-template/assets/image-resources/logo2.png"
+                        width="80px" height="40px" alt="">
+                        <p class="mt-4" id="footer">Dinas Ketahanan Pangan dan Pertanian Kota Bandung &copy; </p>
+                </div>
+            </div>
+        <!-- </div> -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
@@ -75,6 +84,9 @@
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
     @yield('script')
+    <script>
+        document.getElementById("footer").append(new Date().getFullYear());
+    </script>
 </body>
 
 </html>
