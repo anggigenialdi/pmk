@@ -115,7 +115,7 @@
                 <h5>Jumlah Kasus</h5>
                 <div class="row">
                     <!--  -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <div class="card bg-danger">
                             <div class="card-body">
                                 <p class="card-text">Tertular / Terduga</p>
@@ -125,7 +125,7 @@
                     </div>
                     <!--  -->
                     <!--  -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <div class="card">
                             <div class="card-body bg-success">
                                 <p class="card-text">Sembuh</p>
@@ -135,7 +135,7 @@
                     </div>
                     <!--  -->
                     <!--  -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <div class="card">
                             <div class="card-body bg-warning">
                                 <p class="card-text">Mati</p>
@@ -145,7 +145,7 @@
                     </div>
                     <!--  -->
                     <!--  -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <div class="card">
                             <div class="card-body bg-primary">
                                 <p class="card-text">Potong Bersyarat</p>
