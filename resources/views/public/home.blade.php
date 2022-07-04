@@ -155,7 +155,6 @@
                     <!--  -->
                 </div>
                 <p class="text-right">Update Terakhir : 20 Juni 2022</p>
-
             </div>
         </div>
         <div class="row no-gutters">
@@ -193,7 +192,7 @@
             window.onscroll = function() {scrollFunction()};
             mybutton = document.getElementById("top");
             mybutton.style.display = "none";
-            
+
             function scrollFunction() {
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     mybutton.style.display = "block";
