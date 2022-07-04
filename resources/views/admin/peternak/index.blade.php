@@ -1,5 +1,13 @@
 @extends('layouts/admin/admin')
 <style>
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 12px;
+    }
+
     th {
         border-top: 1px solid #111;
         border-bottom: 1px solid #111;
@@ -7,13 +15,17 @@
         border-left: 1px solid #111;
     }
 
-    th:nth-child(-n+10) {
-        border-top: 1px solid #111;
-        border-bottom: 1px solid #111;
-        border-left: 1px solid #111;
-        border-right: 1px solid #111;
+    td {
+        text-align: left;
+        padding: 8px;
     }
 
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    table.dataTable thead th {
+        border-top: 1px solid #111;
+    }
 </style>
 @section('header')
     <div class="header">
@@ -52,7 +64,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example" class="display" style="min-width: 845px">
+                                <table id="example" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th rowspan="3">Id</th>
@@ -97,15 +109,34 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="dropdown ms-auto text-end">
-														<div class="btn-link" data-bs-toggle="dropdown">
-															<svg width="24px" height="24px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-														</div>
-														<div class="dropdown-menu dropdown-menu-end">
-															<a class="dropdown-item" href="{{ route('pmk.create', $data->id) }}">Tambah Data Pemeriksaan</a>
-															<a class="dropdown-item" href="{{ route('peternak.detail', $data->id) }}">Detail Data Peternak</a>
-															<a class="dropdown-item" href="{{ route('peternak.edit', $data->id) }}">Edit Data Peternak</a>
-														</div>
-													</div>
+                                                        <div class="btn-link" data-bs-toggle="dropdown">
+                                                            <svg width="24px" height="24px" viewbox="0 0 24 24"
+                                                                version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                    fill-rule="evenodd">
+                                                                    <rect x="0" y="0" width="24"
+                                                                        height="24"></rect>
+                                                                    <circle fill="#000000" cx="5" cy="12"
+                                                                        r="2"></circle>
+                                                                    <circle fill="#000000" cx="12" cy="12"
+                                                                        r="2"></circle>
+                                                                    <circle fill="#000000" cx="19" cy="12"
+                                                                        r="2"></circle>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('pmk.create', $data->id) }}">Tambah Data
+                                                                Pemeriksaan</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('peternak.detail', $data->id) }}">Detail
+                                                                Data Peternak</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('peternak.edit', $data->id) }}">Edit Data
+                                                                Peternak</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -113,7 +144,7 @@
                                 </table>
                             </div>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
