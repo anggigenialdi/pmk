@@ -24,15 +24,39 @@ class PeternakController extends Controller
 
         return view('admin/peternak/create', compact('kecamatan'));
     }
-    public function messages()
-    {
-        return [
-            'nik.required'    => 'Nik harap diisi',
-        ];
-    }
     public function peternakPost(Request $request)
     {
-        
+        request()->validate(
+            [
+                'nik' => 'required|min:16|max:16',
+                'nama' => 'required',
+                'kecamatan' => 'required',
+                'kelurahan' => 'required',
+                'rt' => 'required',
+                'rw' => 'required',
+                'alamat' => 'required',
+                'jumlah_kambing' => 'required',
+                'jumlah_kerbau' => 'required',
+                'jumlah_sapi_potong' => 'required',
+                'jumlah_sapi_perah' => 'required',
+            ],
+            [
+                'nik.required' => 'NIK tidak boleh kosong',
+                'nik.min' => 'NIK Harus 16 digit angka',
+                'nama.required' => 'Nama Peternak tidak boleh kosong',
+                'kecamatan.required' => 'Kecamatan tidak boleh kosong',
+                'kelurahan.required' => 'Kelurahan tidak boleh kosong',
+                'rt.required' => 'Input tidak boleh kosong',
+                'rw.required' => 'Input tidak boleh kosong',
+                'alamat.required' => 'Input tidak boleh kosong',
+                'jumlah_kambing.required' => 'Input tidak boleh kosong',
+                'jumlah_kerbau.required' => 'Input tidak boleh kosong',
+                'jumlah_sapi_potong.required' => 'Input tidak boleh kosong',
+                'jumlah_sapi_perah.required' => 'Input tidak boleh kosong',
+
+            ]
+        );
+
         $ternak = new Peternak;
         $ternak->nik = $request->input('nik');
         $ternak->nama = $request->input('nama');
@@ -49,9 +73,10 @@ class PeternakController extends Controller
         return back()->with('success', ' Data Berhasil Ditambahkan');
     }
 
-    public function index(){
-        
-        $kec = MasterKecamatan::orderBy('nama','asc')->get();
+    public function index()
+    {
+
+        $kec = MasterKecamatan::orderBy('nama', 'asc')->get();
         $latest  = MasterKecamatan::latest()->first();
 
         $data = [];

@@ -54,10 +54,11 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm  @error('nik') is-invalid @enderror" 
+                                                    <input type="number"
+                                                        class="form-control form-control-sm  @error('nik') is-invalid @enderror"
                                                         id="nik" placeholder="Input NIK.." required name="nik"
                                                         value="{{ old('nik') }}">
-                                                    
+
                                                     @error('nik')
                                                         <div class="invalid-feedback">{{ $message }}</div>
                                                     @enderror
@@ -68,12 +69,13 @@
                                                     Peternak <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="text"
+                                                        class="form-control form-control-sm @error('nama') is-invalid @enderror"
                                                         id="nama" placeholder="Input Nama.." required=""
                                                         name="nama" value="{{ old('nama') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('nama')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
 
@@ -82,15 +84,16 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select class="form-control" id="kecamatan" name="kecamatan" required>
+                                                    <select class="form-control  @error('kecamatan') is-invalid @enderror"
+                                                        id="kecamatan" name="kecamatan" required>
                                                         <option value="">Pilih</option>
                                                         @foreach ($kecamatan as $kec)
                                                             <option value={{ $kec->id }}>{{ $kec->nama }}</option>
                                                         @endforeach
                                                     </select>
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('kecamatan')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -98,11 +101,12 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select class="form-control" id="kelurahan" name="kelurahan" required>
+                                                    <select class="form-control  @error('kelurahan') is-invalid @enderror"
+                                                        id="kelurahan" name="kelurahan" required>
                                                     </select>
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('kelurahan')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -112,23 +116,25 @@
                                                     <label class="col-lg-3 col-form-label" for="rw">RW
                                                         <span class="text-danger">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="text"
+                                                        class="form-control form-control-sm @error('rw') is-invalid @enderror"
                                                         id="rw" placeholder="Input RW.." required=""
                                                         name="rw" value="{{ old('rw') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('rw')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="rt">RT
                                                         <span class="text-danger">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control form-control-sm"
+                                                    <input type="text"
+                                                        class="form-control form-control-sm @error('rt') is-invalid @enderror"
                                                         id="rt" placeholder="Input RT.." required=""
                                                         name="rt" value="{{ old('rt') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('rt')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -136,11 +142,11 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <textarea class="form-control form-control-sm" id="alamat" rows="5" placeholder="" required=""
-                                                        name="alamat" value="{{ old('alamat') }}"></textarea>
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    <textarea class="form-control form-control-sm @error('alamat') is-invalid @enderror" id="alamat" rows="5"
+                                                        placeholder="" required="" name="alamat" value="{{ old('alamat') }}"></textarea>
+                                                    @error('alamat')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -167,13 +173,14 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm"
+                                                    <input type="number"
+                                                        class="form-control form-control-sm @error('jumlah_kambing') is-invalid @enderror"
                                                         id="jumlah_kambing" placeholder="Input Jumlah Domba/Kambing.."
                                                         required="" name="jumlah_kambing"
                                                         value="{{ old('jumlah_kambing') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('jumlah_kambing')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -181,13 +188,13 @@
                                                         class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm  @error('jumlah_kerbau') is-invalid @enderror"
                                                         id="jumlah_kerbau" placeholder="Input Jumlah Kerbau.."
                                                         required="" name="jumlah_kerbau"
                                                         value="{{ old('jumlah_kerbau') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('jumlah_kerbau')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -195,13 +202,13 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm  @error('jumlah_sapi_perah') is-invalid @enderror"
                                                         id="jumlah_sapi_perah" placeholder="Input Jumlah Sapi Perah.."
                                                         required="" name="jumlah_sapi_perah"
                                                         value="{{ old('jumlah_sapi_perah') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('jumlah_sapi_perah')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -209,13 +216,13 @@
                                                     Potong <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm"
+                                                    <input type="number" class="form-control form-control-sm  @error('jumlah_sapi_potong') is-invalid @enderror"
                                                         id="jumlah_sapi_potong" placeholder="Input Jumlah Sapi Potong.."
                                                         required="" name="jumlah_sapi_potong"
                                                         value="{{ old('jumlah_sapi_potong') }}">
-                                                    <div class="invalid-feedback">
-                                                        Input tidak boleh kosong
-                                                    </div>
+                                                    @error('jumlah_sapi_potong')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
