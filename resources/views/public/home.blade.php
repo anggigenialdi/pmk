@@ -154,7 +154,9 @@
                     </div>
                     <!--  -->
                 </div>
-                <p class="text-right">Update Terakhir : 20 Juni 2022</p>
+                <p class="text-right" id="update">Update Terakhir : </p>
+
+
             </div>
         </div>
         <div class="row no-gutters">
@@ -165,19 +167,19 @@
                 <div id="map">
                     <div id="table-kecamatan"></div>
                     <!-- <div id="keterangan-jumlah">
-                      <div class="max">
-                        <div></div>
-                        <div>>1.000 Kasus</div>
-                      </div>
-                      <div class="middle">
-                        <div></div>
-                        <div>>500 Kasus</div>
-                      </div>
-                      <div class="low">
-                        <div></div>
-                        <div>>100 Kasus</div>
-                      </div>
-                    </div> -->
+                                          <div class="max">
+                                            <div></div>
+                                            <div>>1.000 Kasus</div>
+                                          </div>
+                                          <div class="middle">
+                                            <div></div>
+                                            <div>>500 Kasus</div>
+                                          </div>
+                                          <div class="low">
+                                            <div></div>
+                                            <div>>100 Kasus</div>
+                                          </div>
+                                        </div> -->
                 </div>
             </div>
             <div class="col-md-2">
@@ -316,35 +318,16 @@
         $(document).ready(function() {
             $.ajax({
                 type: "GET",
-                url: '../data-ternak',
+                url: '../kumulatif',
                 dataType: 'json',
                 async: false,
                 success: function(res) {
-                    let gt = 0;
-                    let sembuh = 0;
-                    let potong_bersyarat = 0;
-                    let mati = 0;
+                    $('#grand_total').text(res.tertular)
+                    $('#sembuh').text(res.sembuh)
+                    $('#potong_bersyarat').text(res.potong_bersyarat)
+                    $('#mati').text(res.mati)
 
-                    res.forEach((el, index) => {
-
-                        let sum_terduga = (el.data_ternak.terduga_kambing + el.data_ternak
-                            .terduga_kerbau + el.data_ternak.terduga_sapi_perah + el
-                            .data_ternak.terduga_sapi_potong);
-                        let sum_tertular = (el.data_ternak.tertular_kambing + el.data_ternak
-                            .tertular_kerbau + el.data_ternak.tertular_sapi_perah + el
-                            .data_ternak.tertular_sapi_potong);
-                        gt = gt + (sum_terduga + sum_tertular);
-                        sembuh = sembuh + el.data_ternak.sembuh;
-                        potong_bersyarat = potong_bersyarat + el.data_ternak.potong_bersyarat;
-                        mati = mati + el.data_ternak.mati;
-
-                    })
-                    $('#grand_total').text(`${gt}`)
-                    $('#sembuh').text(`${sembuh}`)
-                    $('#potong_bersyarat').text(`${potong_bersyarat}`)
-                    $('#mati').text(`${mati}`)
-                    
-
+                    $('#update').append( moment(res.tanggal).lang("id").format('LLLL') )
 
                 }
             })

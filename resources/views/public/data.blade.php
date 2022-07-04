@@ -108,20 +108,20 @@
                         res += `<tr>   
                                 <td>${index+1}</td>
                                 <td class="text-center">${el.nama_kecamatan}</td>
-                                <td class="text-center">${el.data_ternak.terduga_kambing}</td>
-                                <td class="text-center">${el.data_ternak.tertular_kambing}</td>
-                                <td class="text-center">${el.data_ternak.terduga_kerbau}</td>
-                                <td class="text-center">${el.data_ternak.tertular_kerbau}</td>
-                                <td class="text-center">${el.data_ternak.terduga_sapi_perah}</td>
-                                <td class="text-center">${el.data_ternak.tertular_sapi_perah}</td>
-                                <td class="text-center">${el.data_ternak.terduga_sapi_potong}</td>
-                                <td class="text-center">${el.data_ternak.tertular_sapi_potong}</td>
-                                <td class="text-center">${sum_terduga}</td>
-                                <td class="text-center">${sum_tertular}</td>
-                                <td class="text-center">${gt}</td>
-                                <td class="text-center">${el.data_ternak.mati}</td>
-                                <td class="text-center">${el.data_ternak.potong_bersyarat}</td>
-                                <td class="text-center">${el.data_ternak.sembuh}</td>
+                                <td class="text-center">${el.data_ternak.terduga_kambing > 0 ? el.data_ternak.terduga_kambing : '-'}</td>
+                                <td class="text-center">${el.data_ternak.tertular_kambing  > 0 ? el.data_ternak.tertular_kambing : '-'}</td>
+                                <td class="text-center">${el.data_ternak.terduga_kerbau  > 0 ? el.data_ternak.terduga_kerbau : '-'}</td>
+                                <td class="text-center">${el.data_ternak.tertular_kerbau  > 0 ? el.data_ternak.tertular_kerbau : '-'}</td>
+                                <td class="text-center">${el.data_ternak.terduga_sapi_perah  > 0 ? el.data_ternak.terduga_sapi_perah : '-'}</td>
+                                <td class="text-center">${el.data_ternak.tertular_sapi_perah  > 0 ? el.data_ternak.tertular_sapi_perah : '-'}</td>
+                                <td class="text-center">${el.data_ternak.terduga_sapi_potong  > 0 ? el.data_ternak.terduga_sapi_potong : '-'}</td>
+                                <td class="text-center">${el.data_ternak.tertular_sapi_potong  > 0 ? el.data_ternak.tertular_sapi_potong : '-'}</td>
+                                <td class="text-center">${sum_terduga  > 0 ? sum_terduga : '-' }</td>
+                                <td class="text-center">${sum_tertular   > 0 ? sum_tertular : '-'}</td>
+                                <td class="text-center">${gt > 0 ? gt : '-' }</td>
+                                <td class="text-center">${el.data_ternak.mati > 0 ?  el.data_ternak.mati : '-'}</td>
+                                <td class="text-center">${el.data_ternak.potong_bersyarat > 0 ? el.data_ternak.potong_bersyarat : '-' }</td>
+                                <td class="text-center">${el.data_ternak.sembuh > 0 ? el.data_ternak.sembuh : '-'}</td>
                                 </tr>`
                     });
                     $('#tablePmk').append(
