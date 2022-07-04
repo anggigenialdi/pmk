@@ -215,8 +215,10 @@ class PeternakController extends Controller
         $data = [];
         $data_pmk = [];
         foreach ($_pmk as $p) {
-            $tertular += $p->tertular_kambing + $p->tertular_sapi_perah +$p->tertular_kerbau + $p->tertular_sapi_potong;
+            $tertular += $p->tertular_kambing + $p->tertular_sapi_perah + $p->tertular_kerbau + $p->tertular_sapi_potong;
             $sembuh +=$p->sembuh;
+            $mati +=$p->mati;
+            $potong_bersyarat +=$p->potong_bersyarat;
         }
         $data['tanggal'] = $date->updated_at;
         $data['tertular'] = $tertular;
