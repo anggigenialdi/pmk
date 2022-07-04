@@ -58,3 +58,4 @@ $router->group(['prefix' => 'master-pengguna'], function () use ($router) {
 });
 
 $router->get('/data', 'PeternakController@dataIndex')->name('data.index');
+$router->get('/kumulatif', 'PeternakController@jumlahKasusKumulatif')->name('data.kumulatif');
