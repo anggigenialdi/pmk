@@ -142,10 +142,8 @@
                     </div>
                     <!--  -->
                 </div>
-                <div class="row text-right">
-                    <div>Update Terakhir : </div>
-                    <div id="update"></div>
-                </div>
+                <p class="text-right" id="update">Update Terakhir : </p>
+
 
             </div>
         </div>
@@ -157,19 +155,19 @@
                 <div id="map">
                     <div id="table-kecamatan"></div>
                     <!-- <div id="keterangan-jumlah">
-                                      <div class="max">
-                                        <div></div>
-                                        <div>>1.000 Kasus</div>
-                                      </div>
-                                      <div class="middle">
-                                        <div></div>
-                                        <div>>500 Kasus</div>
-                                      </div>
-                                      <div class="low">
-                                        <div></div>
-                                        <div>>100 Kasus</div>
-                                      </div>
-                                    </div> -->
+                                          <div class="max">
+                                            <div></div>
+                                            <div>>1.000 Kasus</div>
+                                          </div>
+                                          <div class="middle">
+                                            <div></div>
+                                            <div>>500 Kasus</div>
+                                          </div>
+                                          <div class="low">
+                                            <div></div>
+                                            <div>>100 Kasus</div>
+                                          </div>
+                                        </div> -->
                 </div>
             </div>
             <div class="col-md-2">
@@ -292,12 +290,13 @@
                 dataType: 'json',
                 async: false,
                 success: function(res) {
-                    console.log("res", res.tanggal);
                     $('#grand_total').text(res.tertular)
                     $('#sembuh').text(res.sembuh)
                     $('#potong_bersyarat').text(res.potong_bersyarat)
                     $('#mati').text(res.mati)
-                    $('#update').text(res.tanggal)
+
+                    $('#update').append( moment(res.tanggal).lang("id").format('LLLL') )
+
                 }
             })
         })
