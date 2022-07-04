@@ -7,8 +7,8 @@
 
     .header {
         background-color: #28A745 !important;
-        margin:40px 0px;
-        padding:40px 10px;
+        margin: 40px 0px;
+        padding: 40px 10px;
         border-radius: 10px;
     }
 
@@ -44,45 +44,47 @@
                     <h4 class="text-light">Tabel Sebaran PMK</h4>
                     <h5 class="text-light">Kota Bandung</h5>
                 </div>
-                    <div style="overflow-x:auto;">
-                        <table class="table" id="tablePmk">
-                            <thead>
-                                <tr>
-                                    <th rowspan="3">Id</th>
-                                    <th rowspan="3">Kecamatan</th>
-                                    <th colspan="8" class="text-center">Jenis Hewan</th>
-                                    <th colspan="2" rowspan="2" class="text-center">Total</th>
-                                    <th rowspan="3">Grand Total</th>
-                                    <th colspan="3" rowspan="2">Hasil Pengujian Labolatorium</th>
+                <p class="text-right" id="update">Update Terakhir : </p>
 
-                                </tr>
-                                <tr>
-                                    <th colspan="2" class="text-center">Domba/Kambing</th>
-                                    <th colspan="2" class="text-center">Kerbau</th>
-                                    <th colspan="2" class="text-center">Sapi Perah</th>
-                                    <th colspan="2" class="text-center">Sapi Potong</th>
+                <div style="overflow-x:auto;">
+                    <table class="table" id="tablePmk">
+                        <thead>
+                            <tr>
+                                <th rowspan="3">Id</th>
+                                <th rowspan="3">Kecamatan</th>
+                                <th colspan="8" class="text-center">Jenis Hewan</th>
+                                <th colspan="2" rowspan="2" class="text-center">Total</th>
+                                <th rowspan="3">Grand Total</th>
+                                <th colspan="3" rowspan="2">Hasil Pengujian Labolatorium</th>
 
-                                </tr>
-                                <tr>
-                                    <th id="terduga_kambing">Terduga</th>
-                                    <th id="tertular_kambing">Tertular</th>
-                                    <th id="terduga_kerbau">Terduga</th>
-                                    <th id="tertular_kerbau">Tertular</th>
-                                    <th id="terduga_sapi_perah">Terduga</th>
-                                    <th id="tertular_sapi_perah">Tertular</th>
-                                    <th id="terduga_sapi_potong">Terduga</th>
-                                    <th id="tertular_sapi_potong">Tertular</th>
-                                    <th id="total_terduga">Terduga</th>
-                                    <th id="total_tertular">Tertular</th>
-                                    <th id="mati">Mati</th>
-                                    <th id="potong_beryarat">Potong Bersyarat</th>
-                                    <th id="sembuh">Sembuh</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                            </tr>
+                            <tr>
+                                <th colspan="2" class="text-center">Domba/Kambing</th>
+                                <th colspan="2" class="text-center">Kerbau</th>
+                                <th colspan="2" class="text-center">Sapi Perah</th>
+                                <th colspan="2" class="text-center">Sapi Potong</th>
 
-                            </tbody>
-                        </table>
+                            </tr>
+                            <tr>
+                                <th id="terduga_kambing">Terduga</th>
+                                <th id="tertular_kambing">Tertular</th>
+                                <th id="terduga_kerbau">Terduga</th>
+                                <th id="tertular_kerbau">Tertular</th>
+                                <th id="terduga_sapi_perah">Terduga</th>
+                                <th id="tertular_sapi_perah">Tertular</th>
+                                <th id="terduga_sapi_potong">Terduga</th>
+                                <th id="tertular_sapi_potong">Tertular</th>
+                                <th id="total_terduga">Terduga</th>
+                                <th id="total_tertular">Tertular</th>
+                                <th id="mati">Mati</th>
+                                <th id="potong_beryarat">Potong Bersyarat</th>
+                                <th id="sembuh">Sembuh</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -99,11 +101,15 @@
                 success: function(res) {
                     // console.log(res);
                     res.forEach((el, index) => {
-                        console.log("has",el);
-                        
-                        let sum_terduga = ( el.data_ternak.terduga_kambing +  el.data_ternak.terduga_kerbau +  el.data_ternak.terduga_sapi_perah +  el.data_ternak.terduga_sapi_potong );
-                        let sum_tertular = ( el.data_ternak.tertular_kambing +  el.data_ternak.tertular_kerbau +  el.data_ternak.tertular_sapi_perah +  el.data_ternak.tertular_sapi_potong );
-                        let gt = ( sum_terduga + sum_tertular );
+                        console.log("has", el);
+
+                        let sum_terduga = (el.data_ternak.terduga_kambing + el.data_ternak
+                            .terduga_kerbau + el.data_ternak.terduga_sapi_perah + el.data_ternak
+                            .terduga_sapi_potong);
+                        let sum_tertular = (el.data_ternak.tertular_kambing + el.data_ternak
+                            .tertular_kerbau + el.data_ternak.tertular_sapi_perah + el.data_ternak
+                            .tertular_sapi_potong);
+                        let gt = (sum_terduga + sum_tertular);
 
                         res += `<tr>   
                                 <td>${index+1}</td>
@@ -133,6 +139,15 @@
 
         $(document).ready(function() {
             getKec();
+            $.ajax({
+                type: "GET",
+                url: '../kumulatif',
+                dataType: 'json',
+                async: false,
+                success: function(res) {
+                    $('#update').append(moment(res.tanggal).lang("id").format('LLLL'))
+                }
+            })
         });
     </script>
 @endsection
