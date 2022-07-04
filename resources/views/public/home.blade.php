@@ -88,11 +88,23 @@
         background-color: green;
         z-index: 99999;
     }
+    html {
+    scroll-behavior: smooth;
+    }
+    #top{
+        position:fixed!important;
+        bottom:10px !important;
+        right:10px !important;
+        background-color:#4BAF48;
+        padding:10px;
+        z-index: 99999;
+    }
 </style>
 
 @section('content')
-
     <div class="container-fluid">
+    <button href="#top" id="top" onclick="topFunction()"><span class="lnr lnr-chevron-up text-light"></span></button>
+
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2">
                 <div class="header">
@@ -178,9 +190,29 @@
 @section('script')
     <script>
         $(document).ready(function() {
+            window.onscroll = function() {scrollFunction()};
+            mybutton = document.getElementById("top");
+            mybutton.style.display = "none";
+            
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'
+            });
             setMap()
             setJumlah()
         })
+        function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
 
         function setJumlah(id) {
             $.ajax({
