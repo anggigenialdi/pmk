@@ -91,7 +91,7 @@
     html {
     scroll-behavior: smooth;
     }
-    
+
     #top{
         position:fixed!important;
         bottom:10px !important;
@@ -100,6 +100,7 @@
         padding:10px;
         z-index: 99999;
     }
+  
 </style>
 
 @section('content')
@@ -161,29 +162,11 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-8">
+            <div class="col-md-8 offset-2">
                 <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
-                    <!-- <div id="keterangan-jumlah">
-                                          <div class="max">
-                                            <div></div>
-                                            <div>>1.000 Kasus</div>
-                                          </div>
-                                          <div class="middle">
-                                            <div></div>
-                                            <div>>500 Kasus</div>
-                                          </div>
-                                          <div class="low">
-                                            <div></div>
-                                            <div>>100 Kasus</div>
-                                          </div>
-                                        </div> -->
                 </div>
-            </div>
-            <div class="col-md-2">
             </div>
         </div>
     </div>
@@ -233,6 +216,34 @@
 
         }
 
+        function setColor(id) {
+            let warna = ""
+            $.ajax({
+                type: "GET",
+                url: `../data-ternak/${id}`,
+                dataType: 'json',
+                async: false,
+                beforeSend: function (data) {
+                    ;
+                },
+                success: function(res) {
+                    console.log(res.data_pmk.total_kasus)
+                    if (res.data_pmk.total_kasus >= 1) {
+                        // console.log(res.data_pmk.total_kasus)
+                        warna = 'red'
+                        // console.log('#ffff')
+                    } else {
+                        // console.log(res.data_pmk.total_kasus)
+                        warna = 'blue'
+                    }
+                },
+                complete: function (data) {
+                    ;
+                },
+            })
+            return warna;
+        }
+
         function setMap() {
             var map = L.map('map').setView([-6.904744, 107.639810], 13);
             var tiles = L.tileLayer(
@@ -248,7 +259,7 @@
                 let features = data.features
                 features.forEach((e, index) => {
                     L.geoJSON(e).setStyle({
-                        fillColor: 'blue'
+                        fillColor: setColor(e.properties.id_kecamatan)
                     }).addTo(map).on('mouseover', () => {
                         setData(e.properties.id_kecamatan)
                     }).bindTooltip(
@@ -264,24 +275,7 @@
             });
         }
 
-        function setColor(id) {
-            $.ajax({
-                type: "GET",
-                url: `../data-ternak/${id}`,
-                dataType: 'json',
-                async: false,
-                success: function(res) {
-                    if (res.data_pmk[0].total_kasus == '15') {
-                        console.log(res.data_pmk[0].total_kasus)
-                        return '#ffff'
-                    } else {
-                        console.log(res.data_pmk[0].total_kasus)
-                        return '#0000'
-                    }
-                }
-            })
-
-        }
+        
 
         function setData(id) {
             $.ajax({

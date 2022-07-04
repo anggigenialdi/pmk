@@ -44,7 +44,7 @@ class PeternakController extends Controller
 
     public function index(){
         
-        $kec = MasterKecamatan::get();
+        $kec = MasterKecamatan::orderBy('nama','asc')->get();
         $latest  = MasterKecamatan::latest()->first();
         
         $data = [];
