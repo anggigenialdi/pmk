@@ -49,10 +49,9 @@ class PeternakController extends Controller
         return back()->with('success', ' Data Berhasil Ditambahkan');
     }
 
-    public function index()
-    {
-
-        $kec = MasterKecamatan::get();
+    public function index(){
+        
+        $kec = MasterKecamatan::orderBy('nama','asc')->get();
         $latest  = MasterKecamatan::latest()->first();
 
         $data = [];
