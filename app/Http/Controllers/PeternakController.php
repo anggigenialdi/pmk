@@ -45,6 +45,7 @@ class PeternakController extends Controller
     public function index(){
         
         $kec = MasterKecamatan::get();
+        $latest  = MasterKecamatan::latest()->first();
         
         $data = [];
         $data_kec =[];
@@ -203,6 +204,27 @@ class PeternakController extends Controller
         $datas->save();
         return back()->with('success', ' Data Berhasil Diupdate');
 
+    }
+    public function jumlahKasusKumulatif(){
+        $_pmk = Pmk::all();
+        $date = Pmk::orderBy('updated_at', 'desc')->first();
+        $tertular = 0;
+        $sembuh = 0;
+        $mati = 0;
+        $potong_bersyarat = 0;
+        $data = [];
+        $data_pmk = [];
+        foreach ($_pmk as $p) {
+            $tertular += $p->tertular_kambing + $p->tertular_sapi_perah +$p->tertular_kerbau + $p->tertular_sapi_potong;
+            $sembuh +=$p->sembuh;
+        }
+        $data['tanggal'] = $date->updated_at;
+        $data['tertular'] = $tertular;
+        $data['sembuh'] = $sembuh;
+        $data['mati'] = $mati;
+        $data['potong_bersyarat'] = $potong_bersyarat;
+
+        return $data;
     }
 
     public function dataIndex(){
