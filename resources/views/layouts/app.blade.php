@@ -65,7 +65,7 @@
         </nav>
         @yield('content')
         <!-- <div class="row mt-4"> -->
-            <div class="col-md-8 offset-2 my-4">
+            <div class="col-md-8 offset-md-2 my-4">
                 <div class="d-flex justify-content-start align-items-center">
                     <img src="https://dkpp-kota.bandung.go.id/frontend-template/assets/image-resources/logo2.png"
                         width="80px" height="40px" alt="">
