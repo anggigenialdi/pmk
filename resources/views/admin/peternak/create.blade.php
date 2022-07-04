@@ -85,8 +85,8 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control  @error('kecamatan') is-invalid @enderror"
-                                                        id="kecamatan" name="kecamatan" required>
-                                                        <option value="">Pilih</option>
+                                                        id="kecamatan" name="kecamatan"  value="{{ old('kecamatan') }}" required>
+                                                        <option value="{{ old('kecamatan') }}">Pilih</option>
                                                         @foreach ($kecamatan as $kec)
                                                             <option value={{ $kec->id }}>{{ $kec->nama }}</option>
                                                         @endforeach
@@ -102,7 +102,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control  @error('kelurahan') is-invalid @enderror"
-                                                        id="kelurahan" name="kelurahan" required>
+                                                        id="kelurahan" name="kelurahan"  value="{{ old('kelurahan') }}" required>
                                                     </select>
                                                     @error('kelurahan')
                                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -143,7 +143,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <textarea class="form-control form-control-sm @error('alamat') is-invalid @enderror" id="alamat" rows="5"
-                                                        placeholder="" required="" name="alamat" value="{{ old('alamat') }}"></textarea>
+                                                        placeholder="" required="" name="alamat" value="{{ old('alamat') }}">{{ old('alamat') }}</textarea>
                                                     @error('alamat')
                                                         <div class="invalid-feedback">{{ $message }}</div>
                                                     @enderror

@@ -27,8 +27,7 @@
                 </ol>
             </div>
             @foreach ($datas as $data)
-                <form class="needs-validation" method="POST" action="{{ route('pmk.post', $data->id) }}"
-                    autocomplete="off" novalidate="">
+                <form method="POST" action="{{ route('pmk.post', $data->id) }}" autocomplete="off" novalidate="">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     {{-- row --}}
                     <fieldset disabled="">
@@ -130,9 +129,8 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" min=0 class="form-control form-control-sm"
-                                                            id="jumlah_kambing"
-                                                            placeholder="Input Jumlah Domba/Kambing.." required=""
-                                                            name="jumlah_kambing"
+                                                            id="jumlah_kambing" placeholder="Input Jumlah Domba/Kambing.."
+                                                            required="" name="jumlah_kambing"
                                                             value="{{ old('jumlah_kambing', $data->jumlah_kambing) }}">
                                                     </div>
                                                 </div>
@@ -147,20 +145,19 @@
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label"
-                                                        for="jumlah_sapi_perah">Sapi Perah
+                                                    <label class="col-lg-3 col-form-label" for="jumlah_sapi_perah">Sapi
+                                                        Perah
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" min=0 class="form-control form-control-sm"
-                                                            id="jumlah_sapi_perah"
-                                                            placeholder="Input Jumlah Sapi Perah.." required=""
-                                                            name="jumlah_sapi_perah"
+                                                            id="jumlah_sapi_perah" placeholder="Input Jumlah Sapi Perah.."
+                                                            required="" name="jumlah_sapi_perah"
                                                             value="{{ old('jumlah_sapi_perah', $data->jumlah_sapi_perah) }}">
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label"
-                                                        for="jumlah_sapi_potong">Sapi Potong
+                                                    <label class="col-lg-3 col-form-label" for="jumlah_sapi_potong">Sapi
+                                                        Potong
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" min=0 class="form-control form-control-sm"
@@ -189,16 +186,18 @@
                                         <div class="form-validation">
                                             <div class="row">
                                                 <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="tanggal_pemeriksaan">Tanggal Pemeriksaan
+                                                    <label class="col-lg-3 col-form-label"
+                                                        for="tanggal_pemeriksaan">Tanggal Pemeriksaan
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="datetime-local" class="form-control form-control-sm"
+                                                        <input type="datetime-local" class="form-control form-control-sm  @error('tanggal_pemeriksaan') is-invalid @enderror"
                                                             id="date" placeholder="Input Tanggal.." required=""
-                                                            name="tanggal_pemeriksaan" value="{{ old('tanggal_pemeriksaan') }}" >
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                            name="tanggal_pemeriksaan"
+                                                            value="{{ old('tanggal_pemeriksaan') }}">
+                                                        @error('tanggal_pemeriksaan')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
@@ -207,46 +206,50 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="terduga_kambing">Terduga
                                                         </label>
-                                                        <input type="number" min=0  max="{{ $data->jumlah_kambing}}" class="form-control form-control-sm"
+                                                        <input type="number" min=0 max="{{ $data->jumlah_kambing }}"
+                                                            class="form-control form-control-sm  @error('terduga_kambing') is-invalid @enderror"
                                                             id="terduga_kambing" placeholder="" name="terduga_kambing"
                                                             value="{{ old('terduga_kambing') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('terduga_kambing')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="tertular_kambing">Tertular
                                                         </label>
-                                                        <input type="number"  min=0  max="{{ $data->jumlah_kambing}}"  class="form-control form-control-sm"
+                                                        <input type="number" min=0 max="{{ $data->jumlah_kambing }}"
+                                                            class="form-control form-control-sm  @error('tertular_kambing') is-invalid @enderror"
                                                             id="tertular_kambing" placeholder="" name="tertular_kambing"
                                                             value="{{ old('tertular_kambing') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('tertular_kambing')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
-                                                    <label class="col-lg-3 col-form-label" for="domba">Kerbau
+                                                    <label class="col-lg-3 col-form-label" for="kerbau">Kerbau
                                                     </label>
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="terduga_kerbau">Terduga
                                                         </label>
-                                                        <input type="number"  min=0  max="{{ $data->jumlah_kerbau}}" class="form-control form-control-sm"
+                                                        <input type="number" min=0 max="{{ $data->jumlah_kerbau }}"
+                                                            class="form-control form-control-sm  @error('terduga_kerbau') is-invalid @enderror"
                                                             id="terduga_kerbau" placeholder="" name="terduga_kerbau"
                                                             value="{{ old('terduga_kerbau') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('terduga_kerbau')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="tertular_kerbau">Tertular
                                                         </label>
-                                                        <input type="number"  min=0  max="{{ $data->jumlah_kerbau}}" class="form-control form-control-sm"
+                                                        <input type="number" min=0 max="{{ $data->jumlah_kerbau }}"
+                                                            class="form-control form-control-sm  @error('tertular_kerbau') is-invalid @enderror"
                                                             id="tertular_kerbau" placeholder="" name="tertular_kerbau"
                                                             value="{{ old('tertular_kerbau') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('tertular_kerbau')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
@@ -256,24 +259,26 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="terduga_sapi_perah">Terduga
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"
+                                                            class="form-control form-control-sm  @error('terduga_sapi_perah') is-invalid @enderror"
                                                             id="terduga_sapi_perah" placeholder=""
                                                             name="terduga_sapi_perah"
                                                             value="{{ old('terduga_sapi_perah') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('terduga_sapi_perah')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="tertular_sapi_perah">Tertular
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"
+                                                            class="form-control form-control-sm  @error('tertular_sapi_perah') is-invalid @enderror"
                                                             id="tertular_sapi_perah" placeholder=""
                                                             name="tertular_sapi_perah"
                                                             value="{{ old('tertular_sapi_perah') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('tertular_sapi_perah')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
@@ -283,24 +288,26 @@
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="terduga_sapi_potong">Terduga
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"
+                                                            class="form-control form-control-sm  @error('terduga_sapi_potong') is-invalid @enderror"
                                                             id="terduga_sapi_potong" placeholder=""
                                                             name="terduga_sapi_potong"
                                                             value="{{ old('terduga_sapi_potong') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('terduga_sapi_potong')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <label class="col-form-label" for="tertular_sapi_potong">Tertular
                                                         </label>
-                                                        <input type="number" class="form-control form-control-sm"
+                                                        <input type="number"
+                                                            class="form-control form-control-sm  @error('tertular_sapi_potong') is-invalid @enderror"
                                                             id="tertular_sapi_potong" placeholder=""
                                                             name="tertular_sapi_potong"
                                                             value="{{ old('tertular_sapi_potong') }}" required="">
-                                                        <div class="invalid-feedback">
-                                                            Input tidak boleh kosong
-                                                        </div>
+                                                        @error('tertular_sapi_potong')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>

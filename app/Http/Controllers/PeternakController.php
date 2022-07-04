@@ -12,6 +12,21 @@ use \stdClass;
 class PeternakController extends Controller
 {
     //
+    // public function __construct()
+    // {
+    //     $this->middleware(
+    //         'auth',
+    //         [
+    //             'except' => [
+    //                 'dataIndex', 
+    //                 'jumlahKasusKumulatif',
+    //                 'index',
+    //                 'getDataPerKecamatan'
+    //             ]
+    //         ]
+    //     );
+    // }
+
     public function peternakIndex()
     {
         $datas = Peternak::orderBy('id', 'desc')->get();
@@ -26,6 +41,7 @@ class PeternakController extends Controller
     }
     public function peternakPost(Request $request)
     {
+        
         request()->validate(
             [
                 'nik' => 'required|min:16|max:16',

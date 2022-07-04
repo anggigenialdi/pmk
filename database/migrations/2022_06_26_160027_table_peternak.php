@@ -22,10 +22,10 @@ class TablePeternak extends Migration
             $table->integer('rw')->nullable();
             $table->integer('rt')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('jumlah_kambing')->nullable();
-            $table->string('jumlah_kerbau')->nullable();
-            $table->string('jumlah_sapi_perah')->nullable();
-            $table->string('jumlah_sapi_potong')->nullable();
+            $table->integer('jumlah_kambing')->nullable();
+            $table->integer('jumlah_kerbau')->nullable();
+            $table->integer('jumlah_sapi_perah')->nullable();
+            $table->integer('jumlah_sapi_potong')->nullable();
             $table->timestamps();
         });
     }

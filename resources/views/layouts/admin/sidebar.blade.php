@@ -48,7 +48,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('data-peternak.index') }}">Peternak</a></li>
-                    <li><a href="{{ route('data-pmk.index') }}">Data Pemeriksaan Pmk</a></li>
+                    <li><a href="{{ route('data-pmk.index') }}">Pemeriksaan Pmk</a></li>
                     <li><a href="{{ route('hasil-lab.index') }}">Hasil Pengujian Lab</a></li>
                     <li><a href="{{ route('data-perkembangan.index') }}">Perkembangan Kasus</a></li>
                     {{-- <li><a href="#">Jenis Ternak</a></li>

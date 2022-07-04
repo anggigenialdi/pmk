@@ -15,6 +15,18 @@ use Illuminate\Support\Facades\File;
 class PmkController extends Controller
 {
     //
+    // public function __construct()
+    // {
+    //     $this->middleware(
+    //         'auth',
+    //         [
+    //             'except' => [
+    //                 'getJson', 
+    //             ]
+    //         ]
+    //     );
+    // }
+
     public function pmkIndex()
     {
         $datas = Pmk::orderBy('id', 'desc')->get();
@@ -30,6 +42,48 @@ class PmkController extends Controller
     public function pmkPost(Request $request, $id)
     {
         $peternak = Peternak::where('id', $id)->first();
+        // var_dump($peternak->jumlah_kambing);
+
+        // 'terduga' => 'required|min:16|max:'+$request->id+'',
+       
+
+        request()->validate(
+            [
+                'tanggal_pemeriksaan' => 'required',
+
+                'terduga_kambing' => 'required|integer|min:0|max:'.$peternak->jumlah_kambing,
+                'terduga_kerbau' => 'required|integer|min:0|max:'.$peternak->jumlah_kerbau,
+                'terduga_sapi_potong' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_potong,
+                'terduga_sapi_perah' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_perah,
+
+                'tertular_kambing' => 'required|integer|min:0|max:'.$peternak->jumlah_kambing,
+                'tertular_kerbau' => 'required|integer|min:0|max:'.$peternak->jumlah_kerbau,
+                'tertular_sapi_potong' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_potong,
+                'tertular_sapi_perah' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_perah,
+            ],
+            [
+                'tanggal_pemeriksaan.required' => 'Input tidak boleh kosong',
+
+                'terduga_kambing.required' => 'Input tidak boleh kosong',
+                'terduga_kerbau.required' => 'Input tidak boleh kosong',
+                'terduga_sapi_potong.required' => 'Input tidak boleh kosong',
+                'terduga_sapi_perah.required' => 'Input tidak boleh kosong',
+                'terduga_kambing.max' => 'Input melebih populasi ternak',
+                'terduga_kerbau.max' => 'Input melebih populasi ternak',
+                'terduga_sapi_potong.max' => 'Input melebih populasi ternak',
+                'terduga_sapi_perah.max' => 'Input melebih populasi ternak',
+
+                'tertular_kambing.required' => 'Input tidak boleh kosong',
+                'tertular_kerbau.required' => 'Input tidak boleh kosong',
+                'tertular_sapi_potong.required' => 'Input tidak boleh kosong',
+                'tertular_sapi_perah.required' => 'Input tidak boleh kosong',
+                'tertular_kambing.max' => 'Input melebih populasi ternak',
+                'tertular_kerbau.max' => 'Input melebih populasi ternak',
+                'tertular_sapi_potong.max' => 'Input melebih populasi ternak',
+                'tertular_sapi_perah.max' => 'Input melebih populasi ternak',
+
+            ]
+        );
 
         $data = new Pmk;
         $data->id_peternak = $peternak->id;
@@ -46,7 +100,6 @@ class PmkController extends Controller
         $data->save();
         // return back();
         return redirect('/data-pmk')->with('success', ' Data Berhasil Ditambahkan');
-
     }
     public function pmkDetail($id)
     {
@@ -60,10 +113,11 @@ class PmkController extends Controller
         $kelurahan = MasterKelurahan::get();
         $datas = Pmk::where('id', $id)->get();
 
-        return view('admin/data-pmk/edit', compact(['kecamatan','kelurahan','datas']));
+        return view('admin/data-pmk/edit', compact(['kecamatan', 'kelurahan', 'datas']));
     }
-    public function pmkUpdate(Request $request, $id){
-        
+    public function pmkUpdate(Request $request, $id)
+    {
+
         $data = Pmk::where('id', $id)->first();
         $data->tanggal_pemeriksaan = $request->input('tanggal_pemeriksaan');
         $data->terduga_kambing = $request->input('terduga_kambing');
@@ -77,7 +131,6 @@ class PmkController extends Controller
         $data->save();
 
         return back()->with('success', ' Data Berhasil Diupdate');
-
     }
 
     public function pmkPostLab(Request $request, $id)
@@ -91,7 +144,6 @@ class PmkController extends Controller
         $data->save();
         // return back();
         return redirect('/data-pmk/hasil-lab')->with('success', ' Data Berhasil Ditambahkan');
-
     }
 
     public function hasilLabIndex()
@@ -100,7 +152,8 @@ class PmkController extends Controller
 
         return view('admin/data-pmk/hasil-lab/index', compact(['datas']));
     }
-    public function getJson(){
+    public function getJson()
+    {
         $json = json_decode(File::get('./geojson.json')); // not working
         return $json;
     }
@@ -123,6 +176,5 @@ class PmkController extends Controller
         $data->save();
         // return back();
         return redirect('/data-pmk/perkembangan-kasus')->with('success', ' Data Berhasil Ditambahkan');
-
     }
 }
