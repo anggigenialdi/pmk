@@ -24,8 +24,15 @@ class PeternakController extends Controller
 
         return view('admin/peternak/create', compact('kecamatan'));
     }
+    public function messages()
+    {
+        return [
+            'nik.required'    => 'Nik harap diisi',
+        ];
+    }
     public function peternakPost(Request $request)
     {
+
         $ternak = new Peternak;
         $ternak->nik = $request->input('nik');
         $ternak->nama = $request->input('nama');
@@ -42,13 +49,14 @@ class PeternakController extends Controller
         return back()->with('success', ' Data Berhasil Ditambahkan');
     }
 
-    public function index(){
-        
+    public function index()
+    {
+
         $kec = MasterKecamatan::get();
         $latest  = MasterKecamatan::latest()->first();
-        
+
         $data = [];
-        $data_kec =[];
+        $data_kec = [];
         foreach ($kec as $k) {
             $data['data_ternak'] = $this->getDataTernakKecamatan($k->id);
             $data['id'] = $k->id;
@@ -56,28 +64,30 @@ class PeternakController extends Controller
             $data['latitude'] = $k->latitude;
             $data['longitude'] = $k->longitude;
             $data['kelurahan'] = $this->getKelurahan($k->id);
-            array_push($data_kec,$data);
+            array_push($data_kec, $data);
         }
         return $data_kec;
     }
-    private function getKelurahan($id){
-        $kel = MasterKelurahan::where('id_kecamatan',$id)->get();
+    private function getKelurahan($id)
+    {
+        $kel = MasterKelurahan::where('id_kecamatan', $id)->get();
 
         $data =  [];
-        $data_kel =[];
+        $data_kel = [];
         foreach ($kel as $k) {
             $data['nama_kelurahan'] = $k->nama;
-            $data['ternak'] = $this->getDataTernakKelurahan($id,$k->id);
-            array_push($data_kel,$data);
+            $data['ternak'] = $this->getDataTernakKelurahan($id, $k->id);
+            array_push($data_kel, $data);
         }
         return $data_kel;
     }
-    private function getDataTernakKecamatan($idKec){
-        $peternak = Peternak::where('kode_kecamatan',$idKec)->first();
-        $pmk = Pmk::where('id_peternak',$peternak ? $peternak->id : null)->get();
-        
+    private function getDataTernakKecamatan($idKec)
+    {
+        $peternak = Peternak::where('kode_kecamatan', $idKec)->first();
+        $pmk = Pmk::where('id_peternak', $peternak ? $peternak->id : null)->get();
+
         $data =  [];
-        $data_pmk =[];
+        $data_pmk = [];
         $terduga_kambing = 0;
         $tertular_kambing = 0;
         $terduga_kerbau = 0;
@@ -115,15 +125,16 @@ class PeternakController extends Controller
         $data['mati'] = $mati;
         $data['potong_bersyarat'] = $potong_bersyarat;
         $data['sembuh'] = $sembuh;
-        array_push($data_pmk,$data);
-       return $data;
+        array_push($data_pmk, $data);
+        return $data;
     }
-    private function getDataTernakKelurahan($idKec,$idKel){
-        $peternak = Peternak::where('kode_kecamatan',$idKec)->where('kode_kelurahan',$idKel)->first();
-        $pmk = Pmk::where('id_peternak',$peternak ? $peternak->id : null)->get();
-        
+    private function getDataTernakKelurahan($idKec, $idKel)
+    {
+        $peternak = Peternak::where('kode_kecamatan', $idKec)->where('kode_kelurahan', $idKel)->first();
+        $pmk = Pmk::where('id_peternak', $peternak ? $peternak->id : null)->get();
+
         $data =  [];
-        $data_pmk =[];
+        $data_pmk = [];
         $terduga_kambing = 0;
         $tertular_kambing = 0;
         $terduga_kerbau = 0;
@@ -161,13 +172,14 @@ class PeternakController extends Controller
         $data['mati'] = $mati;
         $data['potong_bersyarat'] = $potong_bersyarat;
         $data['sembuh'] = $sembuh;
-        array_push($data_pmk,$data);
+        array_push($data_pmk, $data);
         return $data_pmk;
         // dd($pmk);
     }
-    public function getDataPerKecamatan($id){
+    public function getDataPerKecamatan($id)
+    {
         $data = [];
-        $data['nama_kecamatan'] = MasterKecamatan::where('id',$id)->first();
+        $data['nama_kecamatan'] = MasterKecamatan::where('id', $id)->first();
         $data['data_pmk'] = $this->getDataTernakKecamatan($id);
         $data['data_pmk_perkelurahan'] = $this->getKelurahan($id);
         return $data;
@@ -185,10 +197,11 @@ class PeternakController extends Controller
         $kelurahan = MasterKelurahan::get();
         $datas = Peternak::where('id', $id)->get();
 
-        return view('admin/peternak/edit', compact(['kecamatan', 'datas', 'kelurahan'] ));
+        return view('admin/peternak/edit', compact(['kecamatan', 'datas', 'kelurahan']));
     }
-    public function peternakUpdate(Request $request, $id){
-        
+    public function peternakUpdate(Request $request, $id)
+    {
+
         $datas = Peternak::where('id', $id)->first();
         $datas->nik = $request->input('nik');
         $datas->nama = $request->input('nama');
@@ -203,9 +216,9 @@ class PeternakController extends Controller
         $datas->jumlah_sapi_perah = $request->input('jumlah_sapi_perah');
         $datas->save();
         return back()->with('success', ' Data Berhasil Diupdate');
-
     }
-    public function jumlahKasusKumulatif(){
+    public function jumlahKasusKumulatif()
+    {
         $_pmk = Pmk::all();
         $date = Pmk::orderBy('updated_at', 'desc')->first();
         $tertular = 0;
@@ -216,9 +229,9 @@ class PeternakController extends Controller
         $data_pmk = [];
         foreach ($_pmk as $p) {
             $tertular += $p->tertular_kambing + $p->tertular_sapi_perah + $p->tertular_kerbau + $p->tertular_sapi_potong;
-            $sembuh +=$p->sembuh;
-            $mati +=$p->mati;
-            $potong_bersyarat +=$p->potong_bersyarat;
+            $sembuh += $p->sembuh;
+            $mati += $p->mati;
+            $potong_bersyarat += $p->potong_bersyarat;
         }
         $data['tanggal'] = $date->updated_at;
         $data['tertular'] = $tertular;
@@ -229,10 +242,9 @@ class PeternakController extends Controller
         return $data;
     }
 
-    public function dataIndex(){
-        
+    public function dataIndex()
+    {
+
         return view('public/data');
-
     }
-
 }
