@@ -12,20 +12,20 @@ use \stdClass;
 class PeternakController extends Controller
 {
     //
-    // public function __construct()
-    // {
-    //     $this->middleware(
-    //         'auth',
-    //         [
-    //             'except' => [
-    //                 'dataIndex', 
-    //                 'jumlahKasusKumulatif',
-    //                 'index',
-    //                 'getDataPerKecamatan'
-    //             ]
-    //         ]
-    //     );
-    // }
+    public function __construct()
+    {
+        $this->middleware(
+            'auth',
+            [
+                'except' => [
+                    'dataIndex', 
+                    'jumlahKasusKumulatif',
+                    'index',
+                    'getDataPerKecamatan'
+                ]
+            ]
+        );
+    }
 
     public function peternakIndex()
     {

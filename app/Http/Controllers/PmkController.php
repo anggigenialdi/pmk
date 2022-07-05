@@ -15,17 +15,17 @@ use Illuminate\Support\Facades\File;
 class PmkController extends Controller
 {
     //
-    // public function __construct()
-    // {
-    //     $this->middleware(
-    //         'auth',
-    //         [
-    //             'except' => [
-    //                 'getJson', 
-    //             ]
-    //         ]
-    //     );
-    // }
+    public function __construct()
+    {
+        $this->middleware(
+            'auth',
+            [
+                'except' => [
+                    'getJson', 
+                ]
+            ]
+        );
+    }
 
     public function pmkIndex()
     {
@@ -176,5 +176,25 @@ class PmkController extends Controller
         $data->save();
         // return back();
         return redirect('/data-pmk/perkembangan-kasus')->with('success', ' Data Berhasil Ditambahkan');
+    }
+
+    public function hasilLabDetail($id)
+    {
+        $datas = Pmk::where('id', $id)->get();
+
+        return view('admin/data-pmk/hasil-lab/detail', compact('datas'));
+    }
+
+    public function hasilLabUpdate(Request $request, $id)
+    {
+
+        $data = Pmk::where('id', $id)->first();
+        $data->tanggal_pengujian_lab = $request->input('tanggal_pengujian_lab');
+        $data->keterangan = $request->input('keterangan');
+        $data->hasil = $request->input('hasil');
+        $data->keterangan = $request->input('keterangan');
+        $data->save();
+
+        return back()->with('success', ' Data Berhasil Diupdate');
     }
 }

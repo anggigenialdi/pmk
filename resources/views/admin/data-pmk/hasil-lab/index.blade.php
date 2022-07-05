@@ -89,71 +89,74 @@
                                     <tbody>
                                         @foreach ($datas as $data)
                                             @if ($data->status_kasus !== null)
-                                            <tr>
-                                                <td>
-                                                    {{ $loop->iteration }}
-                                                </td>
-                                                <td>
-                                                    {{ $data->dataPeternak->nama }}</td>
-                                                <td>
-                                                    {{ $data->tanggal_pemeriksaan }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->terduga_kambing }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->tertular_kambing }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->terduga_kerbau }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->tertular_kerbau }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->terduga_sapi_perah }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->tertular_sapi_perah }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->terduga_sapi_potong }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->tertular_sapi_potong }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->tanggal_pengujian_lab }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->hasil_pengujian_lab }}</td>
-                                                <td class="text-center">
-                                                    {{ $data->keterangan }}</td>
-                                                <td class="text-center">
-                                                    <div class="dropdown ms-auto text-end">
-                                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                                            <svg width="24px" height="24px" viewbox="0 0 24 24"
-                                                                version="1.1">
-                                                                <g stroke="none" stroke-width="1" fill="none"
-                                                                    fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24"
-                                                                        height="24"></rect>
-                                                                    <circle fill="#000000" cx="5" cy="12"
-                                                                        r="2"></circle>
-                                                                    <circle fill="#000000" cx="12" cy="12"
-                                                                        r="2"></circle>
-                                                                    <circle fill="#000000" cx="19" cy="12"
-                                                                        r="2"></circle>
-                                                                </g>
-                                                            </svg>
+                                                <tr>
+                                                    <td>
+                                                        {{ $loop->iteration }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $data->dataPeternak->nama }}</td>
+                                                    <td>
+                                                        {{ $data->tanggal_pemeriksaan }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->terduga_kambing }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->tertular_kambing }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->terduga_kerbau }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->tertular_kerbau }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->terduga_sapi_perah }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->tertular_sapi_perah }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->terduga_sapi_potong }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->tertular_sapi_potong }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->tanggal_pengujian_lab }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->hasil_pengujian_lab }}</td>
+                                                    <td class="text-center">
+                                                        {{ $data->keterangan }}</td>
+                                                    <td class="text-center">
+                                                        <div class="dropdown ms-auto text-end">
+                                                            <div class="btn-link" data-bs-toggle="dropdown">
+                                                                <svg width="24px" height="24px" viewbox="0 0 24 24"
+                                                                    version="1.1">
+                                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                                        fill-rule="evenodd">
+                                                                        <rect x="0" y="0" width="24"
+                                                                            height="24"></rect>
+                                                                        <circle fill="#000000" cx="5" cy="12"
+                                                                            r="2"></circle>
+                                                                        <circle fill="#000000" cx="12" cy="12"
+                                                                            r="2"></circle>
+                                                                        <circle fill="#000000" cx="19" cy="12"
+                                                                            r="2"></circle>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <button type="button" class="dropdown-item"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#addModal{{ $data->id }}"
+                                                                    title="Add">
+                                                                    Perkembangan Kasus
+                                                                </button>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('hasil-lab.detail', $data->id) }}">Detail</a>
+                                                                <button type="button" class="dropdown-item"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#editModal{{ $data->id }}"
+                                                                    title="Edit">
+                                                                    Edit
+                                                                </button>
+                                                            </div>
                                                         </div>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <button type="button" class="dropdown-item"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#addModal{{ $data->id }}"
-                                                                title="Add">
-                                                                Perkembangan Kasus
-                                                            </button>
-                                                            {{-- <a class="dropdown-item"
-                                                                href="{{ route('pmk.detail', $data->id) }}">Detail</a>
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('pmk.edit', $data->id) }}">Edit</a> --}}
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
                                             @endif
-                                            
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -165,4 +168,5 @@
         </div>
     </div>
     @include('admin/data-pmk/hasil-lab/modal-add')
+    @include('admin/data-pmk/hasil-lab/modal-edit')
 @endsection

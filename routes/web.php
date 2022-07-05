@@ -36,8 +36,11 @@ $router->group(['prefix' => 'data-pmk'], function () use ($router) {
     $router->get('/detail/{id}', 'PmkController@pmkDetail')->name('pmk.detail');
     $router->get('/edit/{id}', 'PmkController@pmkEdit')->name('pmk.edit');
     $router->post('/update/{id}', 'PmkController@pmkUpdate')->name('pmk.update');
+    // data hasil pengujian lab
     $router->post('/hasil-lab/{id}', 'PmkController@pmkPostLab')->name('pmk-lab.post');
     $router->get('/hasil-lab', 'PmkController@hasilLabIndex')->name('hasil-lab.index');
+    $router->get('/hasil-lab/detail/{id}', 'PmkController@hasilLabDetail')->name('hasil-lab.detail');
+    $router->post('/hasil-lab/update/{id}', 'PmkController@hasilLabUpdate')->name('hasil-lab.update');
     // perkembangan kasus
     $router->get('/perkembangan-kasus', 'PmkController@perkembanganIndex')->name('data-perkembangan.index');
     $router->post('/perkembangan-kasus/{id}', 'PmkController@perkembanganPost')->name('data-perkembangan.post');
