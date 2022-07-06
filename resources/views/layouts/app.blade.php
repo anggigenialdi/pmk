@@ -134,11 +134,13 @@
                     <div class="w-75 d-flex justify-content-start align-items-center">
                         <img src="https://dkpp-kota.bandung.go.id/frontend-template/assets/image-resources/logo2.png"
                             width="80px" height="40px" alt="">
-                        <p class="mt-2" id="footer">DKPP  Kota Bandung &copy; </p>
                     </div>
-                    <div class="w-25 d-flex justify-content-end">
+                    <div class="w-25 d-flex justify-content-end align-items-center">
                         <img src="../images/diskominfo.png" width="120px" height="auto" alt="">
                     </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                <p id="footer">Sistem Monitoring DKPP &copy; </p>
                 </div>
             </div>
         <!-- </div> -->
