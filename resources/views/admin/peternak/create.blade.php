@@ -51,12 +51,11 @@
                                         <div class="col-xl-12">
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="nik">NIK
-                                                    <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number"
                                                         class="form-control form-control-sm  @error('nik') is-invalid @enderror"
-                                                        id="nik" placeholder="Input NIK.." required name="nik"
+                                                        id="nik" placeholder="Input NIK.."  name="nik"
                                                         value="{{ old('nik') }}">
 
                                                     @error('nik')

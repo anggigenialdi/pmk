@@ -44,7 +44,7 @@
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-022-copy"></i>
-                    <span class="nav-text">Master Data</span>
+                    <span class="nav-text">Master Data PMK</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('data-peternak.index') }}">Peternak</a></li>
@@ -55,6 +55,15 @@
                     <li><a href="#">Populasi Ternak</a></li> --}}
                 </ul>
 
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-022-copy"></i>
+                    <span class="nav-text">Master Data Kurban</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('master-kurban.index') }}">Data</a></li>
+                </ul>
+                
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-022-copy"></i>

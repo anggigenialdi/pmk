@@ -191,7 +191,7 @@ class PmkController extends Controller
         $data = Pmk::where('id', $id)->first();
         $data->tanggal_pengujian_lab = $request->input('tanggal_pengujian_lab');
         $data->keterangan = $request->input('keterangan');
-        $data->hasil = $request->input('hasil');
+        $data->hasil_pengujian_lab = $request->input('hasil_pengujian_lab');
         $data->keterangan = $request->input('keterangan');
         $data->save();
 

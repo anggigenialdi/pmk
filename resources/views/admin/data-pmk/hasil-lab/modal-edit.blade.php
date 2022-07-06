@@ -25,7 +25,7 @@
                             <div class="col-md-12">
                                 <label class="control-label form-label">Hasil</label>
                                 <input class="form-control form-white" placeholder="Input Nilai" type="number"
-                                    name="hasil_pengujian_lab" value="{{ old('hasil_pengujian_lab', $data->hasil_pengujian_lab) }}" required="">
+                                name="hasil_pengujian_lab" value="{{ old('hasil_pengujian_lab', $data->hasil_pengujian_lab) }}" required="">
                             </div>
                             <div class="col-md-12">
                                 <label class="control-label form-label">Keterangan</label>
