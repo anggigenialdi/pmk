@@ -165,7 +165,7 @@
         </div>
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2 mb-4">
-                <h5 class="mt-4 mb-2">Sebaran Kasus PMK di Kota Bandung</h5>
+                <h5 class="mt-4 mb-2">Peta Sebaran Kasus PMK di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
                      <div id="keterangan-jumlah">
@@ -302,7 +302,7 @@
                 success: function(res) {
                     let data = `
                   <p style="font-size:14px" class="text-center">Data PMK Kecamatan ${res.nama_kecamatan.nama}</p>
-                  <table class="table table-striped" style="height:10px;font-size:14px">
+                  <table class="table table-striped" style="height:10px;font-size:12px">
                               <thead>
                                 <tr style="">
                                   <th scope="col">#</th>
