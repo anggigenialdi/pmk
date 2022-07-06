@@ -42,7 +42,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="header">
                     <h4 class="text-light">Tabel Hewan Kurban</h4>
-                    <h5 class="text-light">Kota Bandung</h5>
+                    <h5 class="text-light" id="year">Kota Bandung </h5>
                 </div>
                 <p class="text-right" id="update">Update Terakhir : </p>
 
@@ -131,6 +131,8 @@
                 async: false,
                 success: function(res) {
                     $('#update').append(moment(res.tanggal).lang("id").format('LLLL'))
+                    document.getElementById("year").append(new Date().getFullYear());
+
                 }
             })
         });
