@@ -35,7 +35,6 @@
     tr:nth-child(even) {
         background-color: #f2f2f2
     }
-    
 </style>
 @section('content')
     <div class="container-fluid">
@@ -74,6 +73,8 @@
                                 <th>Tidak Layak</th>
                                 <th>Layak</th>
                                 <th>Tidak Layak</th>
+                                <th>Layak</th>
+                                <th>Tidak Layak</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,18 +95,29 @@
                 dataType: 'json',
                 async: false,
                 success: function(res) {
-                    // console.log(res);
                     res.forEach((el, index) => {
-                        console.log("ke", el);
-                        el.kelurahan.forEach(kel => {
-                            
-                        });
+                        let sum_layak = (el.data_kurban.domba_layak + el.data_kurban.kambing_layak + el.data_kurban.kerbau_layak + el.data_kurban.sapi_layak)
+                        let sum_tidak_layak = (el.data_kurban.domba_tidak_layak + el.data_kurban.kambing_tidak_layak + el.data_kurban.kerbau_tidak_layak + el.data_kurban.sapi_tidak_layak)
+                        res += `<tr>   
+                                <td>${index+1}</td>
+                                <td class="text-center">${el.nama_kecamatan}</td>
+                                <td class="text-center">${el.data_kurban.domba_layak > 0 ? el.data_kurban.domba_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.domba_tidak_layak > 0 ? el.data_kurban.domba_tidak_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.kambing_layak > 0 ? el.data_kurban.kambing_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.kambing_tidak_layak > 0 ? el.data_kurban.kambing_tidak_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.kerbau_layak > 0 ? el.data_kurban.kerbau_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.kerbau_tidak_layak > 0 ? el.data_kurban.kerbau_tidak_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.sapi_layak > 0 ? el.data_kurban.sapi_layak : '-'}</td>
+                                <td class="text-center">${el.data_kurban.sapi_tidak_layak > 0 ? el.data_kurban.sapi_tidak_layak : '-'}</td>
 
-                        
+                                <td class="text-center">${sum_layak > 0 ? sum_layak : '-'}</td>
+                                <td class="text-center">${sum_tidak_layak > 0 ? sum_tidak_layak : '-'}</td>
+                                <td class="text-center">${sum_tidak_layak + sum_layak  > 0 ? sum_tidak_layak + sum_layak : '-'}</td>
+                                </tr>`
                     });
-                    // $('#tabelKurban').append(
-                    //     `${res}`
-                    // );
+                    $('#tabelKurban').append(
+                        `${res}`
+                    );
                 }
             })
         }
