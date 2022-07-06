@@ -18,7 +18,7 @@ class PeternakController extends Controller
             'auth',
             [
                 'except' => [
-                    'dataIndex', 
+                    'tabelPmk', 
                     'jumlahKasusKumulatif',
                     'index',
                     'getDataPerKecamatan'
@@ -282,9 +282,9 @@ class PeternakController extends Controller
         return $data;
     }
 
-    public function dataIndex()
+    public function tabelPmk()
     {
 
-        return view('public/data');
+        return view('public/tabel-pmk');
     }
 }

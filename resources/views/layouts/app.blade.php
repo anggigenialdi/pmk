@@ -112,7 +112,7 @@
                     </a>
                     <div class="dropdown-menu text-success" aria-labelledby="navbarDropdown">
                         <a class="nav-link text-success" href="/">Peta</a>
-                        <a class="nav-link text-success" href="{{ route('data.index') }}">Data</a>
+                        <a class="nav-link text-success" href="{{ route('tabel-pmk.index') }}">Tabel</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -121,7 +121,7 @@
                     </a>
                     <div class="dropdown-menu text-success" aria-labelledby="navbarDropdown">
                         <a class="nav-link text-success" href="{{ route('kurban.peta') }}">Peta</a>
-                        <a class="nav-link text-success" href="{{ route('data.index') }}">Data</a>
+                        <a class="nav-link text-success" href="{{ route('tabel-kurban.index') }}">Tabel</a>
                     </div>
                 </li>
                 </ul>

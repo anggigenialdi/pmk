@@ -19,7 +19,8 @@ class MasterKurbanController extends Controller
                     'index',
                     'getDataPerKecamatan',
                     'jumlahKumulatif',
-                    'indexKurban'
+                    'indexKurban',
+                    'tabelKurban',
                 ]
             ]
         );
@@ -248,5 +249,10 @@ class MasterKurbanController extends Controller
         $data['total_tidak_layak'] = $domba_tidak_layak + $kambing_tidak_layak + $sapi_tidak_layak + $kerbau_tidak_layak;
         array_push($data_kurban, $data);
         return $data_kurban;
+    }
+
+    public function tabelKurban()
+    {
+        return view('public/kurban/tabel');
     }
 }

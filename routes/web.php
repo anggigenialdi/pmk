@@ -23,6 +23,8 @@ Route::get('/kurban/all', [App\Http\Controllers\MasterKurbanController::class, '
 Route::get('/kurban/{id}', [App\Http\Controllers\MasterKurbanController::class, 'getDataPerKecamatan']);
 Route::get('/kurban', [App\Http\Controllers\MasterKurbanController::class, 'jumlahKumulatif']);
 
+Route::get('/tabel-kurban', [App\Http\Controllers\MasterKurbanController::class, 'tabelKurban'])->name('tabel-kurban.index');
+
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');
     $router->get('/data-peternak', 'PeternakController@peternakIndex')->name('data-peternak.index');
@@ -64,7 +66,7 @@ $router->group(['prefix' => 'master-pengguna'], function () use ($router) {
     $router->post('/tambah', 'MasterPenggunaController@masterPenggunaPost')->name('master-pengguna.post');
 });
 
-$router->get('/data', 'PeternakController@dataIndex')->name('data.index');
+$router->get('/tabel-pmk', 'PeternakController@tabelPmk')->name('tabel-pmk.index');
 $router->get('/kumulatif', 'PeternakController@jumlahKasusKumulatif')->name('data.kumulatif');
 
 $router->group(['prefix' => 'master-kurban'], function () use ($router) {
