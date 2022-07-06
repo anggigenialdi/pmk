@@ -41,7 +41,7 @@
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2">
                 <div class="header">
-                    <h4 class="text-light">Tabel Hewan Kurban</h4>
+                    <h4 class="text-light">Tabel Hewan Layak Kurban</h4>
                     <h5 class="text-light" id="year">Kota Bandung </h5>
                 </div>
                 <p class="text-right" id="update">Update Terakhir : </p>
