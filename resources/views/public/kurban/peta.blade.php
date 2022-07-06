@@ -177,15 +177,15 @@
         function setJumlah(id) {
             $.ajax({
                 type: "GET",
-                url: `../data-ternak`,
+                url: `../kurban/all`,
                 dataType: 'json',
                 async: false,
                 success: function(res) {
                     // res.forEach(element => {
                     //   console.log(element.data_ternak[0].total_kasus)
                     // });
-                    //     return String(res.data_pmk[0].total_kasus)
-                    $(`#data-${id}`).html(`Total Kasus : ${res.data_pmk[0].total_kasus}`);
+                    //     return String(res.data_kurban[0].total_kasus)
+                    $(`#data-${id}`).html(`Total Kasus : ${res.data_kurban[0].total_kasus}`);
                 }
             })
 
@@ -228,7 +228,7 @@
         function setData(id) {
             $.ajax({
                 type: "GET",
-                url: `../data-ternak/${id}`,
+                url: `../kurban/${id}`,
                 dataType: 'json',
                 async: false,
                 success: function(res) {
@@ -239,16 +239,18 @@
                                 <tr style="">
                                   <th scope="col">#</th>
                                   <th scope="col">Kelurahan</th>
-                                  <th scope="col">Total Kasus</th>
+                                  <th scope="col">Total Kambing Layak</th>
+                                  <th scope="col">Total Kurban Layak</th>
                                 </tr>
                               </thead>
                               <tbody>`;
-                    res.data_pmk_perkelurahan.forEach((res, index) => {
+                    res.data_kurban_perkelurahan.forEach((res, index) => {
                         data += `
                                       <tr>
                                         <th scope="row">${index+1}</th>
                                         <td>${res.nama_kelurahan}</td>
-                                        <td>${res.ternak[0].total_kasus}</td>
+                                        <td>${res.ternak.total_layak}</td>
+                                        <td>${res.ternak.total_layak}</td>
                                       </tr>
                                     `;
                     })

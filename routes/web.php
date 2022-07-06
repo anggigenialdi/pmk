@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('public.home');
 });
 Route::get('/kurban/peta', [App\Http\Controllers\MasterKurbanController::class, 'index'])->name('kurban.peta');
+Route::get('/kurban/all', [App\Http\Controllers\MasterKurbanController::class, 'indexKurban']);
+Route::get('/kurban/{id}', [App\Http\Controllers\MasterKurbanController::class, 'getDataPerKecamatan']);
+Route::get('/kurban', [App\Http\Controllers\MasterKurbanController::class, 'jumlahKumulatif']);
 
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');
