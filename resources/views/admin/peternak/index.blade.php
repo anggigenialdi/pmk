@@ -130,11 +130,9 @@
                                                                 href="{{ route('pmk.create', $data->id) }}">Tambah Data
                                                                 Pemeriksaan</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ route('peternak.detail', $data->id) }}">Detail
-                                                                Data Peternak</a>
+                                                                href="{{ route('peternak.detail', $data->id) }}">Detail</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ route('peternak.edit', $data->id) }}">Edit Data
-                                                                Peternak</a>
+                                                                href="{{ route('peternak.edit', $data->id) }}">Edit</a>
                                                         </div>
                                                     </div>
                                                 </td>

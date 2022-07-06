@@ -90,6 +90,7 @@ class MasterKurbanController extends Controller
         return back()->with('success', ' Data Berhasil Ditambahkan');
     }
 
+<<<<<<< HEAD
     public function indexKurban()
     {
 
@@ -248,5 +249,74 @@ class MasterKurbanController extends Controller
         $data['total_tidak_layak'] = $domba_tidak_layak + $kambing_tidak_layak + $sapi_tidak_layak + $kerbau_tidak_layak;
         array_push($data_kurban, $data);
         return $data_kurban;
+=======
+    public function masterKurbanDetail($id)
+    {
+        $datas = Kurban::where('id', $id)->get();
+
+        return view('admin/data-kurban/detail', compact('datas'));
+    }
+
+    public function masterKurbanEdit($id)
+    {
+        $kecamatan = MasterKecamatan::get();
+        $kelurahan = MasterKelurahan::get();
+        $datas = Kurban::where('id', $id)->get();
+
+        return view('admin/data-kurban/edit', compact(['kecamatan', 'datas', 'kelurahan']));
+    }
+
+    public function masterKurbanUpdate(Request $request, $id)
+    {
+        
+        request()->validate(
+            [
+                'kecamatan' => 'required',
+                'kelurahan' => 'required',
+
+                'domba_layak' => 'required',
+                'kambing_layak' => 'required',
+                'kerbau_layak' => 'required',
+                'sapi_layak' => 'required',
+                'domba_tidak_layak' => 'required',
+                'kambing_tidak_layak' => 'required',
+                'kerbau_tidak_layak' => 'required',
+                'sapi_tidak_layak' => 'required',
+            ],
+            [
+                'kecamatan.required' => 'Input tidak boleh kosong',
+                'kelurahan.required' => 'Input tidak boleh kosong',
+
+                'domba_layak.required' => 'Input tidak boleh kosong',
+                'kambing_layak.required' => 'Input tidak boleh kosong',
+                'kerbau_layak.required' => 'Input tidak boleh kosong',
+                'sapi_layak.required' => 'Input tidak boleh kosong',
+                'domba_tidak_layak.required' => 'Input tidak boleh kosong',
+                'kambing_tidak_layak.required' => 'Input tidak boleh kosong',
+                'kerbau_tidak_layak.required' => 'Input tidak boleh kosong',
+                'sapi_tidak_layak.required' => 'Input tidak boleh kosong',
+
+            ]
+        );
+        $datas = Kurban::where('id', $id)->first();
+
+        $datas->id_kecamatan = $request->input('kecamatan');
+        $datas->id_kelurahan = $request->input('kelurahan');
+
+        $datas->domba_layak = $request->input('domba_layak');
+        $datas->kambing_layak = $request->input('kambing_layak');
+        $datas->kerbau_layak = $request->input('kerbau_layak');
+        $datas->sapi_layak = $request->input('sapi_layak');
+        $datas->domba_tidak_layak = $request->input('domba_tidak_layak');
+        $datas->kambing_tidak_layak = $request->input('kambing_tidak_layak');
+        $datas->kerbau_tidak_layak = $request->input('kerbau_tidak_layak');
+        $datas->sapi_tidak_layak = $request->input('sapi_tidak_layak');
+        $datas->save();
+
+        return redirect('/master-kurban')->with('success', ' Data Berhasil Update');
+
+        // return back()->with('success', ' Data Berhasil Diupdate');
+
+>>>>>>> 0ba2d3f1a3fe56e2fda12fd1ecaa8584f1ec01f4
     }
 }

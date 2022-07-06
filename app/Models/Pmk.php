@@ -24,7 +24,7 @@ class Pmk extends Model
 
     public function dataPeternak()
     {
-        return $this->belongsTo('App\Models\Peternak', 'id_peternak', 'id');
+        return $this->belongsTo(Peternak::class, 'id_peternak', 'id');
     }
 
 }
