@@ -50,9 +50,9 @@
 
                     <div class="card">
                         <div class="card-header">
-                            {{-- <a href="{{ route('pmk.create') }}" class="btn btn-primary">
+                            <a href="{{ route('master-kurban.create') }}" class="btn btn-primary">
                                 <span class="align-middle"><i class="ti-plus"></i></span> Data
-                            </a> --}}
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -60,7 +60,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="3">Id</th>
-                                            <th rowspan="3">Kecamatan</th>
+                                            <th rowspan="3">Kelurahan</th>
                                             <th colspan="8" class="text-center">Jenis Hewan</th>
                                             <th rowspan="3">Action</th>
 
