@@ -68,7 +68,7 @@
                     KURBAN
                     </a>
                     <div class="dropdown-menu text-success" aria-labelledby="navbarDropdown">
-                        <a class="nav-link text-success" href="/peta-kurban">Peta</a>
+                        <a class="nav-link text-success" href="{{ route('kurban.peta') }}">Peta</a>
                         <a class="nav-link text-success" href="{{ route('data.index') }}">Data</a>
                     </div>
                 </li>
@@ -85,7 +85,7 @@
                         <p class="mt-2" id="footer">DKPP  Kota Bandung &copy; </p>
                     </div>
                     <div class="w-25 d-flex justify-content-end">
-                        <img src="images/diskominfo.png" width="120px" height="auto" alt="">
+                        <img src="../images/diskominfo.png" width="120px" height="auto" alt="">
                     </div>
                 </div>
             </div>

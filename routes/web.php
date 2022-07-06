@@ -18,6 +18,7 @@ Route::get('/geojson', [App\Http\Controllers\PmkController::class, 'getJson'])->
 Route::get('/', function () {
     return view('public.home');
 });
+Route::get('/kurban/peta', [App\Http\Controllers\MasterKurbanController::class, 'index'])->name('kurban.peta');
 
 $router->group(['prefix' => 'peternak'], function () use ($router) {
     $router->get('/', 'PeternakController@peternakIndex')->name('peternak.index');

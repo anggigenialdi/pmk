@@ -13,10 +13,13 @@ class MasterKurbanController extends Controller
             'auth',
             [
                 'except' => [
-
+                    'index'
                 ]
             ]
         );
+    }
+    public function index(){
+        return view('public/kurban/peta');
     }
     public function masterKurbanIndex()
     {
