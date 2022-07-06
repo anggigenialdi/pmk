@@ -44,7 +44,7 @@ class PeternakController extends Controller
         
         request()->validate(
             [
-                'nik' => 'required|min:16|max:16',
+                // 'nik' => 'required|min:0|max:16',
                 'nama' => 'required',
                 'kecamatan' => 'required',
                 'kelurahan' => 'required',
@@ -57,8 +57,8 @@ class PeternakController extends Controller
                 'jumlah_sapi_perah' => 'required',
             ],
             [
-                'nik.required' => 'NIK tidak boleh kosong',
-                'nik.min' => 'NIK Harus 16 digit angka',
+                // 'nik.required' => 'NIK tidak boleh kosong',
+                // 'nik.min' => 'NIK Harus 16 digit angka',
                 'nama.required' => 'Nama Peternak tidak boleh kosong',
                 'kecamatan.required' => 'Kecamatan tidak boleh kosong',
                 'kelurahan.required' => 'Kelurahan tidak boleh kosong',
