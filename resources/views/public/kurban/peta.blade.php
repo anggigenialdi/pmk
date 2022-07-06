@@ -65,10 +65,10 @@
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2">
                 <div class="header">
-                    <h4 class="text-light">Data Kurban</h4>
-                    <h5 class="text-light">Kota Bandung</h5>
+                    <h4 class="text-light">Data Hewan Layak Kurban</h4>
+                    <h5 class="text-light" id="year">Kota Bandung </h5>
                 </div>
-                <h5>Jumlah Kurban</h5>
+                <h5>Jumlah Hewan Layak Kurban</h5>
                 <div class="row">
                     <!--  -->
                     <div class="col-md-3 mb-2">
@@ -138,7 +138,7 @@
         </div>
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2 mb-4">
-                <h5 class="mt-4 mb-2">Peta Sebaran Kurban di Kota Bandung</h5>
+                <h5 class="mt-4 mb-2">Peta Sebaran Hewan Layak Kurban di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
                 </div>
@@ -233,7 +233,7 @@
                 async: false,
                 success: function(res) {
                     let data = `
-                  <p style="font-size:14px" class="text-center">Data Kurban Kecamatan <b>${res.nama_kecamatan.nama}</b></p>
+                  <p style="font-size:14px" class="text-center">Data Hewan Layak Kurban Kecamatan <b>${res.nama_kecamatan.nama}</b></p>
                   <table class="table table-striped" style="height:10px;font-size:12px">
                               <thead>
                                 <tr style="">
@@ -280,6 +280,7 @@
 
                 }
             })
+            document.getElementById("year").append(new Date().getFullYear());
         })
     </script>
 @stop
