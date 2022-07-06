@@ -67,4 +67,7 @@ $router->group(['prefix' => 'master-kurban'], function () use ($router) {
     $router->get('/', 'MasterKurbanController@masterKurbanIndex')->name('master-kurban.index');
     $router->get('/create', 'MasterKurbanController@masterKurbanCreate')->name('master-kurban.create');
     $router->post('/tambah', 'MasterKurbanController@masterKurbanPost')->name('master-kurban.post');
+    $router->get('/detail/{id}', 'MasterKurbanController@masterKurbanDetail')->name('master-kurban.detail');
+    $router->get('/edit/{id}', 'MasterKurbanController@masterKurbanEdit')->name('master-kurban.edit');
+    $router->post('/update/{id}', 'MasterKurbanController@masterKurbanUpdate')->name('master-kurban.update');
 });

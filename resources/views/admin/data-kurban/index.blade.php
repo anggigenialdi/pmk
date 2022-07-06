@@ -83,6 +83,66 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($datas as $data)
+                                            <tr>
+                                                <td>
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td>
+                                                    {{ $data->masterKelurahan->nama }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->domba_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->domba_tidak_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->kambing_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->kambing_tidak_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->kerbau_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->kerbau_tidak_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->sapi_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $data->sapi_tidak_layak }}
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="dropdown ms-auto text-end">
+                                                        <div class="btn-link" data-bs-toggle="dropdown">
+                                                            <svg width="24px" height="24px" viewbox="0 0 24 24"
+                                                                version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                    fill-rule="evenodd">
+                                                                    <rect x="0" y="0" width="24"
+                                                                        height="24"></rect>
+                                                                    <circle fill="#000000" cx="5" cy="12"
+                                                                        r="2"></circle>
+                                                                    <circle fill="#000000" cx="12" cy="12"
+                                                                        r="2"></circle>
+                                                                    <circle fill="#000000" cx="19" cy="12"
+                                                                        r="2"></circle>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('master-kurban.detail', $data->id) }}">Detail</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('master-kurban.edit', $data->id) }}">Edit</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -92,5 +152,4 @@
             </div>
         </div>
     </div>
-    @include('admin/data-pmk/modal-add')
 @endsection
