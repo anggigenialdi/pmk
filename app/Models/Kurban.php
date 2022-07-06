@@ -11,4 +11,14 @@ class Kurban extends Model
 
     protected $table = "data_kurban";
 
+
+    public function masterKecamatan()
+    {
+        return $this->belongsTo(MasterKecamatan::class, 'id_kecamatan', 'id');
+    }
+    public function masterKelurahan()
+    {
+        return $this->belongsTo(MasterKelurahan::class, 'id_kelurahan', 'id');
+    }
+
 }

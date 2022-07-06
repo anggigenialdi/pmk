@@ -65,6 +65,6 @@ $router->get('/kumulatif', 'PeternakController@jumlahKasusKumulatif')->name('dat
 
 $router->group(['prefix' => 'master-kurban'], function () use ($router) {
     $router->get('/', 'MasterKurbanController@masterKurbanIndex')->name('master-kurban.index');
-    $router->post('/create', 'MasterKurbanController@masterKurbanCreate')->name('master-kurban.create');
+    $router->get('/create', 'MasterKurbanController@masterKurbanCreate')->name('master-kurban.create');
     $router->post('/tambah', 'MasterKurbanController@masterKurbanPost')->name('master-kurban.post');
 });
