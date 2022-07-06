@@ -77,7 +77,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <p class="card-text">Kambing</p>
-                                        <h5 class="card-title" id="grand_total">0</h5>
+                                        <h5 class="card-title" id="kambing_layak">0</h5>
                                     </div>
                                      <img src="../images/goat.png" width="70px" height="auto" alt="">
                                 </div>
@@ -92,7 +92,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <p class="card-text">Domba</p>
-                                        <h5 class="card-title" id="grand_total">0</h5>
+                                        <h5 class="card-title" id="domba_layak">0</h5>
                                     </div>
                                      <img src="../images/goat.png" width="70px" height="auto" alt="">
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <p class="card-text">Sapi</p>
-                                        <h5 class="card-title" id="grand_total">0</h5>
+                                        <h5 class="card-title" id="sapi_layak">0</h5>
                                     </div>
                                      <img src="../images/cow.png" width="70px" height="auto" alt="">
                                 </div>
@@ -122,7 +122,7 @@
                             <div class="d-flex justify-content-between">
                                     <div>
                                         <p class="card-text">Kerbau</p>
-                                        <h5 class="card-title" id="grand_total">0</h5>
+                                        <h5 class="card-title" id="kerbau_layak">0</h5>
                                     </div>
                                      <img src="../images/buffalo.png" width="70px" height="auto" alt="">
                                 </div>
@@ -234,13 +234,15 @@
                 success: function(res) {
                     let data = `
                   <p style="font-size:14px" class="text-center">Data Kurban Kecamatan ${res.nama_kecamatan.nama}</p>
-                  <table class="table table-striped" style="height:10px;font-size:14px">
+                  <table class="table table-striped" style="height:10px;font-size:12px">
                               <thead>
                                 <tr style="">
                                   <th scope="col">#</th>
                                   <th scope="col">Kelurahan</th>
-                                  <th scope="col">Total Kambing Layak</th>
-                                  <th scope="col">Total Kurban Layak</th>
+                                  <th scope="col">Kambing</th>
+                                  <th scope="col">Domba</th>
+                                  <th scope="col">Sapi</th>
+                                  <th scope="col">Kerbau</th>
                                 </tr>
                               </thead>
                               <tbody>`;
@@ -249,8 +251,10 @@
                                       <tr>
                                         <th scope="row">${index+1}</th>
                                         <td>${res.nama_kelurahan}</td>
-                                        <td>${res.ternak.total_layak}</td>
-                                        <td>${res.ternak.total_layak}</td>
+                                        <td>${res.ternak.kambing_layak}</td>
+                                        <td>${res.ternak.domba_layak}</td>
+                                        <td>${res.ternak.sapi_layak}</td>
+                                        <td>${res.ternak.kerbau_layak}</td>
                                       </tr>
                                     `;
                     })
@@ -263,14 +267,14 @@
         $(document).ready(function() {
             $.ajax({
                 type: "GET",
-                url: '../kumulatif',
+                url: '../kurban',
                 dataType: 'json',
                 async: false,
                 success: function(res) {
-                    $('#grand_total').text(res.tertular)
-                    $('#sembuh').text(res.sembuh)
-                    $('#potong_bersyarat').text(res.potong_bersyarat)
-                    $('#mati').text(res.mati)
+                    $('#kambing_layak').text(res.kambing_layak)
+                    $('#domba_layak').text(res.domba_layak)
+                    $('#sapi_layak').text(res.sapi_layak)
+                    $('#kerbau_layak').text(res.kerbau_layak)
 
                     $('#update').append( moment(res.tanggal).lang("id").format('LLLL') )
 

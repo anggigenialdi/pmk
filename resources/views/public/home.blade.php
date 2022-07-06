@@ -302,7 +302,7 @@
                 success: function(res) {
                     let data = `
                   <p style="font-size:14px" class="text-center">Data PMK Kecamatan ${res.nama_kecamatan.nama}</p>
-                  <table class="table table-striped" style="height:10px;font-size:14px">
+                  <table class="table table-striped" style="height:10px;font-size:12px">
                               <thead>
                                 <tr style="">
                                   <th scope="col">#</th>

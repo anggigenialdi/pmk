@@ -235,7 +235,7 @@ class MasterKurbanController extends Controller
             $sapi_tidak_layak = $sapi_tidak_layak + $p->sapi_tidak_layak;
             $kerbau_tidak_layak = $kerbau_tidak_layak + $p->kerbau_tidak_layak;
         }
-        $data['tanggal'] = $date->updated_at;
+        $data['tanggal'] = $date->created_at;
         $data['domba_layak'] = $domba_layak;
         $data['kambing_layak'] = $kambing_layak;
         $data['sapi_layak'] = $sapi_layak;
@@ -247,6 +247,6 @@ class MasterKurbanController extends Controller
         $data['total_layak'] = $domba_layak + $kambing_layak + $sapi_layak + $kerbau_layak;
         $data['total_tidak_layak'] = $domba_tidak_layak + $kambing_tidak_layak + $sapi_tidak_layak + $kerbau_tidak_layak;
         array_push($data_kurban, $data);
-        return $data_kurban;
+        return $data;
     }
 }
