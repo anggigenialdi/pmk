@@ -99,7 +99,7 @@ class MasterKurbanController extends Controller
         $data = [];
         $data_kec = [];
         foreach ($kec as $k) {
-            $data['data_ternak'] = $this->getDataTernakKecamatan($k->id);
+            $data['data_kurban'] = $this->getDataTernakKecamatan($k->id);
             $data['id'] = $k->id;
             $data['nama_kecamatan'] = $k->nama;
             $data['latitude'] = $k->latitude;
