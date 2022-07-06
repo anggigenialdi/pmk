@@ -138,7 +138,7 @@
         </div>
         <div class="row no-gutters">
             <div class="col-md-8 offset-md-2 mb-4">
-                <h5 class="mt-4 mb-2">Sebaran Kurban di Kota Bandung</h5>
+                <h5 class="mt-4 mb-2">Peta Sebaran Kurban di Kota Bandung</h5>
                 <div id="map">
                     <div id="table-kecamatan"></div>
                 </div>
@@ -233,7 +233,7 @@
                 async: false,
                 success: function(res) {
                     let data = `
-                  <p style="font-size:14px" class="text-center">Data Kurban Kecamatan ${res.nama_kecamatan.nama}</p>
+                  <p style="font-size:14px" class="text-center">Data Kurban Kecamatan <b>${res.nama_kecamatan.nama}</b></p>
                   <table class="table table-striped" style="height:10px;font-size:12px">
                               <thead>
                                 <tr style="">
