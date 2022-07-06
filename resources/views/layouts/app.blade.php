@@ -54,22 +54,39 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link text-success" href="/">Beranda</a>
-                    </li>
-                    <li class="nav-item">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    PMK
+                    </a>
+                    <div class="dropdown-menu text-success" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-success" href="/">Peta</a>
                         <a class="nav-link text-success" href="{{ route('data.index') }}">Data</a>
-                    </li>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    KURBAN
+                    </a>
+                    <div class="dropdown-menu text-success" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-success" href="/peta-kurban">Peta</a>
+                        <a class="nav-link text-success" href="{{ route('data.index') }}">Data</a>
+                    </div>
+                </li>
                 </ul>
             </div>
         </nav>
         @yield('content')
         <!-- <div class="row mt-4"> -->
             <div class="col-md-8 offset-md-2 my-4">
-                <div class="d-flex justify-content-start align-items-center">
-                    <img src="https://dkpp-kota.bandung.go.id/frontend-template/assets/image-resources/logo2.png"
-                        width="80px" height="40px" alt="">
-                        <p class="mt-4" id="footer">DKPP  Kota Bandung &copy; </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="w-75 d-flex justify-content-start align-items-center">
+                        <img src="https://dkpp-kota.bandung.go.id/frontend-template/assets/image-resources/logo2.png"
+                            width="80px" height="40px" alt="">
+                        <p class="mt-2" id="footer">DKPP  Kota Bandung &copy; </p>
+                    </div>
+                    <div class="w-25 d-flex justify-content-end">
+                        <img src="images/diskominfo.png" width="120px" height="auto" alt="">
+                    </div>
                 </div>
             </div>
         <!-- </div> -->
