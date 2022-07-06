@@ -12,7 +12,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>Dinas Ketahanan Pangan dan Pertanian Kota Bandung</title>
+    <title>Sistem Monitoring DKPP</title>
 
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/like.png') }}">
@@ -177,6 +177,10 @@
     <script>
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}")
+        @endif
+
+        @if (Session::has('warning'))
+            toastr.warning("{{ Session::get('warning') }}")
         @endif
     </script>
 </body>

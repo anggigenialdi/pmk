@@ -35,7 +35,10 @@
                     <li class="breadcrumb-item active"><a href="javascript:void(0)">Detail Data</a></li>
                 </ol>
             </div>
+
             @foreach ($datas as $data)
+
+            @endforeach
                 <fieldset disabled="">
                     <div class="row">
                         <div class="col-lg-12">
@@ -198,7 +201,6 @@
                         </div>
                     </div>
                 </fieldset>
-            @endforeach
         </div>
     </div>
 @endsection
