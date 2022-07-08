@@ -333,7 +333,7 @@
                 dataType: 'json',
                 async: false,
                 success: function(res) {
-                    $('#grand_total').text(res.tertular)
+                    $('#grand_total').text(res.tertular+res.terduga)
                     $('#sembuh').text(res.sembuh)
                     $('#potong_bersyarat').text(res.potong_bersyarat)
                     $('#mati').text(res.mati)

@@ -77,3 +77,5 @@ $router->group(['prefix' => 'master-kurban'], function () use ($router) {
     $router->get('/edit/{id}', 'MasterKurbanController@masterKurbanEdit')->name('master-kurban.edit');
     $router->post('/update/{id}', 'MasterKurbanController@masterKurbanUpdate')->name('master-kurban.update');
 });
+
+Route::get('tabel-kurban-export',[App\Http\Controllers\MasterKurbanController::class, 'tabelKurbanExport'])->name('tabel-kurban.export');

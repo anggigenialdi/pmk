@@ -8,6 +8,9 @@ use App\Models\MasterKelurahan;
 use Illuminate\Http\Request;
 use \stdClass;
 
+use App\Exports\KurbanExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class MasterKurbanController extends Controller
 {
     public function __construct()
@@ -21,6 +24,7 @@ class MasterKurbanController extends Controller
                     'jumlahKumulatif',
                     'indexKurban',
                     'tabelKurban',
+                    'tabelKurbanExport'
                 ]
             ]
         );
@@ -330,5 +334,10 @@ class MasterKurbanController extends Controller
 
         return redirect('/master-kurban')->with('success', ' Data Berhasil Diupdate');
         // return back()->with('success', ' Data Berhasil Ditambahkan');
+    }
+
+    public function tabelKurbanExport() 
+    {
+        return Excel::download(new KurbanExport, 'tabel-kurban.xlsx');
     }
 }

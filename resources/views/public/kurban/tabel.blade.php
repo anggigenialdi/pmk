@@ -45,13 +45,15 @@
                     <h5 class="text-light" id="year">Kota Bandung </h5>
                 </div>
                 <p class="text-right" id="update">Update Terakhir : </p>
-
+                <a href="{{ route('tabel-kurban.export') }}" class="btn btn-info">
+                    <span class="align-middle"><i class="ti-plus"></i></span> Export
+                </a>
                 <div style="overflow-x:auto;">
                     <table class="table" id="tabelKurban">
                         <thead>
                             <tr>
                                 <th rowspan="3">Id</th>
-                                <th rowspan="3">Kelurahan</th>
+                                <th rowspan="3">Kecamatan</th>
                                 <th colspan="8" class="text-center">Jenis Hewan</th>
                                 <th colspan="2" rowspan="2" class="text-center">Total</th>
                                 <th rowspan="3">Grand Total</th>
