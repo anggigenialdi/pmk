@@ -152,6 +152,12 @@
                                                                     title="Edit">
                                                                     Edit
                                                                 </button>
+                                                                <button type="button" class="dropdown-item"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal{{ $data->id }}"
+                                                                    title="Delete">
+                                                                    Delete
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -169,4 +175,5 @@
     </div>
     @include('admin/data-pmk/hasil-lab/modal-add')
     @include('admin/data-pmk/hasil-lab/modal-edit')
+    @include('admin/data-pmk/hasil-lab/modal-delete')
 @endsection

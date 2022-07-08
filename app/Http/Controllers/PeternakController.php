@@ -18,7 +18,7 @@ class PeternakController extends Controller
             'auth',
             [
                 'except' => [
-                    'tabelPmk', 
+                    'tabelPmk',
                     'jumlahKasusKumulatif',
                     'index',
                     'getDataPerKecamatan'
@@ -41,7 +41,7 @@ class PeternakController extends Controller
     }
     public function peternakPost(Request $request)
     {
-        
+
         request()->validate(
             [
                 // 'nik' => 'required|min:0|max:16',
@@ -51,10 +51,10 @@ class PeternakController extends Controller
                 'rt' => 'required',
                 'rw' => 'required',
                 'alamat' => 'required',
-                'jumlah_kambing' => 'required',
-                'jumlah_kerbau' => 'required',
-                'jumlah_sapi_potong' => 'required',
-                'jumlah_sapi_perah' => 'required',
+                // 'jumlah_kambing' => 'required',
+                // 'jumlah_kerbau' => 'required',
+                // 'jumlah_sapi_potong' => 'required',
+                // 'jumlah_sapi_perah' => 'required',
             ],
             [
                 // 'nik.required' => 'NIK tidak boleh kosong',
@@ -65,10 +65,10 @@ class PeternakController extends Controller
                 'rt.required' => 'Input tidak boleh kosong',
                 'rw.required' => 'Input tidak boleh kosong',
                 'alamat.required' => 'Input tidak boleh kosong',
-                'jumlah_kambing.required' => 'Input tidak boleh kosong',
-                'jumlah_kerbau.required' => 'Input tidak boleh kosong',
-                'jumlah_sapi_potong.required' => 'Input tidak boleh kosong',
-                'jumlah_sapi_perah.required' => 'Input tidak boleh kosong',
+                // 'jumlah_kambing.required' => 'Input tidak boleh kosong',
+                // 'jumlah_kerbau.required' => 'Input tidak boleh kosong',
+                // 'jumlah_sapi_potong.required' => 'Input tidak boleh kosong',
+                // 'jumlah_sapi_perah.required' => 'Input tidak boleh kosong',
 
             ]
         );
@@ -81,10 +81,10 @@ class PeternakController extends Controller
         $ternak->rw = $request->input('rw');
         $ternak->rt = $request->input('rt');
         $ternak->alamat = $request->input('alamat');
-        $ternak->jumlah_kambing = $request->input('jumlah_kambing');
-        $ternak->jumlah_kerbau = $request->input('jumlah_kerbau');
-        $ternak->jumlah_sapi_potong = $request->input('jumlah_sapi_potong');
-        $ternak->jumlah_sapi_perah = $request->input('jumlah_sapi_perah');
+        $ternak->jumlah_kambing = $request->input('jumlah_kambing') ? $request->input('jumlah_kambing') : 0;
+        $ternak->jumlah_kerbau = $request->input('jumlah_kerbau') ? $request->input('jumlah_kerbau') : 0;
+        $ternak->jumlah_sapi_potong = $request->input('jumlah_sapi_potong') ? $request->input('jumlah_sapi_potong') : 0;
+        $ternak->jumlah_sapi_perah = $request->input('jumlah_sapi_perah') ? $request->input('jumlah_sapi_perah') : 0;
         $ternak->save();
         return back()->with('success', ' Data Berhasil Ditambahkan');
     }
@@ -263,18 +263,21 @@ class PeternakController extends Controller
         $date = Pmk::orderBy('updated_at', 'desc')->first();
         $tertular = 0;
         $sembuh = 0;
+        $terduga = 0;
         $mati = 0;
         $potong_bersyarat = 0;
         $data = [];
         $data_pmk = [];
         foreach ($_pmk as $p) {
             $tertular += $p->tertular_kambing + $p->tertular_sapi_perah + $p->tertular_kerbau + $p->tertular_sapi_potong;
+            $terduga += $p->terduga_kambing + $p->terduga_sapi_perah + $p->terduga_kerbau + $p->terduga_sapi_potong;
             $sembuh += $p->sembuh;
             $mati += $p->mati;
             $potong_bersyarat += $p->potong_bersyarat;
         }
         $data['tanggal'] = $date->updated_at;
         $data['tertular'] = $tertular;
+        $data['terduga'] = $terduga;
         $data['sembuh'] = $sembuh;
         $data['mati'] = $mati;
         $data['potong_bersyarat'] = $potong_bersyarat;
@@ -286,5 +289,16 @@ class PeternakController extends Controller
     {
 
         return view('public/tabel-pmk');
+    }
+
+    public function peternakDestroy($id)
+    {
+        $data = Peternak::find($id);
+
+        if ($data->delete()) {
+            return redirect()->route('peternak.index')->with('success', 'Berhasil menghapus data');
+        } else {
+            return redirect()->route('peternak.index')->with('warning', 'Gagal menghapus data');
+        }
     }
 }

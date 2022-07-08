@@ -37,7 +37,7 @@
                     </a> --}}
                 </div>
             </li>
-            <li><a href="/" class="ai-icon" aria-expanded="false">
+            <li><a href="/home" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
@@ -65,14 +65,14 @@
                 </ul>
                 
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-022-copy"></i>
                     <span class="nav-text">Master Pengguna</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('master-pengguna.index') }}">Pengguna</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="mx-auto">
                 <a class="dropdown-item ai-icon" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

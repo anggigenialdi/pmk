@@ -65,6 +65,7 @@
                                             <th rowspan="2">Tanggal Pengujian Lab</th>
                                             <th rowspan="2">Hasil Pengujian</th>
                                             <th colspan="3" class="text-center">Perkembangan Kasus</th>
+                                            <th rowspan="2">Action</th>
                                         </tr>
                                         <tr>
                                             <th>Mati</th>
@@ -74,7 +75,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($datas as $data)
-                                            @if ($data->status_kasus !== null && $data->status_kasus != 1 )
+                                            @if ($data->status_kasus !== null && $data->status_kasus != 1)
                                                 <tr>
                                                     <td>
                                                         {{ $loop->iteration }}
@@ -93,6 +94,42 @@
                                                         {{ $data->potong_bersyarat }}</td>
                                                     <td>
                                                         {{ $data->sembuh }}</td>
+                                                    <td class="text-center">
+                                                        <div class="dropdown ms-auto text-end">
+                                                            <div class="btn-link" data-bs-toggle="dropdown">
+                                                                <svg width="24px" height="24px" viewbox="0 0 24 24"
+                                                                    version="1.1">
+                                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                                        fill-rule="evenodd">
+                                                                        <rect x="0" y="0" width="24"
+                                                                            height="24"></rect>
+                                                                        <circle fill="#000000" cx="5" cy="12"
+                                                                            r="2"></circle>
+                                                                        <circle fill="#000000" cx="12" cy="12"
+                                                                            r="2"></circle>
+                                                                        <circle fill="#000000" cx="19" cy="12"
+                                                                            r="2"></circle>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                {{-- <a class="dropdown-item"
+                                                                    href="{{ route('hasil-lab.detail', $data->id) }}">Detail</a> --}}
+                                                                <button type="button" class="dropdown-item"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#editModal{{ $data->id }}"
+                                                                    title="Edit">
+                                                                    Edit
+                                                                </button>
+                                                                <button type="button" class="dropdown-item"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal{{ $data->id }}"
+                                                                    title="Delete">
+                                                                    Delete
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             @endif
                                         @endforeach
@@ -105,4 +142,6 @@
             </div>
         </div>
     </div>
+    @include('admin/data-pmk/perkembangan-kasus/modal-edit')
+    @include('admin/data-pmk/perkembangan-kasus/modal-delete')
 @endsection

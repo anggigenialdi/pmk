@@ -226,7 +226,7 @@
                     //   console.log(element.data_ternak[0].total_kasus)
                     // });
                     //     return String(res.data_pmk[0].total_kasus)
-                    $(`#data-${id}`).html(`Total Kasus : ${res.data_pmk[0].total_kasus}`);
+                    $(`#data-${id}`).html(`Total Kasus Tertular : ${res.data_pmk[0].total_kasus}`);
                 }
             })
 

@@ -128,14 +128,22 @@
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <button  type="button" class="dropdown-item" data-bs-toggle="modal"
-                                                                data-bs-target="#addModal{{ $data->id }}" title="Add">
+                                                            <button type="button" class="dropdown-item"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#addModal{{ $data->id }}"
+                                                                title="Add">
                                                                 Hasil Labolatorium
                                                             </button>
                                                             <a class="dropdown-item"
                                                                 href="{{ route('pmk.detail', $data->id) }}">Detail</a>
                                                             <a class="dropdown-item"
                                                                 href="{{ route('pmk.edit', $data->id) }}">Edit</a>
+                                                            <button type="button" class="dropdown-item"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#deleteModal{{ $data->id }}"
+                                                                title="Delete">
+                                                                Delete
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -151,4 +159,5 @@
         </div>
     </div>
     @include('admin/data-pmk/modal-add')
+    @include('admin/data-pmk/modal-delete')
 @endsection

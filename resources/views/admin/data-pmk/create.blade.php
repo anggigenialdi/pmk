@@ -209,7 +209,7 @@
                                                         <input type="number" min=0 max="{{ $data->jumlah_kambing }}"
                                                             class="form-control form-control-sm  @error('terduga_kambing') is-invalid @enderror"
                                                             id="terduga_kambing" placeholder="" name="terduga_kambing"
-                                                            value="{{ old('terduga_kambing') }}" required="">
+                                                            value="{{ old('terduga_kambing') }}" required="0">
                                                         @error('terduga_kambing')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -220,7 +220,7 @@
                                                         <input type="number" min=0 max="{{ $data->jumlah_kambing }}"
                                                             class="form-control form-control-sm  @error('tertular_kambing') is-invalid @enderror"
                                                             id="tertular_kambing" placeholder="" name="tertular_kambing"
-                                                            value="{{ old('tertular_kambing') }}" required="">
+                                                            value="{{ old('tertular_kambing', 0) }}" required="">
                                                         @error('tertular_kambing')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -235,7 +235,7 @@
                                                         <input type="number" min=0 max="{{ $data->jumlah_kerbau }}"
                                                             class="form-control form-control-sm  @error('terduga_kerbau') is-invalid @enderror"
                                                             id="terduga_kerbau" placeholder="" name="terduga_kerbau"
-                                                            value="{{ old('terduga_kerbau') }}" required="">
+                                                            value="{{ old('terduga_kerbau', 0) }}" required="">
                                                         @error('terduga_kerbau')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -246,7 +246,7 @@
                                                         <input type="number" min=0 max="{{ $data->jumlah_kerbau }}"
                                                             class="form-control form-control-sm  @error('tertular_kerbau') is-invalid @enderror"
                                                             id="tertular_kerbau" placeholder="" name="tertular_kerbau"
-                                                            value="{{ old('tertular_kerbau') }}" required="">
+                                                            value="{{ old('tertular_kerbau', 0) }}" required="">
                                                         @error('tertular_kerbau')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -263,7 +263,7 @@
                                                             class="form-control form-control-sm  @error('terduga_sapi_perah') is-invalid @enderror"
                                                             id="terduga_sapi_perah" placeholder=""
                                                             name="terduga_sapi_perah"
-                                                            value="{{ old('terduga_sapi_perah') }}" required="">
+                                                            value="{{ old('terduga_sapi_perah', 0) }}" required="">
                                                         @error('terduga_sapi_perah')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -275,7 +275,7 @@
                                                             class="form-control form-control-sm  @error('tertular_sapi_perah') is-invalid @enderror"
                                                             id="tertular_sapi_perah" placeholder=""
                                                             name="tertular_sapi_perah"
-                                                            value="{{ old('tertular_sapi_perah') }}" required="">
+                                                            value="{{ old('tertular_sapi_perah', 0) }}" required="">
                                                         @error('tertular_sapi_perah')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -292,7 +292,7 @@
                                                             class="form-control form-control-sm  @error('terduga_sapi_potong') is-invalid @enderror"
                                                             id="terduga_sapi_potong" placeholder=""
                                                             name="terduga_sapi_potong"
-                                                            value="{{ old('terduga_sapi_potong') }}" required="">
+                                                            value="{{ old('terduga_sapi_potong', 0) }}" required="">
                                                         @error('terduga_sapi_potong')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -304,7 +304,7 @@
                                                             class="form-control form-control-sm  @error('tertular_sapi_potong') is-invalid @enderror"
                                                             id="tertular_sapi_potong" placeholder=""
                                                             name="tertular_sapi_potong"
-                                                            value="{{ old('tertular_sapi_potong') }}" required="">
+                                                            value="{{ old('tertular_sapi_potong', 0) }}" required="">
                                                         @error('tertular_sapi_potong')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror

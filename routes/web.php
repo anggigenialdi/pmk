@@ -42,14 +42,18 @@ $router->group(['prefix' => 'data-pmk'], function () use ($router) {
     $router->get('/detail/{id}', 'PmkController@pmkDetail')->name('pmk.detail');
     $router->get('/edit/{id}', 'PmkController@pmkEdit')->name('pmk.edit');
     $router->post('/update/{id}', 'PmkController@pmkUpdate')->name('pmk.update');
+    $router->delete('/delete/{id}', 'PmkController@pmkDestroy')->name('pmk.destroy');
     // data hasil pengujian lab
     $router->post('/hasil-lab/{id}', 'PmkController@pmkPostLab')->name('pmk-lab.post');
     $router->get('/hasil-lab', 'PmkController@hasilLabIndex')->name('hasil-lab.index');
     $router->get('/hasil-lab/detail/{id}', 'PmkController@hasilLabDetail')->name('hasil-lab.detail');
     $router->post('/hasil-lab/update/{id}', 'PmkController@hasilLabUpdate')->name('hasil-lab.update');
+    $router->post('/hasil-lab/delete/{id}', 'PmkController@hasilLabDelete')->name('hasil-lab.delete');
     // perkembangan kasus
     $router->get('/perkembangan-kasus', 'PmkController@perkembanganIndex')->name('data-perkembangan.index');
     $router->post('/perkembangan-kasus/{id}', 'PmkController@perkembanganPost')->name('data-perkembangan.post');
+    $router->post('/perkembangan-kasus/update/{id}', 'PmkController@perkembanganUpdate')->name('data-perkembangan.update');
+    $router->post('/perkembangan-kasus/delete/{id}', 'PmkController@perkembanganDelete')->name('data-perkembangan.delete');
 
 });
 

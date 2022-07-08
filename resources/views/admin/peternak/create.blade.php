@@ -55,7 +55,7 @@
                                                 <div class="col-lg-6">
                                                     <input type="number"
                                                         class="form-control form-control-sm  @error('nik') is-invalid @enderror"
-                                                        id="nik" placeholder="Input NIK.."  name="nik"
+                                                        id="nik" placeholder="Input NIK.." name="nik"
                                                         value="{{ old('nik') }}">
 
                                                     @error('nik')
@@ -80,11 +80,12 @@
 
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="kecamatan">Kecamatan
-                                                    <span class="text-danger">*</span>
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control  @error('kecamatan') is-invalid @enderror"
-                                                        id="kecamatan" name="kecamatan"  value="{{ old('kecamatan') }}" required>
+                                                        id="kecamatan" name="kecamatan" value="{{ old('kecamatan') }}"
+                                                        required>
                                                         <option value="{{ old('kecamatan') }}">Pilih</option>
                                                         @foreach ($kecamatan as $kec)
                                                             <option value={{ $kec->id }}>{{ $kec->nama }}</option>
@@ -97,11 +98,12 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="kelurahan">Kelurahan
-                                                    <span class="text-danger">*</span>
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control  @error('kelurahan') is-invalid @enderror"
-                                                        id="kelurahan" name="kelurahan"  value="{{ old('kelurahan') }}" required>
+                                                        id="kelurahan" name="kelurahan" value="{{ old('kelurahan') }}"
+                                                        required>
                                                     </select>
                                                     @error('kelurahan')
                                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -113,7 +115,7 @@
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="rw">RW
-                                                        <span class="text-danger">*</span>
+                                                        {{-- <span class="text-danger">*</span> --}}
                                                     </label>
                                                     <input type="text"
                                                         class="form-control form-control-sm @error('rw') is-invalid @enderror"
@@ -125,7 +127,7 @@
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="col-lg-3 col-form-label" for="rt">RT
-                                                        <span class="text-danger">*</span>
+                                                        {{-- <span class="text-danger">*</span> --}}
                                                     </label>
                                                     <input type="text"
                                                         class="form-control form-control-sm @error('rt') is-invalid @enderror"
@@ -138,7 +140,7 @@
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="alamat">Alamat
-                                                    <span class="text-danger">*</span>
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <textarea class="form-control form-control-sm @error('alamat') is-invalid @enderror" id="alamat" rows="5"
@@ -169,59 +171,56 @@
                                         <div class="row">
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="jumlah_kambing">Domba/Kambing
-                                                    <span class="text-danger">*</span>
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number"
-                                                        class="form-control form-control-sm @error('jumlah_kambing') is-invalid @enderror"
+                                                        class="form-control form-control-sm"
                                                         id="jumlah_kambing" placeholder="Input Jumlah Domba/Kambing.."
-                                                        required="" name="jumlah_kambing"
+                                                        name="jumlah_kambing"
                                                         value="{{ old('jumlah_kambing') }}">
-                                                    @error('jumlah_kambing')
-                                                        <div class="invalid-feedback">{{ $message }}</div>
-                                                    @enderror
+                                                    
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-lg-3 col-form-label" for="jumlah_kerbau">Kerbau <span
-                                                        class="text-danger">*</span>
+                                                <label class="col-lg-3 col-form-label" for="jumlah_kerbau">Kerbau
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm  @error('jumlah_kerbau') is-invalid @enderror"
+                                                    <input type="number"
+                                                        class="form-control form-control-sm"
                                                         id="jumlah_kerbau" placeholder="Input Jumlah Kerbau.."
-                                                        required="" name="jumlah_kerbau"
+                                                        name="jumlah_kerbau"
                                                         value="{{ old('jumlah_kerbau') }}">
-                                                    @error('jumlah_kerbau')
-                                                        <div class="invalid-feedback">{{ $message }}</div>
-                                                    @enderror
+                                                    
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="jumlah_sapi_perah">Sapi Perah
-                                                    <span class="text-danger">*</span>
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm  @error('jumlah_sapi_perah') is-invalid @enderror"
+                                                    <input type="number"
+                                                        class="form-control form-control-sm"
                                                         id="jumlah_sapi_perah" placeholder="Input Jumlah Sapi Perah.."
-                                                        required="" name="jumlah_sapi_perah"
+                                                        name="jumlah_sapi_perah"
                                                         value="{{ old('jumlah_sapi_perah') }}">
-                                                    @error('jumlah_sapi_perah')
-                                                        <div class="invalid-feedback">{{ $message }}</div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-lg-3 col-form-label" for="jumlah_sapi_potong">Sapi
-                                                    Potong <span class="text-danger">*</span>
+                                                    Potong 
+                                                    {{-- <span class="text-danger">*</span> --}}
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control form-control-sm  @error('jumlah_sapi_potong') is-invalid @enderror"
+                                                    <input type="number"
+                                                        class="form-control form-control-sm"
                                                         id="jumlah_sapi_potong" placeholder="Input Jumlah Sapi Potong.."
-                                                        required="" name="jumlah_sapi_potong"
+                                                        name="jumlah_sapi_potong"
                                                         value="{{ old('jumlah_sapi_potong') }}">
-                                                    @error('jumlah_sapi_potong')
+                                                    {{-- @error('jumlah_sapi_potong')
                                                         <div class="invalid-feedback">{{ $message }}</div>
-                                                    @enderror
+                                                    @enderror --}}
                                                 </div>
                                             </div>
                                         </div>

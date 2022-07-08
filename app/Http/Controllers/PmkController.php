@@ -21,7 +21,7 @@ class PmkController extends Controller
             'auth',
             [
                 'except' => [
-                    'getJson', 
+                    'getJson',
                 ]
             ]
         );
@@ -45,21 +45,21 @@ class PmkController extends Controller
         // var_dump($peternak->jumlah_kambing);
 
         // 'terduga' => 'required|min:16|max:'+$request->id+'',
-       
+
 
         request()->validate(
             [
                 'tanggal_pemeriksaan' => 'required',
 
-                'terduga_kambing' => 'required|integer|min:0|max:'.$peternak->jumlah_kambing,
-                'terduga_kerbau' => 'required|integer|min:0|max:'.$peternak->jumlah_kerbau,
-                'terduga_sapi_potong' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_potong,
-                'terduga_sapi_perah' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_perah,
+                'terduga_kambing' => 'required|integer|min:0|max:' . $peternak->jumlah_kambing,
+                'terduga_kerbau' => 'required|integer|min:0|max:' . $peternak->jumlah_kerbau,
+                'terduga_sapi_potong' => 'required|integer|min:0|max:' . $peternak->jumlah_sapi_potong,
+                'terduga_sapi_perah' => 'required|integer|min:0|max:' . $peternak->jumlah_sapi_perah,
 
-                'tertular_kambing' => 'required|integer|min:0|max:'.$peternak->jumlah_kambing,
-                'tertular_kerbau' => 'required|integer|min:0|max:'.$peternak->jumlah_kerbau,
-                'tertular_sapi_potong' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_potong,
-                'tertular_sapi_perah' => 'required|integer|min:0|max:'.$peternak->jumlah_sapi_perah,
+                'tertular_kambing' => 'required|integer|min:0|max:' . $peternak->jumlah_kambing,
+                'tertular_kerbau' => 'required|integer|min:0|max:' . $peternak->jumlah_kerbau,
+                'tertular_sapi_potong' => 'required|integer|min:0|max:' . $peternak->jumlah_sapi_potong,
+                'tertular_sapi_perah' => 'required|integer|min:0|max:' . $peternak->jumlah_sapi_perah,
             ],
             [
                 'tanggal_pemeriksaan.required' => 'Input tidak boleh kosong',
@@ -196,5 +196,56 @@ class PmkController extends Controller
         $data->save();
 
         return back()->with('success', ' Data Berhasil Diupdate');
+    }
+
+    public function perkembanganUpdate(Request $request, $id)
+    {
+        $data = Pmk::where('id', $id)->first();
+
+        $data->mati = $request->input('mati');
+        $data->potong_bersyarat = $request->input('potong_bersyarat');
+        $data->sembuh = $request->input('sembuh');
+
+        $data->save();
+        // return back();
+        return redirect('/data-pmk/perkembangan-kasus')->with('success', ' Data Berhasil Update');
+    }
+
+    public function perkembanganDelete(Request $request, $id)
+    {
+        $data = Pmk::where('id', $id)->first();
+
+        $data->mati = NULL;
+        $data->potong_bersyarat = NULL;
+        $data->sembuh = NULL;
+        $data->status_kasus = 1;
+
+        $data->save();
+        // return back();
+        return redirect('/data-pmk/perkembangan-kasus')->with('success', ' Data Terhapus');
+    }
+
+    public function hasilLabDelete(Request $request, $id)
+    {
+        $data = Pmk::where('id', $id)->first();
+        $data->tanggal_pengujian_lab = NULL;
+        $data->hasil_pengujian_lab = NULL;
+        $data->keterangan = NULL;
+        $data->status_kasus = NULL;
+
+        $data->save();
+
+        return back()->with('success', ' Data Terhapus');
+    }
+
+    public function pmkDestroy($id)
+    {
+        $pmk = Pmk::find($id);
+
+        if ($pmk->delete()) {
+            return redirect()->route('data-pmk.index')->with('success', 'Berhasil menghapus data');
+        } else {
+            return redirect()->route('data-pmk.index')->with('warning', 'Gagal menghapus data');
+        }
     }
 }

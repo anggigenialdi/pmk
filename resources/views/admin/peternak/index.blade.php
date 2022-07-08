@@ -23,6 +23,7 @@
     tr:nth-child(even) {
         background-color: #f2f2f2
     }
+
     table.dataTable thead th {
         border-top: 1px solid #111;
     }
@@ -142,7 +143,7 @@
                                 </table>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
