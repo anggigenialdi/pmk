@@ -63,8 +63,9 @@
         <div class="nav-header">
             <a href="#" class="brand-logo">
                 <div class="sidebar-brand-icon">
-                    <img src="{{ asset('images/qr.png') }}" alt="" srcset=""
-                        style="width:40px;height:50px">
+                    {{-- <img src="{{ asset('images/qr.png') }}" alt="" srcset=""
+                        style="width:40px;height:50px"> --}}
+                        <h2>PMK</h2>
                 </div>
             </a>
             <div class="nav-control">

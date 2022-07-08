@@ -78,7 +78,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                         </tbody>
                     </table>
                 </div>
@@ -113,7 +112,7 @@
                                 <td class="text-center">${sum_layak > 0 ? sum_layak : '-'}</td>
                                 <td class="text-center">${sum_tidak_layak > 0 ? sum_tidak_layak : '-'}</td>
                                 <td class="text-center">${sum_tidak_layak + sum_layak  > 0 ? sum_tidak_layak + sum_layak : '-'}</td>
-                                </tr>`
+                                </tr> `
                     });
                     $('#tabelKurban').append(
                         `${res}`
@@ -131,10 +130,12 @@
                 async: false,
                 success: function(res) {
                     $('#update').append(moment(res.tanggal).lang("id").format('LLLL'))
-                    document.getElementById("year").append(new Date().getFullYear());
-
+                    res += `<td> qwertyu</td> ` 
+                    $('#kumulatif').append(res);
                 }
             })
+            document.getElementById("year").append(new Date().getFullYear());
+
         });
     </script>
 @endsection

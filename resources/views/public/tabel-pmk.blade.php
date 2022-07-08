@@ -48,7 +48,7 @@
                 <p class="text-right" id="update">Update Terakhir : </p>
 
                 <div style="overflow-x:auto;">
-                <a href="{{ route('data.index') }}" onClick="window.print();return false">Download web page</a>
+                <a href="{{ route('tabel-pmk.index') }}" onClick="window.print();return false">Download web page</a>
                     <table class="table" id="tablePmk">
                         <thead>
                             <tr>
